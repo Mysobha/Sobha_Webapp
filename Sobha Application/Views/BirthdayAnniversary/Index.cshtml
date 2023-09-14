@@ -1,0 +1,120 @@
+﻿@using Newtonsoft.Json.Linq;
+@model Sobha_Application.Models.SharePointList;
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+      integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+<link href="~/css/bdayanniversary.css" rel="stylesheet" />
+
+<!-- <div class="box"> -->
+<section>
+    <div class="container">
+        <div class="iconbox">
+            <img class="menu" id="hambergericon" src="~/navigation icons/picture1.png">
+            <img class="home" src="~/navigation icons/picture2.png" />
+            <img class="app" src="~/navigation icons/picture3.png" />
+            <img class="profile" src="~/navigation icons/picture4.png" />
+            <img class="brief" src="~/navigation icons/picture5.png" />
+        </div>
+    </div>
+    <div class="container remove" id="about">
+        <div class="asidebox">
+            <i class="bi bi-caret-right" style="font-size: 20px;margin-top: 198px;position: absolute;
+          margin-left: 10px;color: white;"></i>
+            <h2 class="asidetitle"><u>About Birthday & Anniversary Page</u></h2>
+        </div>
+    </div>
+    <div class="maniRight_wrapper">
+        <div class="container">
+            <div class="profilebox">
+                <img class="logo" src="~/images/your_sobha/sobha-logo-digital-sm.svg" />
+            
+                <div class="searchbox">
+                    <input type="text" placeholder="search...." />
+                    <i class="bi bi-search" style="position: absolute;margin-top: 2px;margin-left: 10px;"></i>
+                </div>
+                <br />
+                <label class="textuser">Hello, @Model.Username</label>
+                <br />
+                <label class="textdmy">@DateTime.Now.ToString("dd MMMM, yyyy")  |  @DateTime.Now.DayOfWeek</label>
+
+                <div class="announcecontainer">
+                    <div class="announcebox">
+                        <img class="voice" src="~/images/landing_page/voice.png" />
+                        <label class="announcetxt">Announcements</label>
+                    </div>
+                    <img class="notify" src="~/images/landing_page/notify.png" />
+                    <img class="mail" src="~/images/landing_page/mail1.png" />
+                    <label class="textinout">Punch in: 09:00AM | Punch out: 06:00PM</label>
+                    <img class="avatar" src="@Model.UserPhoto">
+                    <label class="textname">@Model.Username</label>
+                    <label class="textdesg">@Model.UserJobTitle</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="headcontainer">
+            <div class="headbox">
+                <h3 class="head">Birthday & Anniversary Page</h3>
+                <br />
+                <h5 class="headdesc">Page intro text goes here</h5>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="descbox">
+                <div class="titlecontainer">
+                    <div class="titlebox">
+                        <h5 class="birthday">Birthday</h5>
+                    </div>
+                </div>
+                <div class="bdaycontainer">
+                    <div class="bdaybox">
+                        <img class="img1" src="~/images/birthdayanniversary/tom.jpeg" />
+                        <h5 class="name">Tom</h5>
+                    </div>
+                    <div class="bdaybox2">
+                        <img class="img1" src="~/images/birthdayanniversary/Monica.jpeg">
+                        <h5 class="name">Monica</h5>
+                    </div>
+                    <div class="bdaybox3">
+                        <img class="img1" src="~/images/birthdayanniversary/John.jpeg">
+                        <h5 class="name">John</h5>
+                    </div>
+                </div>
+                <div class="titlecontainer">
+                    <div class="titlebox1">
+                        <h5 class="anniversary">Anniversary</h5>
+                    </div>
+                </div>
+                <div class="anniversarycontainer">
+                    <div class="anniversarybox">
+                        <img class="img2" src="~/images/birthdayanniversary/Niki.jpeg">
+                        <h5 class="name2">Nikki</h5>
+                    </div>
+                    <div class="anniversarybox2">
+                        <img class="img2" src="~/images/birthdayanniversary/Jason.jpeg">
+                        <h5 class="name2">Jason</h5>
+                    </div>
+                    <div class="anniversarybox3">
+                        <img class="img2" src="~/images/birthdayanniversary/Jennifer.jpeg">
+                        <h5 class="name2">Jennifer</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- </div> -->
+<script>
+    let toggle = false;
+    const elem = document.getElementById('hambergericon');
+    const item = document.getElementById('about');
+    elem.addEventListener('click', () => {
+        if (!toggle) {
+            item.classList.remove('remove')
+            toggle = !toggle;
+        } else {
+            item.classList.add('remove')
+            toggle = !toggle;
+        }
+    })
+</script>

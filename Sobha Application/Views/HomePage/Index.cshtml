@@ -1,0 +1,494 @@
+﻿@using Newtonsoft.Json.Linq;
+@model Sobha_Application.Models.SharePointList;
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+<link href="~/css/landing.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<style>
+    .sub_block6 a {
+        color: black !important;
+        text-decoration: none !important;
+    }
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        /* border-bottom: 1px dotted black; */
+    }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #F8E296;
+            color: #282828;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            font-size: 12px;
+            /* Position the tooltip */
+            position: absolute;
+            z-index: 1;
+            margin-left: -1px;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+
+    .asideothertitle {
+        font-size: large;
+        font-weight: bold;
+        color: white;
+        margin-left: 38px;
+        text-underline-offset: 10px;
+        line-height: 30px;
+        cursor: pointer;
+    }
+
+    .asidebox a {
+        text-decoration: none;
+    }
+
+    .asidebox h2 {
+        border-bottom: 1px solid #CCC;
+        padding-bottom: 12px;
+        width: 170px;
+    }
+    /* .asideothertitle {
+                    font-size: large;
+                    font-weight: bold;
+                    color: white;
+                    margin-left: 38px;
+                    text-underline-offset: 10px;
+                    line-height: 30px;
+                    cursor: pointer;
+                }
+
+                .asidebox a {
+                    text-decoration: none;
+                }
+
+                .asidebox h2 {
+                    border-bottom: 1px solid #CCC;
+                    padding-bottom: 12px;
+                    width: 170px;
+                }
+            */
+
+</style>
+<section>
+    <div class="mob_menubar">
+        <img id="mob_hamberger_icon" style="width:30px" src="~/images/landing_page/menuicon_white.png" />
+        <div id="mob_menubar_item" class="remove">
+            <i id="mob_menubar_close" style="font-size:28px" class="bi bi-x-square"></i><br /><br />
+            <a href="/HomePage">
+                <label>Home</label><br /><br />
+            </a>
+            <a href="/SpotLight">
+                <label>Spot Light</label>
+            </a> <br /><br />
+            <a href="/OrgUpdate">
+                <label> Org Update</label><br /><br />
+            </a>
+            <a href="/ProjectShowCase">
+                <label>Project Showcase</label><br /><br />
+            </a>
+            <a href="/YourSobha">
+                <label>Your Sobha</label><br /><br />
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="iconbox">
+            <div class="tooltip">
+                <img class="home" id="hambergericon" src="Navigation Icons/Picture1.png">
+                <span class="tooltiptext">Please Click To Expand Or Collapse</span>
+            </div>
+            <img class="app" src="./Navigation Icons/Picture2.png">
+            <img class="profile" src="./Navigation Icons/Picture3.png">
+            <img class="brief" src="./Navigation Icons/Picture4.png">
+            <img class="brief" style="margin: 25px 18px;" src="Navigation Icons/Picture5.png">
+        </div>
+    </div>
+    <div class="container remove" id="about">
+        <div class="asidebox">
+            <i class="bi bi-caret-right" style="font-size: 20px;margin-top: 198px;position: absolute;
+          margin-left: 10px;color: white;"></i>
+            <h2 class="asidetitle">Home</h2>
+            <a href="/SpotLight"> <h2 class="asideothertitle">Spot Light</h2></a>
+            <a href="/OrgUpdate"> <h2 class="asideothertitle">Org Update</h2></a>
+            <a href="/ProjectShowCase">  <h2 class="asideothertitle">Project Showcase</h2></a>
+            <a href="/YourSobha">  <h2 class="asideothertitle">Your Sobha</h2></a>
+        </div>
+    </div>
+    <div class="maniRight_wrapper">
+        <div class="container">
+            <div class="profilebox">
+                <img class="logo" src="~/images/landing_page/sobha_logo1.svg">
+                <div class="searchbox">
+                    <input type="text" placeholder="Search...." />
+                    <i class="bi bi-search" style="position: absolute;margin-top: 2px;margin-left: 10px;"></i>
+                </div>
+                <br />
+                <label class="textuser">Hello, @Model.Username</label>
+                <br />
+                <label class="textdmy">@DateTime.Now.ToString("dd MMMM, yyyy")  |  @DateTime.Now.DayOfWeek</label>
+
+                <div class="announcecontainer">
+                    <div class="announcebox">
+                        <img class="voice" src="./Navigation Icons/Picture11.png">
+                    </div>
+
+                    @* <img src="~/images/icon/avatar-icon.png" />*@
+                    <img class="notify" src="Navigation Icons/Picture10.png">
+                    <img class="mail" src="Navigation Icons/Picture9.png">
+                    <label class="textinout">Punch in: 09:00AM | Punch out: 06:00PM</label>
+                    @{
+                        if (String.IsNullOrEmpty(Model.UserPhoto))
+                        {
+                            <img class="avatar" src="~/images/icon/avatar-icon.png" />
+
+                        }
+                        else
+                        {
+                            <img class="avatar" src="@(Model.UserPhoto)">
+                        }
+                    }
+                    <label class="textname">@Model.Username</label>
+                    <label class="textdesg">@Model.UserJobTitle</label>
+                </div>
+            </div>
+        </div>
+        <div class="block2">
+            <video autoplay muted loop>
+                <source src="~/video/yoursobha%20hero%20visual.mp4" type="video/mp4">
+                <!-- <source src="https://www.sobha.com/wp-content/uploads/2021/03/SOBHA-Galera-HomePage_1.mp4?_=1" type="video/mp4"> -->
+            </video>
+            <div class="block2_img_trdiv">
+                <div>
+                    <!-- <label id="block2_img_trdiv_title">Title goes here</label><br/> -->
+                    <!-- <label>Title goes here</label> -->
+                </div>
+                <!-- <div class="block2_btn">Button Sample</div> -->
+            </div>
+
+        </div>
+
+        <div class="block2-5 ">
+            <div class="block2-5_left">
+                <img src="~/images/landing_page/shobha3.jpg" alt="main image" />
+                <div class="block2_img_trdiv">
+                    <div>
+                        <label id="block2_img_trdiv_title">Title goes here</label><br />
+                        <label id="block2_img_trdiv_title2">Title goes here</label>
+                    </div>
+                    <div class="block2_btn">Button Sample</div>
+                </div>
+            </div>
+
+            <div class="block2_right_container orgupdatewebview">
+                <div class="block2_right">
+                    <div class="block2_right_icon"></div>
+                    <text>Organization updates</text>
+                </div>
+                <div class="block2_right_inner_container">
+                    <img class="block2_org_img" src="~/images/landing_page/org1.jpg" />
+                    <div>
+                        <h3>News title goes here</h3>
+                        <h5>Some description goes here </h5>
+                        <h4>Sep 05, 2022</h4>
+                    </div>
+                </div>
+                <div class="block2_right_inner_container">
+                    <img class="block2_org_img" src="~/images/landing_page/org1.jpg" />
+                    <div>
+                        <h3>News title goes here</h3>
+                        <h5>Some description goes here</h5>
+                        <h4>Sep 05, 2022</h4>
+                    </div>
+                </div>
+                <div class="block2_right_inner_container">
+                    <img class="block2_org_img" src="~/images/landing_page/org1.jpg" />
+                    <div>
+                        <h3>News title goes here</h3>
+                        <h5>Some description goes here</h5>
+                        <h4>Sep 05, 2022</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="orgupdatemobile">
+            <div class="block2_right">
+                <div class="block2_right_icon"></div>
+                <text>Organization updates</text>
+            </div>
+            <div class="block2_right_inner_container" style="width:100% !important">
+                <img class="block2_org_img" src="~/images/landing_page/org1.jpg" />
+                <div>
+                    <h3>News title goes here</h3>
+                    <h5>Some description goes here </h5>
+                    <h4>Sep 05, 2022</h4>
+                </div>
+            </div>
+            <div class="block2_right_inner_container" style="width:100% !important">
+                <img class="block2_org_img" src="~/images/landing_page/org1.jpg" />
+                <div>
+                    <h3>News title goes here</h3>
+                    <h5>Some description goes here</h5>
+                    <h4>Sep 05, 2022</h4>
+                </div>
+            </div>
+            <div class="block2_right_inner_container" style="width:100% !important">
+                <img class="block2_org_img" src="~/images/landing_page/org1.jpg" />
+                <div>
+                    <h3>News title goes here</h3>
+                    <h5>Some description goes here</h5>
+                    <h4>Sep 05, 2022</h4>
+                </div>
+            </div>
+        </div>
+        @*   <div class="block3">
+        <div class="block3_first">
+        <div class="block3_title">
+        <label>Your Profile</label>
+        <div>
+        <!-- <i class="bi bi-caret-up"></i> -->
+        <img style="width: 24px;" src="./Navigation Icons/Picture6.png" alt="img" />
+        </div>
+        </div>
+        <div class="block3_desc">
+        <h4>Personal details</h4>
+        <h4>Emergency contact detail</h4>
+        <h4>Your family</h4>
+        <h4>Medical records</h4>
+        </div>
+        <hr />
+        <div class="block3_row">
+        <label>Your Profile</label>
+        <div>
+        <!-- <i class="bi bi-caret-down-fill"></i> -->
+        <img style="width: 24px;" src="./Navigation Icons/Picture7.png" alt="img" />
+        </div>
+        </div>
+        <hr />
+        <div class="block3_row">
+        <label>Career management</label>
+        <div>
+        <!-- <i class="bi bi-caret-down-fill"></i> -->
+        <img style="width: 24px;" src="./Navigation Icons/Picture7.png" alt="img" />
+        </div>
+        </div>
+        </div>
+
+        <div class="block3_first">
+        <div class="block3_title">
+        <label>Your Documentation</label>
+        <div>
+        <!-- <i class="bi bi-caret-up"></i> -->
+        <img style="width: 24px;" src="./Navigation Icons/Picture6.png" alt="img" />
+        </div>
+        </div>
+        <div class="block3_desc block3_row_adjust">
+        <h4>Pay slip</h4>
+        <h4>Increment / promotion letter</h4>
+
+        </div>
+        <hr />
+        <div class="block3_row ">
+        <label>Your Profile</label>
+        <div>
+        <!-- <i class="bi bi-caret-down-fill"></i> -->
+        <img style="width: 24px;" src="./Navigation Icons/Picture7.png" alt="img" />
+        </div>
+        </div>
+        <hr />
+        <div class="block3_row ">
+        <label>Career management</label>
+        <div>
+        <!-- <i class="bi bi-caret-down-fill"></i> -->
+        <img style="width: 24px;" src="./Navigation Icons/Picture7.png" alt="img" />
+        </div>
+        </div>
+        </div>
+        </div>*@
+
+        <div class="sub_block4">
+            <div class="sub_block6">
+                <div class="sb6_1st">
+                    <div class="sb6_box"></div>
+                    <label>Quick Links</label>
+                </div>
+                <div class="sb6_2nd">
+                    <a>
+                        <div class="sb6_2nd_item ">
+                            <img src="~/images/icon/quicklink/ess.png" />
+                            <label>Emoloyee Self Service</label>
+                        </div>
+                    </a>
+                    <a href="http://172.16.0.2">
+                        <div class="sb6_2nd_item">
+                            <img src="~/images/icon/quicklink/world client.png" />
+                            <label>WorldClient</label>
+                        </div>
+                    </a>
+                    <a href="http://172.16.1.29/AdminHelpdesk/hrmslogin.aspx?user=uuuuu&pwd=ppppp">
+                        <div class="sb6_2nd_item">
+                            <img src="~/images/icon/quicklink/administration help desk.png" />
+                            <label>Administration Help Desk</label>
+                        </div>
+                    </a>
+                </div>
+                <div class="sb6_2nd">
+                    <a href="http://172.16.1.29/IAM/hrmslogin.aspx?user=uuuuu&pwd=ppppp">
+                        <div class="sb6_2nd_item">
+                            <img src="~/images/icon/quicklink/audit management system.png" />
+                            <label>Audit Management System</label>
+                        </div>
+                    </a>
+
+                    <a href="http://172.16.1.64/SobhaClubhouseBlr">
+                        <div class="sb6_2nd_item">
+                            <img src="~/images/icon/quicklink/club house application.png" /> 
+                            <label>Club House Application</label>
+                        </div>
+                    </a>
+                    <a href="http://172.16.1.29/customercare">
+                        <div class="sb6_2nd_item">
+                            <img src="~/images/icon/quicklink/customer care cell application.png" />
+                            <label>Customer Care Cell Application</label>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="sb6_2nd">
+                    <a href="http://172.16.1.29/dms/">
+                        <div class="sb6_2nd_item">
+                            <img src="~/images/icon/quicklink/Document Management System Application.png" />
+                            <label>Document Management System Application</label>
+                        </div>
+                    </a>
+
+                    <a href="http://172.16.1.29/dmsclient">
+                        <div class="sb6_2nd_item">
+                            <img src="~/images/icon/quicklink/Document Management System Application (for CRM).png" />
+                            <label>Document Management System Application (for CRM)</label>
+                        </div>
+                    </a>
+                    <a href="http://172.16.1.29/ideaspace/hrmslogin.aspx?user=uuuuu&pwd=ppppp">
+                        <div class="sb6_2nd_item">
+                            <img src="~/images/icon/quicklink/Idea Space Application.png" />
+                            <label>Idea Space Application</label>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="sb6_2nd">
+                    <a href="http://172.16.1.29/pcm/">
+                        <div class="sb6_2nd_item">
+                            <img src="~/images/icon/quicklink/Project Closure & Maintenance Application.png" />
+                            <label>Project Closure & Maintenance Application</label>
+                        </div>
+                    </a>
+
+                    <a href="http://172.16.1.29/qst/">
+                        <div class="sb6_2nd_item">
+                            <img src="~/images/icon/quicklink/Quality Safety & Technology.png" />
+                            <label>Quality Safety & Technology Home Page</label>
+                        </div>
+                    </a>
+                    <a href="http://172.16.1.64/sobhasafety/login.aspx">
+                        <div class="sb6_2nd_item">
+                            <img src="~/images/icon/quicklink/Safety Reporting Application.png" />
+                            <label>Safety Reporting Application</label>
+                        </div>
+                    </a>
+
+                </div>
+                <div class="sb6_2nd">
+                    <a href="http://172.16.1.29/STM">
+                        <div class="sb6_2nd_item">
+                            <img src="~/images/icon/quicklink/Sobha Technology Manual.png" />
+                            <label>Sobha Technology Manual</label>
+                        </div>
+                    </a>
+
+                    <a href="http://172.16.1.29/ITHelpdesk/hrmslogin.aspx?user=uuuuu&pwd=ppppp">
+                        <div class="sb6_2nd_item">
+                            <img src="~/images/icon/quicklink/Sobha Technology Manual.png" />
+                            <label>P&IT Help Desk</label>
+                        </div>
+                    </a>
+                  
+                </div>
+            </div>
+
+            <div style="background-color: white;" class="block2_right_container block2_right_container_mob">
+                <div class="block2_right">
+                    <div class="block2_right_icon"></div>
+                    <text>Birthday And Aniversary</text>
+                </div>
+                <div id="Birthday_aniversary">
+                    <div class="block2_right_inner_container set_block4_right_birthSec">
+                        <img class="block2_org_img set_img" src="/images/icon/avatar-icon.png" />
+                        <div>
+                            <h5>News title goes here</h5>
+                            <h5>Some description goes here</h5>
+                        </div>
+                    </div>
+                    <div class="block2_right_inner_container set_block4_right_birthSec">
+                        <img class="block2_org_img set_img" src="/images/icon/avatar-icon.png" />
+                        <div>
+                            <h5>News title goes here</h5>
+                            <h5>Some description goes here</h5>
+                        </div>
+                    </div>
+                    <div class="block2_right_inner_container set_block4_right_birthSec">
+                        <img class="block2_org_img set_img" src="/images/icon/avatar-icon.png" />
+                        <div>
+                            <h5>News title goes here</h5>
+                            <h5>Some description goes here</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<script>
+    let toggle = false;
+    const elem = document.getElementById('hambergericon');
+    const item = document.getElementById('about');
+    elem.addEventListener('click', () => {
+        if (!toggle) {
+            item.classList.remove('remove')
+            toggle = !toggle;
+        } else {
+            item.classList.add('remove')
+            toggle = !toggle;
+        }
+    })
+
+    const mob_menu_icon = document.getElementById('mob_hamberger_icon')
+    const mob_menubar_close = document.getElementById('mob_menubar_close')
+    const mob_menubar_item = document.getElementById('mob_menubar_item')
+
+    mob_menu_icon.addEventListener('click', () => {
+
+        mob_menubar_item.classList.remove('remove')
+
+        mob_menu_icon.classList.add('remove')
+
+    })
+
+    mob_menubar_close.addEventListener('click', () => {
+
+        mob_menubar_item.classList.add('remove')
+
+        mob_menu_icon.classList.remove('remove')
+
+    })
+</script>
+

@@ -1,0 +1,649 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Sobha Application.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Sobha Application.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\BirthdayAnniversary\\Jason.jpeg",
+      "PackagePath": "staticwebassets\\Images\\BirthdayAnniversary\\Jason.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\BirthdayAnniversary\\Jennifer.jpeg",
+      "PackagePath": "staticwebassets\\Images\\BirthdayAnniversary\\Jennifer.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\BirthdayAnniversary\\John.jpeg",
+      "PackagePath": "staticwebassets\\Images\\BirthdayAnniversary\\John.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\BirthdayAnniversary\\Monica.jpeg",
+      "PackagePath": "staticwebassets\\Images\\BirthdayAnniversary\\Monica.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\BirthdayAnniversary\\Niki.jpeg",
+      "PackagePath": "staticwebassets\\Images\\BirthdayAnniversary\\Niki.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\BirthdayAnniversary\\Tom.jpeg",
+      "PackagePath": "staticwebassets\\Images\\BirthdayAnniversary\\Tom.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Common\\favicon.png",
+      "PackagePath": "staticwebassets\\Images\\Common\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Heading\\Heading 1.png",
+      "PackagePath": "staticwebassets\\Images\\Heading\\Heading 1.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Heading\\Heading 2.png",
+      "PackagePath": "staticwebassets\\Images\\Heading\\Heading 2.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Heading\\Heading 3.png",
+      "PackagePath": "staticwebassets\\Images\\Heading\\Heading 3.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\Apps_icon-removebg-preview.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\Apps_icon-removebg-preview.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\Home_icon-removebg-preview.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\Home_icon-removebg-preview.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\Mail icon 2.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\Mail icon 2.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\Mail icon.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\Mail icon.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\Profile-removebg-preview (1).png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\Profile-removebg-preview (1).png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Administration Help Desk.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Administration Help Desk.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Audit Management System.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Audit Management System.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Club House Application.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Club House Application.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Customer Care Cell Application.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Customer Care Cell Application.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Document Management System Application (for CRM).png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Document Management System Application (for CRM).png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Document Management System Application.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Document Management System Application.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\ESS.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\ESS.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Idea Space Application.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Idea Space Application.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Project Closure & Maintenance Application.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Project Closure & Maintenance Application.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Quality Safety & Technology.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Quality Safety & Technology.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Safety Reporting Application.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Safety Reporting Application.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Sobha Technology Manual.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Sobha Technology Manual.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\World client.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\World client.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\avatar-icon.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\avatar-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\avtar-icon2.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\avtar-icon2.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\istockphoto-1370453603-612x612-removebg-preview (1).png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\istockphoto-1370453603-612x612-removebg-preview (1).png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\Apps_icon.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\Apps_icon.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\Home_icon.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\Home_icon.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\Profile.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\Profile.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\access.webp",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\access.webp"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\avatar-icon.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\avatar-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\avatar1.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\avatar1.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\board1.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\board1.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\brief.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\brief.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\car.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\car.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\dark-blue-bg.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\dark-blue-bg.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\erp.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\erp.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\itsupport.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\itsupport.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\leave.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\leave.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\left_arrow.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\left_arrow.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\mail1.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\mail1.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\menuicon_white.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\menuicon_white.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\notify.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\notify.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\org1.jpg",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\org1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\org2.jpg",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\org2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\org3.jpg",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\org3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\org4.jpg",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\org4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\organization.jpg",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\organization.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\right_arrow.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\right_arrow.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\search.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\search.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\shobha3.jpg",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\shobha3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\sobha_logo.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\sobha_logo.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\sobha_logo1.svg",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\sobha_logo1.svg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\up_arraow.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\up_arraow.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Landing_Page\\voice.png",
+      "PackagePath": "staticwebassets\\Images\\Landing_Page\\voice.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Login_Page\\Loginpagebackground.PNG",
+      "PackagePath": "staticwebassets\\Images\\Login_Page\\Loginpagebackground.PNG"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Login_Page\\Sobha Logo.jpg",
+      "PackagePath": "staticwebassets\\Images\\Login_Page\\Sobha Logo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Login_Page\\Your SOBHA_Intranet.png",
+      "PackagePath": "staticwebassets\\Images\\Login_Page\\Your SOBHA_Intranet.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Login_Page\\thumbnail_Graphic Side-dbheader.png",
+      "PackagePath": "staticwebassets\\Images\\Login_Page\\thumbnail_Graphic Side-dbheader.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Org_Update\\ORG update 1.jpg",
+      "PackagePath": "staticwebassets\\Images\\Org_Update\\ORG update 1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Org_Update\\ORG update 2.jpg",
+      "PackagePath": "staticwebassets\\Images\\Org_Update\\ORG update 2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Project_Showcase\\showcase.jpg",
+      "PackagePath": "staticwebassets\\Images\\Project_Showcase\\showcase.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Project_Showcase\\showcase1.jpg",
+      "PackagePath": "staticwebassets\\Images\\Project_Showcase\\showcase1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Project_Showcase\\showcase2.jpg",
+      "PackagePath": "staticwebassets\\Images\\Project_Showcase\\showcase2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Your_Sobha\\SOBHA-Logo-Digital-sm.svg",
+      "PackagePath": "staticwebassets\\Images\\Your_Sobha\\SOBHA-Logo-Digital-sm.svg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Your_Sobha\\Sobha.png",
+      "PackagePath": "staticwebassets\\Images\\Your_Sobha\\Sobha.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Your_Sobha\\Your sobha 2.png",
+      "PackagePath": "staticwebassets\\Images\\Your_Sobha\\Your sobha 2.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Your_Sobha\\Your sobha 3.jpg",
+      "PackagePath": "staticwebassets\\Images\\Your_Sobha\\Your sobha 3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons.zip",
+      "PackagePath": "staticwebassets\\Navigation Icons.zip"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Picture1.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Picture1.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Picture10.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Picture10.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Picture11.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Picture11.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Picture2.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Picture2.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Picture3.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Picture3.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Picture4.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Picture4.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Picture5.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Picture5.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Picture6.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Picture6.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Picture7.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Picture7.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Picture8.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Picture8.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Picture9.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Picture9.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\css\\bdayanniversary.css",
+      "PackagePath": "staticwebassets\\css\\bdayanniversary.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\css\\foryou.css",
+      "PackagePath": "staticwebassets\\css\\foryou.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\css\\landing.css",
+      "PackagePath": "staticwebassets\\css\\landing.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\css\\org.css",
+      "PackagePath": "staticwebassets\\css\\org.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\css\\proshowcase.css",
+      "PackagePath": "staticwebassets\\css\\proshowcase.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\css\\spotlight.css",
+      "PackagePath": "staticwebassets\\css\\spotlight.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\css\\yoursobha.css",
+      "PackagePath": "staticwebassets\\css\\yoursobha.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\js\\common.js",
+      "PackagePath": "staticwebassets\\js\\common.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\js\\sideToggleExtended.js",
+      "PackagePath": "staticwebassets\\js\\sideToggleExtended.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\video\\YourSobha Hero Visual.mp4",
+      "PackagePath": "staticwebassets\\video\\YourSobha Hero Visual.mp4"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Sobha Application.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.Sobha Application.props",
+      "PackagePath": "build\\Sobha Application.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Sobha Application.props",
+      "PackagePath": "buildMultiTargeting\\Sobha Application.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.Sobha Application.props",
+      "PackagePath": "buildTransitive\\Sobha Application.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

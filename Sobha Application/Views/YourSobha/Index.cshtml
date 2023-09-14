@@ -1,0 +1,422 @@
+﻿@using Newtonsoft.Json.Linq;
+@model Sobha_Application.Models.SharePointList;
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<link href="~/css/yoursobha.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<style>
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        /* border-bottom: 1px dotted black; */
+    }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #F8E296;
+            color: #282828;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            font-size: 12px;
+            /* Position the tooltip */
+            position: absolute;
+            z-index: 1;
+            margin-left: -1px;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+    .aboutotherclass {
+        color: white;
+        /*   text-decoration: underline;
+                    text-underline-offset: 10px;*/
+    }
+
+    #about_wrapper a {
+        text-decoration: none;
+    }
+
+    .arrow {
+        cursor: pointer;
+        position: absolute;
+        color: black;
+        background-color: rgba(255, 255, 255, 0.815);
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 120px;
+        padding: 5px 11px
+    }
+
+ /*   .right {
+        margin-left: 358px;
+    }*/
+
+    .left {
+        margin-left: 10px;
+    }
+
+    .about_txt {
+        /* width: 210px; */
+        /* margin: 0px 0px; */
+        /*  text-decoration: underline;*/
+        font-size: 12px;
+        color: rgb(223, 226, 228);
+        cursor: pointer;
+        margin-left: 44px;
+    }
+
+</style>
+<section>
+    <div class="mob_menubar">
+        <img id="mob_hamberger_icon" style="width:30px" src="~/images/landing_page/menuicon_white.png" />
+        <div id="mob_menubar_item" class="remove">
+            <i id="mob_menubar_close" style="font-size:28px" class="bi bi-x-square"></i><br /><br />
+            <a href="/HomePage">
+                <label>Home</label><br /><br />
+            </a>
+            <a href="/SpotLight">
+                <label>Spot Light</label>
+            </a> <br /><br />
+            <a href="/OrgUpdate">
+                <label> Org Update</label><br /><br />
+            </a>
+            <a href="/ProjectShowCase">
+                <label>Project Showcase</label><br /><br />
+            </a>
+            <a href="/YourSobha">
+                <label>Your Sobha</label><br /><br />
+            </a>
+        </div>
+    </div>
+    <div id="menubar">
+        @* <i id="hamburgerMenu" class="bi bi-list"></i>*@
+        @* <img src="~/images/icon/home_icon-removebg-preview.png" />
+        <img src="~/images/Icon/Apps_icon-removebg-preview.png" />
+        <img src="~/images/Icon/Profile-removebg-preview (1).png" />*@
+
+        <div class="tooltip">
+            <img class="menu" id="hamburgerMenu" src="~/navigation icons/picture1.png" />
+            <span class="tooltiptext">Please Click To Expand Or Collapse</span>
+        </div>
+        <a href="/HomePage">
+            <img class="home" src="~/navigation icons/picture2.png" />
+        </a>
+
+        <img class="app" src="~/navigation icons/picture3.png" />
+        <img class="profile" src="~/navigation icons/picture4.png" />
+        <img class="brief" src="~/navigation icons/picture5.png" />
+    </div>
+    <div id="about_wrapper" class="remove">
+        <div>
+            <a href="/HomePage">
+                <div id="about_txt_head">
+                    Home
+                </div>
+            </a>
+            <div style="border-bottom: 1px solid #CCC; padding-bottom: 12px;width:170px; margin-left:20px;"></div>
+
+            <br />
+            <a href="/SpotLight">
+                <div style="margin-left:20px;" class="aboutotherclass">
+                    Spot Light
+                </div>
+            </a> <div style="border-bottom: 1px solid #CCC; padding-bottom: 12px;width:170px; margin-left:20px;"></div>
+            <br />
+
+            <a href="/OrgUpdate">
+                <div class="aboutotherclass" style="margin-left:20px;">
+                    Org Update
+                </div>
+            </a> <div style="border-bottom: 1px solid #CCC; padding-bottom: 12px;width:170px; margin-left:20px;"></div>
+            <br />
+            <a href="/ProjectShowCase">
+                <div class="aboutotherclass" style="margin-left:20px;">
+                    Project Showcase
+                </div>
+            </a> <div style="border-bottom: 1px solid #CCC; padding-bottom: 12px;width:170px; margin-left:20px;"></div>
+            <br />
+            <a>
+                <div class="aboutotherclass">
+                    <i class="bi bi-caret-right"></i>
+                    Your Sobha
+                </div>
+            </a> <div style="border-bottom: 1px solid #CCC; padding-bottom: 12px;width:170px; margin-left:20px;"></div>
+            <br />
+            @{
+                List<string> Sectionlist = new List<string>();
+            }
+            @if (Model.value != null)
+            {
+                foreach (var item in Model.value)
+                {
+                    if (!string.IsNullOrEmpty(item.fields.Section))
+                    {
+                        Sectionlist.Add(item.fields.Section);
+                    }
+                }
+            }
+
+            @{
+                List<string> Uniquesectionlist = Sectionlist.Distinct().ToList();
+
+                for (int i = 0; i < Uniquesectionlist.Count; i++)
+                {
+                    var SectionItemList = Model.value.Where(a => a.fields.Section == Uniquesectionlist[i]).ToList();
+                    <div class="aboutotherclass" style="margin-left:20px; margin-bottom:10px;text-wrap:nowrap;">
+                        <i class="bi bi-caret-right"></i>   @Uniquesectionlist[i].Trim()
+                    </div>
+                    foreach (var item in SectionItemList)
+                    {
+                        <a href="#@(item.id)" class="scroll">
+                            <div class="about_txt">
+                                @item.fields.Title
+                            </div>
+                        </a>
+                        <div style="border-bottom: 1px solid #CCC; padding-bottom: 12px;width:170px; margin-left:42px;"></div>
+
+                        <br />
+
+                    }
+                }
+            }
+
+
+        </div>
+
+    </div>
+    <div id="main_right_wrapper">
+        <div class="sub_block1">
+            <div class="sub_block1_search_box">
+                <input type="text" placeholder="Search..." />
+                <i class="bi bi-search"></i>
+            </div>
+            <div class="subblock1_h2">
+                <h2>Hello, @Model.Username</h2>
+                <!-- <h4>06 July, 2023 | Thursday</h4> -->
+            </div>
+            <div class="subblock1_h4">
+                <h4>@DateTime.Now.ToString("dd MMMM, yyyy")  |  @DateTime.Now.DayOfWeek</h4>
+            </div>
+            <div>
+                <img id="img1" src="./Navigation Icons/Picture11.png" />
+                <img id="img2" src="./Navigation Icons/Picture10.png" />
+                <img id="img3" src="./Navigation Icons/Picture9.png" />
+            </div>
+            @* <p>*@
+            @*   <img src="~/navigation icons/picture11.png" style="width: 150px; margin-left: 0px;" />
+            <img src="~/navigation icons/Picture10.png" style="width: 20px; position: absolute;margin-top: 84px;margin-left: 170px;"></img>
+            <img src="~/navigation icons/Picture9.png" style="width: 20px; position: absolute;margin-top: 84px;margin-left: 220px;" />*@
+            <!-- Punch in 8:30 AM | Punch out 5:30 PM -->
+            @*            </p>*@
+            <label class="txtinout">Punch in 8:30 AM | Punch out 5:30 PM</label>
+            <img id="sub_block1_logo" src="~/images/your_sobha/sobha-logo-digital-sm.svg" />
+            @{
+                if (String.IsNullOrEmpty(Model.UserPhoto))
+                {
+                    <img class="avtar" src="~/images/icon/avatar-icon.png" />
+
+                }
+                else
+                {
+                    <img class="avtar" src="@(Model.UserPhoto)">
+                }
+            }
+            <label class="txtname">@Model.Username</label>
+            <label class="txtdesg">@Model.UserJobTitle</label>
+        </div>
+        <div class="sub_block2">
+            <h1>Your Sobha</h1>
+            <label>Page intro text goes here</label>
+        </div>
+
+        @{
+            int count = 0;
+        }
+        @for (int i = 0; i < Uniquesectionlist.Count; i++)
+        {
+            var SectionItemList = Model.value.Where(a => a.fields.Section == Uniquesectionlist[i]).ToList();
+            foreach (var item in SectionItemList)
+            {
+                string ImageUrl = "";
+                string ImageUrl1 = "";
+                string ImageUrl2 = "";
+                string ImageUrl3 = "";
+                string ImageUrl4 = "";
+                string ImageUrl5 = "";
+                bool status = false;
+
+                if (!string.IsNullOrEmpty(item.fields.Image))
+                {
+                    dynamic Image = JObject.Parse(item.fields.Image);
+                    ImageUrl = Image.serverUrl + Image.serverRelativeUrl;
+                }
+                if (!string.IsNullOrEmpty(item.fields.Image1))
+                {
+                    dynamic Image1 = JObject.Parse(item.fields.Image1);
+                    ImageUrl1 = Image1.serverUrl + Image1.serverRelativeUrl;
+                }
+                if (!string.IsNullOrEmpty(item.fields.Image2))
+                {
+                    dynamic Image2 = JObject.Parse(item.fields.Image2);
+                    ImageUrl2 = Image2.serverUrl + Image2.serverRelativeUrl;
+                }
+                if (!string.IsNullOrEmpty(item.fields.Image3))
+                {
+                    dynamic Image3 = JObject.Parse(item.fields.Image3);
+                    ImageUrl3 = Image3.serverUrl + Image3.serverRelativeUrl;
+                }
+                if (!string.IsNullOrEmpty(item.fields.Image4))
+                {
+                    dynamic Image4 = JObject.Parse(item.fields.Image4);
+                    ImageUrl4 = Image4.serverUrl + Image4.serverRelativeUrl;
+                }
+                if (!string.IsNullOrEmpty(item.fields.Image5))
+                {
+                    dynamic Image5 = JObject.Parse(item.fields.Image5);
+                    ImageUrl5 = Image5.serverUrl + Image5.serverRelativeUrl;
+                }
+                <div id="@(item.id)" class="sub_block3">
+                    <div class="sub_block3_header">@item.fields.Title</div>
+                    <div class="sub_block3_lower_sec">
+                        @{
+                            if (!string.IsNullOrEmpty(ImageUrl))
+                            {
+                                <img class="block@(item.id) block-1 @(status==false ? "pageloadimage"+ count: "")" src="@ImageUrl" />
+                                status = true;
+                            }
+                            if (!string.IsNullOrEmpty(ImageUrl1))
+                            {
+                                <img class="block@(item.id) block-1 @(status==false ? "pageloadimage"+ count: "")" src="@ImageUrl1" />
+                                status = true;
+                            }
+                            if (!string.IsNullOrEmpty(ImageUrl2))
+                            {
+                                <img class="block@(item.id) block-1 @(status==false ? "pageloadimage"+ count: "")" src="@ImageUrl2" />
+                                status = true;
+                            }
+                            if (!string.IsNullOrEmpty(ImageUrl3))
+                            {
+                                <img class="block@(item.id) block-1 @(status==false ? "pageloadimage"+ count: "")" src="@ImageUrl3" />
+                                status = true;
+                            }
+                            if (!string.IsNullOrEmpty(ImageUrl4))
+                            {
+                                <img class="block@(item.id) block-1 @(status==false ? "pageloadimage"+ count: "")" src="@ImageUrl4" />
+                                status = true;
+                            }
+                            if (!string.IsNullOrEmpty(ImageUrl5))
+                            {
+                                <img class="block@(item.id) block-1 @(status==false ? "pageloadimage"+ count: "")" src="@ImageUrl5" />
+                                status = true;
+                            }
+                        }
+
+                        <span class="arrow left" onclick="controller(-1,@item.id)">&#10094</span>
+                        <span class="arrow right" onclick="controller(1,@item.id)">&#10095</span>
+                        <p>
+                            @item.fields.Body
+
+                        </p>
+                    </div>
+                </div>
+                count = count + 1;
+            }
+        }
+
+        <input type="hidden" value="@count" id="hdntotalcount" />
+
+
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $(".scroll").click(function (event) {
+            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 500);
+            //$('#menubar').attr("style", "margin-left:75px")
+        });
+    });
+    var totalcount = parseInt($('#hdntotalcount').val());
+    let toggle = false;
+    const elem = document.getElementById('about_wrapper')
+    const item = document.getElementById('hamburgerMenu')
+    item.addEventListener('click', () => {
+        if (!toggle) {
+            elem.classList.remove('remove')
+            toggle = !toggle;
+            console.log(toggle)
+        } else {
+            elem.classList.add('remove');
+            toggle = !toggle;
+            console.log(toggle)
+        }
+    })
+    let flag = 0;
+
+    function controller(x, classget) {
+
+        var classname = "block" + classget
+        let slides = document.getElementsByClassName(classname)
+        if (slides.length > 1) {
+            flag = flag + x;
+
+            slideshow(flag, classget, "1");
+        }
+
+    }
+
+    function slideshow(num, classget, type) {
+        var classname = "block" + classget
+        let slides = document.getElementsByClassName(classname)
+
+        if (num == slides.length) {
+            flag = 0;
+            num = 0;
+        }
+
+        if (num < 0) {
+            flag = slides.length + 1;
+            num = slides.length - 1;
+        }
+
+        if (slides.length > 1) {
+            for (let y of slides) {
+                y.style.display = "none"
+            }
+        }
+
+        if (type == "1") {
+            slides.length == 1 ? $("." + slides[0].className.split(' ')[2]).attr("style", "display: block") : slides[num] == undefined ? $("." + slides[0].className.split(' ')[2]).attr("style", "display: block") : slides[num].style.display = 'block'
+        }
+
+        console.log(flag)
+    }
+
+    slideshow(i, "-1", "0")
+    for (var i = 0; i < totalcount; i++) {
+        $(".pageloadimage" + i).attr("style", "display:block")
+    }
+
+    const mob_menu_icon = document.getElementById('mob_hamberger_icon')
+    const mob_menubar_close = document.getElementById('mob_menubar_close')
+    const mob_menubar_item = document.getElementById('mob_menubar_item')
+
+    mob_menu_icon.addEventListener('click', () => {
+
+        mob_menubar_item.classList.remove('remove')
+
+        mob_menu_icon.classList.add('remove')
+
+    })
+
+    mob_menubar_close.addEventListener('click', () => {
+
+        mob_menubar_item.classList.add('remove')
+
+        mob_menu_icon.classList.remove('remove')
+
+    })
+</script>

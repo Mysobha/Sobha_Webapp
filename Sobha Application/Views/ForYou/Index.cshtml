@@ -1,0 +1,157 @@
+﻿@using Newtonsoft.Json.Linq;
+@model Sobha_Application.Models.SharePointList;
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<link href="~/css/foryou.css" rel="stylesheet" />
+
+<section>
+    <div id="menubar">
+        <img class="menu" id="hamburgerMenu" src="~/navigation icons/picture1.png" />
+        <img class="home" src="~/navigation icons/picture2.png" />
+        <img class="app" src="~/navigation icons/picture3.png" />
+        <img class="profile" src="~/navigation icons/picture4.png" />
+        <img class="brief" src="~/navigation icons/picture5.png" />
+    </div>
+
+    <div>
+        <div class="sub_block1">
+            <div class="sub_block1_search_box">
+                <input type="text" placeholder="Search..." />
+                <i class="bi bi-search"></i>
+            </div>
+            <div class="subblock1_h2">
+                <h2>Hello, @Model.Username</h2>
+                <!-- <h4>06 July, 2023 | Thursday</h4> -->
+            </div>
+            <div class="subblock1_h4">
+                <h4>@DateTime.Now.ToString("dd MMMM, yyyy")  |  @DateTime.Now.DayOfWeek</h4>
+            </div>
+            <p>
+                <span id="sub_block1_trans_div"><i class="bi bi-mic"></i> Announcements</span>
+                <i class="bi bi-bell" style="position: absolute;margin-top: 73px;margin-left: 150px;"></i>
+                <img src="~/images/icon/mail icon.png" />
+                <!-- Punch in 8:30 AM | Punch out 5:30 PM -->
+            </p>
+            <label class="txtinout">Punch in 8:30 AM | Punch out 5:30 PM</label>
+
+            <img id="sub_block1_logo" src="~/images/your_sobha/sobha-logo-digital-sm.svg" />
+            <!-- <div id="block1_right_div">
+              <img src="Images/avtar-icon2.png" />
+              <label class="block1_right_div_txtname">Shan Arakkal</label>
+              <text>Senior Manager</text>
+            </div> -->
+            <img class="avtar" src="@Model.UserPhoto">
+            <label class="txtname">@Model.Username</label>
+            <label class="txtdesg">@Model.UserJobTitle</label>
+        </div>
+        <div class="sub_block2">
+            <h1>For You</h1>
+            <label>Page intro text goes here</label>
+        </div>
+        <div class="sub_block3">
+            <div class="sb3_div1">
+                <label>For you</label>
+                <div><i class="bi bi-chevron-up"></i></div>
+            </div>
+            <div class="sb3_div2">
+                <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 1</text></div>
+                <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 2</text></div>
+                <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 3</text></div>
+                <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 4</text></div>
+                <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 5</text></div>
+                <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 6</text></div>
+                <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 7</text></div>
+                <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 8</text></div>
+            </div>
+        </div>
+        <div class="sub_block4">
+            <div class="sb4_innerdiv">
+                <div class="sb4_innerdiv_header">
+                    <label>Career Management</label>
+                    <div><i class="bi bi-chevron-up"></i></div>
+                </div>
+                <div class="sb3_div2">
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 1</text></div>
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 2</text></div>
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 3</text></div>
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 4</text></div>
+
+                </div>
+            </div>
+            <div class="sb4_innerdiv">
+                <div class="sb4_innerdiv_header">
+                    <label>Career Management</label>
+                    <div><i class="bi bi-chevron-up"></i></div>
+                </div>
+                <div class="sb3_div2">
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 1</text></div>
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 2</text></div>
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 3</text></div>
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 4</text></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="sub_block4 5th">
+            <div class="sb4_innerdiv">
+                <div class="sb4_innerdiv_header">
+                    <label>Integrity & Compliance</label>
+                    <div><i class="bi bi-chevron-up"></i></div>
+                </div>
+                <div class="sb3_div2">
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 1</text></div>
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 2</text></div>
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 3</text></div>
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 4</text></div>
+
+                </div>
+            </div>
+            <div class="sb4_innerdiv">
+                <div class="sb4_innerdiv_header">
+                    <label>Whistle Blower Policy</label>
+                    <div><i class="bi bi-chevron-up"></i></div>
+                </div>
+                <div class="sb3_div2">
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 1</text></div>
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 2</text></div>
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 3</text></div>
+                    <div class="sg3_div2_item"><i class="bi bi-file-earmark-text"></i> <text>Item 4</text></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="sub_block6">
+            <div class="sb6_1st">
+                <div class="sb6_box"></div>
+                <label>Quick Links</label>
+            </div>
+            <div class="sb6_2nd">
+                <div class="sb6_2nd_item">
+                    <i class="bi bi-shield-check"></i>
+                    <label>Access Managment</label>
+                </div>
+                <div class="sb6_2nd_item">
+                    <i class="bi bi-clock-history"></i>
+                    <label>Leave management</label>
+                </div>
+                <div class="sb6_2nd_item">
+                    <i class="bi bi-globe"></i>
+                    <label>Travel Desk</label>
+                </div>
+            </div>
+            <div class="sb6_2nd">
+                <div class="sb6_2nd_item">
+                    <i class="bi bi-pie-chart-fill"></i>
+                    <label>ERP</label>
+                </div>
+                <div class="sb6_2nd_item">
+                    <i class="bi bi-bar-chart-steps"></i>
+                    <label>Onboarding</label>
+                </div>
+                <div class="sb6_2nd_item">
+                    <i class="bi bi-diagram-3"></i>
+                    <label>IT Support</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
