@@ -73,10 +73,6 @@
       "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Audit Management System.png"
     },
     {
-      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Club House Application.png",
-      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Club House Application.png"
-    },
-    {
       "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Customer Care Cell Application.png",
       "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Customer Care Cell Application.png"
     },
@@ -97,6 +93,10 @@
       "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Idea Space Application.png"
     },
     {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\P&IT Helpdesk.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\P&IT Helpdesk.png"
+    },
+    {
       "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Project Closure & Maintenance Application.png",
       "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Project Closure & Maintenance Application.png"
     },
@@ -115,6 +115,10 @@
     {
       "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\World client.png",
       "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\World client.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\club house application.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\club house application.png"
     },
     {
       "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\avatar-icon.png",
@@ -245,6 +249,18 @@
       "PackagePath": "staticwebassets\\Images\\Landing_Page\\voice.png"
     },
     {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Login\\Login image.png",
+      "PackagePath": "staticwebassets\\Images\\Login\\Login image.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Login\\Login logo.svg",
+      "PackagePath": "staticwebassets\\Images\\Login\\Login logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Login\\MicrosoftTeams-image.png",
+      "PackagePath": "staticwebassets\\Images\\Login\\MicrosoftTeams-image.png"
+    },
+    {
       "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Login_Page\\Loginpagebackground.PNG",
       "PackagePath": "staticwebassets\\Images\\Login_Page\\Loginpagebackground.PNG"
     },
@@ -301,6 +317,18 @@
       "PackagePath": "staticwebassets\\Navigation Icons.zip"
     },
     {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Hamburger Menu.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Hamburger Menu.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Home Button.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Home Button.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Org Update.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Org Update.png"
+    },
+    {
       "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Picture1.png",
       "PackagePath": "staticwebassets\\Navigation Icons\\Picture1.png"
     },
@@ -343,6 +371,14 @@
     {
       "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Picture9.png",
       "PackagePath": "staticwebassets\\Navigation Icons\\Picture9.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Spotlight.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Spotlight.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Navigation Icons\\Your Sobha.png",
+      "PackagePath": "staticwebassets\\Navigation Icons\\Your Sobha.png"
     },
     {
       "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\css\\bdayanniversary.css",

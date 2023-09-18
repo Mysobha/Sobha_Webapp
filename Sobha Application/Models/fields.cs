@@ -37,5 +37,12 @@ namespace Sobha_Application.Models
         [JsonProperty(PropertyName = "Image5")]
         public string Image5 { get; set; }
 
+        public string ImageBase64 { get; set; }
+        public string Image1Base64 { get; set; }
+        public string Image2Base64 { get; set; }
+        public string Image3Base64 { get; set; }
+        public string Image4Base64 { get; set; }
+        public string Image5Base64 { get; set; }
+
     }
 }

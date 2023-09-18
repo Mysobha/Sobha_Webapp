@@ -29,10 +29,11 @@
         .tooltip:hover .tooltiptext {
             visibility: visible;
         }
+
     .aboutotherclass {
         color: white;
         /*   text-decoration: underline;
-                    text-underline-offset: 10px;*/
+                                        text-underline-offset: 10px;*/
     }
 
     #about_wrapper a {
@@ -51,9 +52,9 @@
         padding: 5px 11px
     }
 
- /*   .right {
-        margin-left: 358px;
-    }*/
+    /*   .right {
+                            margin-left: 358px;
+                        }*/
 
     .left {
         margin-left: 10px;
@@ -99,16 +100,22 @@
         <img src="~/images/Icon/Profile-removebg-preview (1).png" />*@
 
         <div class="tooltip">
-            <img class="menu" id="hamburgerMenu" src="~/navigation icons/picture1.png" />
+            <img class="menu" id="hamburgerMenu" src="~/navigation icons/Hamburger Menu.png" />
             <span class="tooltiptext">Please Click To Expand Or Collapse</span>
         </div>
         <a href="/HomePage">
-            <img class="home" src="~/navigation icons/picture2.png" />
+            <img class="home" src="~/navigation icons/Home Button.png" />
+        </a>
+        <a href="/SpotLight">
+            <img class="app" src="~/navigation icons/Spotlight.png" />
+        </a>
+        <a href="/YourSobha">
+            <img class="profile" src="~/navigation icons/picture4.png" />
+        </a>
+        <a href="/OrgUpdate">
+            <img class="brief" src="~/navigation icons/picture5.png" />
         </a>
 
-        <img class="app" src="~/navigation icons/picture3.png" />
-        <img class="profile" src="~/navigation icons/picture4.png" />
-        <img class="brief" src="~/navigation icons/picture5.png" />
     </div>
     <div id="about_wrapper" class="remove">
         <div>
@@ -166,21 +173,24 @@
                 for (int i = 0; i < Uniquesectionlist.Count; i++)
                 {
                     var SectionItemList = Model.value.Where(a => a.fields.Section == Uniquesectionlist[i]).ToList();
-                    <div class="aboutotherclass" style="margin-left:20px; margin-bottom:10px;text-wrap:nowrap;">
-                        <i class="bi bi-caret-right"></i>   @Uniquesectionlist[i].Trim()
-                    </div>
-                    foreach (var item in SectionItemList)
-                    {
-                        <a href="#@(item.id)" class="scroll">
-                            <div class="about_txt">
-                                @item.fields.Title
-                            </div>
-                        </a>
-                        <div style="border-bottom: 1px solid #CCC; padding-bottom: 12px;width:170px; margin-left:42px;"></div>
+                    <a href="#@(i)" class="scroll">
+                        <div class="aboutotherclass" style="margin-left:20px; margin-bottom:10px;text-wrap:nowrap;">
+                            <i class="bi bi-caret-right"></i>   @Uniquesectionlist[i].Trim()
+                        </div>
+                    </a>
 
-                        <br />
+                //foreach (var item in SectionItemList)
+                    // {
+                    //     <a href="#@(item.id)" class="scroll">
+                    //         <div class="about_txt">
+                    //             @item.fields.Title
+                    //         </div>
+                    //     </a>
+                    <div style="border-bottom: 1px solid #CCC; padding-bottom: 12px;width:170px; margin-left:42px;"></div>
 
-                    }
+                    <br />
+
+                    // }
                 }
             }
 
@@ -251,35 +261,31 @@
 
                 if (!string.IsNullOrEmpty(item.fields.Image))
                 {
-                    dynamic Image = JObject.Parse(item.fields.Image);
-                    ImageUrl = Image.serverUrl + Image.serverRelativeUrl;
+                    ImageUrl = item.fields.ImageBase64;
                 }
                 if (!string.IsNullOrEmpty(item.fields.Image1))
                 {
-                    dynamic Image1 = JObject.Parse(item.fields.Image1);
-                    ImageUrl1 = Image1.serverUrl + Image1.serverRelativeUrl;
+                    @*dynamic Image1 = JObject.Parse(item.fields.Image1); *@
+                    ImageUrl1 = item.fields.Image1Base64;
                 }
                 if (!string.IsNullOrEmpty(item.fields.Image2))
                 {
-                    dynamic Image2 = JObject.Parse(item.fields.Image2);
-                    ImageUrl2 = Image2.serverUrl + Image2.serverRelativeUrl;
+                    ImageUrl2 = item.fields.Image2Base64;
                 }
                 if (!string.IsNullOrEmpty(item.fields.Image3))
                 {
-                    dynamic Image3 = JObject.Parse(item.fields.Image3);
-                    ImageUrl3 = Image3.serverUrl + Image3.serverRelativeUrl;
+                    ImageUrl3 = item.fields.Image3Base64;
                 }
                 if (!string.IsNullOrEmpty(item.fields.Image4))
                 {
-                    dynamic Image4 = JObject.Parse(item.fields.Image4);
-                    ImageUrl4 = Image4.serverUrl + Image4.serverRelativeUrl;
+                    ImageUrl4 = item.fields.Image4Base64;
                 }
                 if (!string.IsNullOrEmpty(item.fields.Image5))
                 {
-                    dynamic Image5 = JObject.Parse(item.fields.Image5);
-                    ImageUrl5 = Image5.serverUrl + Image5.serverRelativeUrl;
+                    ImageUrl5 = item.fields.Image5Base64;
                 }
-                <div id="@(item.id)" class="sub_block3">
+
+                <div id="@(i)" class="sub_block3">
                     <div class="sub_block3_header">@item.fields.Title</div>
                     <div class="sub_block3_lower_sec">
                         @{
@@ -337,6 +343,7 @@
         $(".scroll").click(function (event) {
             $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 500);
             //$('#menubar').attr("style", "margin-left:75px")
+            $('#menubar').css('margin-left', "17px")
         });
     });
     var totalcount = parseInt($('#hdntotalcount').val());
@@ -348,10 +355,12 @@
             elem.classList.remove('remove')
             toggle = !toggle;
             console.log(toggle)
+            $('.sub_block3_lower_sec p').css('width', '500px')
         } else {
             elem.classList.add('remove');
             toggle = !toggle;
             console.log(toggle)
+            $('.sub_block3_lower_sec p').css('width', '780px')
         }
     })
     let flag = 0;

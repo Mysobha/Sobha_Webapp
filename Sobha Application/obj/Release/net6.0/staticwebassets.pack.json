@@ -65,6 +65,58 @@
       "PackagePath": "staticwebassets\\Images\\Icon\\Profile-removebg-preview (1).png"
     },
     {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Administration Help Desk.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Administration Help Desk.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Audit Management System.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Audit Management System.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Club House Application.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Club House Application.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Customer Care Cell Application.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Customer Care Cell Application.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Document Management System Application (for CRM).png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Document Management System Application (for CRM).png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Document Management System Application.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Document Management System Application.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\ESS.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\ESS.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Idea Space Application.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Idea Space Application.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Project Closure & Maintenance Application.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Project Closure & Maintenance Application.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Quality Safety & Technology.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Quality Safety & Technology.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Safety Reporting Application.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Safety Reporting Application.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Sobha Technology Manual.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\Sobha Technology Manual.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\World client.png",
+      "PackagePath": "staticwebassets\\Images\\Icon\\QuickLink\\World client.png"
+    },
+    {
       "Id": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\avatar-icon.png",
       "PackagePath": "staticwebassets\\Images\\Icon\\avatar-icon.png"
     },

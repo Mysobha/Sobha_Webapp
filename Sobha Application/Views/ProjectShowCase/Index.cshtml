@@ -107,19 +107,26 @@
     <div id="menubar">
 
         <div class="tooltip">
-            <img class="home" id="hamburgerMenu" src="~/navigation icons/picture1.png" />
+            <img class="home" id="hamburgerMenu" src="~/navigation icons/Hamburger Menu.png" />
             <span class="tooltiptext">Please Click To Expand Or Collapse</span>
         </div>
         <a href="/HomePage">
 
-            <img class="app" src="./Navigation Icons/Picture2.png">
+            <img class="app" src="./Navigation Icons/Home Button.png">
         </a>
-        <img class="profile" src="./Navigation Icons/Picture3.png">
+        <a href="/SpotLight">
+            <img class="profile" src="./Navigation Icons/Spotlight.png">
 
-        <img class="brief" src="./Navigation Icons/Picture4.png">
+        </a>
+        <a href="/YourSobha">
+            <img class="brief" src="./Navigation Icons/Your Sobha.png">
 
-        <img class="brief" style="margin: 25px 18px;" src="Navigation Icons/Picture5.png">
+        </a>
+        <a href="/OrgUpdate">
+            <img class="brief" style="margin: 25px 18px;" src="Navigation Icons/Org Update.png">
 
+        </a>
+        
     </div>
 
     <div id="about_wrapper" class="remove">
@@ -242,33 +249,28 @@
 
                 if (!string.IsNullOrEmpty(item.fields.Image))
                 {
-                    dynamic Image = JObject.Parse(item.fields.Image);
-                    ImageUrl = Image.serverUrl + Image.serverRelativeUrl;
+                    ImageUrl = item.fields.ImageBase64;
                 }
                 if (!string.IsNullOrEmpty(item.fields.Image1))
                 {
-                    dynamic Image1 = JObject.Parse(item.fields.Image1);
-                    ImageUrl1 = Image1.serverUrl + Image1.serverRelativeUrl;
+                    @*dynamic Image1 = JObject.Parse(item.fields.Image1); *@
+                    ImageUrl1 = item.fields.Image1Base64;
                 }
                 if (!string.IsNullOrEmpty(item.fields.Image2))
                 {
-                    dynamic Image2 = JObject.Parse(item.fields.Image2);
-                    ImageUrl2 = Image2.serverUrl + Image2.serverRelativeUrl;
+                    ImageUrl2 = item.fields.Image2Base64;
                 }
                 if (!string.IsNullOrEmpty(item.fields.Image3))
                 {
-                    dynamic Image3 = JObject.Parse(item.fields.Image3);
-                    ImageUrl3 = Image3.serverUrl + Image3.serverRelativeUrl;
+                    ImageUrl3 = item.fields.Image3Base64;
                 }
                 if (!string.IsNullOrEmpty(item.fields.Image4))
                 {
-                    dynamic Image4 = JObject.Parse(item.fields.Image4);
-                    ImageUrl4 = Image4.serverUrl + Image4.serverRelativeUrl;
+                    ImageUrl4 = item.fields.Image4Base64;
                 }
                 if (!string.IsNullOrEmpty(item.fields.Image5))
                 {
-                    dynamic Image5 = JObject.Parse(item.fields.Image5);
-                    ImageUrl5 = Image5.serverUrl + Image5.serverRelativeUrl;
+                    ImageUrl5 = item.fields.Image5Base64;
                 }
                 <div id="@(item.id)" class="sub_block3">
                     <div class="sub_block3_header">@item.fields.Title</div>
@@ -327,6 +329,7 @@
         $(".scroll").click(function (event) {
             $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 500);
             //$('#menubar').css('margin-left', "20px")
+            $('#menubar').css('margin-left', "30px")
         });
     });
 
@@ -338,19 +341,16 @@
     item.addEventListener('click', () => {
         if (!toggle) {
             elem.classList.remove('remove')
-
             toggle = !toggle;
-
             console.log(toggle)
+            $('.sub_block3_lower_sec p').css('width', '500px')
 
         } else {
 
             elem.classList.add('remove');
-
             toggle = !toggle;
-
             console.log(toggle)
-
+            $('.sub_block3_lower_sec p').css('width', '780px')
         }
 
     })

@@ -1,14 +1,32 @@
 ﻿<link href="~/css/login.css" rel="stylesheet" />
-<img class="logoimg" src="/images/your_sobha/sobha-logo-digital-sm.svg">
-<body class="main_wrapper">
-    <div class="container">
-        <img src="~/images/login_page/your sobha_intranet.png" />
+<title>login page</title>
 
-        <div class="login_btn_wrapper">
-
-            <a style="color:white; text-decoration:none;" class="btn-primary" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn"> <button>Sign In</button></a>
+<body>
+    <section>
+        <div class="left">
+            <img id="heroimg" src="~/images/login/Login image.png" />
         </div>
-    </div>
+        <div id="right">
+            <div class="rinnerDiv">
+                <img id="logo" src="~/images/login/Login logo.svg" /><br /><br />
+                <input type="text" placeholder="Your Login" /><br />
+                <input type="password" placeholder="Your Password" /><br />
+                <label>Remember Password?</label><br />
+                <a style="color:white; text-decoration:none;" class="btn-primary" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn"> <button>Sign In</button></a>
+            </div>
+            <div id="hr"></div>
+            <div class="rinnerDiv2">
+                <label>
+                    SOBHA EPITOMISES PASSION AT WORK IN TOTALITY
+                </label><br />
+                <label>Mr. P N C PNC memon, Founder,SOBHA Ltd.</label><br /><br />
+                <label class="titles">Vision</label><br />
+                <label>To Transform the way people percieve Quality</label><br /><br />
+                <label class="titles">Mission</label><br />
+                <label>No Shortcut to Quality</label><br /><br />
+                <label class="titles">Philosophy</label><br />
+                <label>Passion at work</label><br /><br />
+            </div>
+        </div>
+    </section>
 </body>
-
-

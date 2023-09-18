@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\DELL\source\repos\Sobha Application\Sobha Application\bin\Release\net6.0\publish\</_PublishTargetUrl>
-    <History>True|2023-08-10T09:28:01.1461917Z;True|2023-08-04T15:31:41.2599802+05:30;True|2023-08-04T14:54:50.7956479+05:30;True|2023-07-31T11:22:03.3637388+05:30;True|2023-07-27T15:50:06.7941820+05:30;</History>
+    <History>True|2023-08-18T10:57:18.2182777Z;True|2023-08-10T14:58:01.1461917+05:30;True|2023-08-04T15:31:41.2599802+05:30;True|2023-08-04T14:54:50.7956479+05:30;True|2023-07-31T11:22:03.3637388+05:30;True|2023-07-27T15:50:06.7941820+05:30;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

@@ -53,17 +53,19 @@ section {
 }
 
     .sub_block1 input {
-        width: 150px;
-        padding: 3px 40px;
+        width: 127px;
+        padding: 5px 40px;
         border-radius: 5px;
         border: none;
+        margin-top: 14px;
+        margin-left: 20px
     }
 
     .sub_block1 p i {
         font-size: 14px;
     }
 
-.subblock1_h2 {
+/*.subblock1_h2 {
     font-size: 18px;
     font-style: normal;
     position: absolute;
@@ -74,7 +76,7 @@ section {
     font-style: normal;
     position: absolute;
     margin-top: 37px;
-}
+}*/
 
 .sub_block1 p img {
     width: 40px;
@@ -116,22 +118,14 @@ section {
     margin-right: 15px;
 } */
 
-.avtar {
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    right: 44px;
-    margin-top: 4px;
-    border-radius: 30px;
-}
 
 .txtname {
     font-size: 20px;
     font-style: normal;
     position: absolute;
-    right: 50px;
+    right: 35px;
     color: white;
-    margin-top: 66px;
+    margin-top: 76px;
 }
 
 .txtdesg {
@@ -159,15 +153,15 @@ section {
         font-size: 18px;
         color: gray;
         position: absolute;
-        top: -8px;
-        left: 2px;
+        top: 5px;
+        left: 24px;
     }
 
 #sub_block1_logo {
     width: 120px;
     height: 40px;
     position: absolute;
-    right: 53px;
+    right: 31px;
     top: 0px;
 }
 
@@ -207,7 +201,7 @@ section {
 .sub_block2 {
     /* width: 98%; */
     padding: 10px;
-    background-color: rgb(113, 203, 219);
+    background-color: #ABD7F0;
 }
 
 .remove {
@@ -226,7 +220,7 @@ section {
 }
 
 .sub_block3_header {
-    width: 98%;
+    width: 101%;
     padding: 10px;
     color: white;
     background-color: #006AB3;
@@ -247,8 +241,8 @@ section {
         width: 400px;
         margin: auto;
         font-size: 18px;
-        overflow-y: auto;
-        height: 300px;
+       /* overflow-y: auto;*/
+        height: auto;
     }
 
 #sub_block3inner_block {
@@ -277,15 +271,39 @@ section {
 .sub_block1 {
     background-image: url('../images/login_page/thumbnail_graphic side-dbheader.png');
 }
-.avatar {
+/*.avatar {
     width: 50px;
     height: 50px;
-    margin-top: 10px;
+    margin-top: 16px;
     position: absolute;
-    right: 50px;
+    right: 40px;
     border-radius: 30px;
-}
+}*/
 @media only screen and (width >= 600px) {
+    .subblock1_h4 {
+        font-size: 12px;
+        font-style: normal;
+        position: absolute;
+        margin-top: 37px;
+        margin-left: 20px
+    }
+
+    .subblock1_h2 {
+        font-size: 12px;
+        font-style: normal;
+        position: absolute;
+        margin-left: 19px;
+        margin-top: 6px;
+    }
+    .avatar {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 60px;
+        margin-top: 17px;
+        border-radius: 30px;
+    }
+
 
     .mob_menubar {
         display: none;
@@ -296,7 +314,7 @@ section {
     }
 
     #sub_block1_logo, .avtar, .txtname, .txtdesg {
-        right: 30px;
+        right: 60px;
     }
 
     .sub_block1 p {
@@ -304,7 +322,7 @@ section {
     }
 
     .txtinout {
-        top: 40px;
+        top: 53px;
         left: 40px;
         position: absolute;
     }
@@ -319,17 +337,17 @@ section {
             /* margin-bottom: 20px; */
         }
 
+
+
         .sub_block3_lower_sec p {
-            margin-left: 465px;
+            margin-left: 450px;
             margin-top: -300px;
-            width: 400px;
+            width: 780px;
             font-size: 16px;
             overflow-y: auto;
             height: 300px;
             /* margin: auto; */
         }
-
-
 
     .sub_block3inner_div img {
         width: 30vw;
@@ -341,7 +359,65 @@ section {
     }
 
     .right {
-        margin-left: 353px;
+        margin-left: 326px;
+    }
+
+    #img1, #img2, #img3 {
+        position: absolute;
+        top: 129px;
+        margin-left: 18px;
+    }
+
+    #img2 {
+        top: 139px;
+        left: 200px;
+    }
+
+    #img3 {
+        top: 138px;
+        left: 240px;
+    }
+}
+
+.mob_menubar {
+    display: none;
+}
+
+@media only screen and (width<= 600px) {
+
+    .sub_block1 input {
+        width: 150px;
+        padding: 3px 40px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    .subblock1_h2 {
+        font-size: 18px;
+        font-style: normal;
+        position: absolute;
+        margin-top: -14px;
+    }
+
+    .subblock1_h4 {
+        font-size: 14px;
+        font-style: normal;
+        position: absolute;
+        margin-top: 21px;
+    }
+
+    .sub_block1_search_box i {
+        font-size: 18px;
+        color: gray;
+        position: absolute;
+        top: -8px;
+        left: 2px;
+    }
+
+    .txtinout {
+        top: 40px;
+        left: 40px;
+        position: absolute;
     }
 
     #img1, #img2, #img3 {
@@ -358,13 +434,15 @@ section {
         top: 125px;
         left: 240px;
     }
-}
+    .avatar {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 37px;
+        margin-top: 19px;
+        border-radius: 30px;
+    }
 
-.mob_menubar {
-    display: none;
-}
-
-@media only screen and (width<= 600px) {
 
     #mob_menubar_item a label {
         text-decoration-line: none;
@@ -411,11 +489,11 @@ section {
     }
 
     .sub_block1 {
-        width: 93vw;
+        width: 94vw;
     }
 
     .sub_block2 {
-        width: 94vw;
+        width: 97vw;
     }
 
     .sub_block3 {
@@ -434,7 +512,7 @@ section {
         font-size: 12px;
         position: absolute;
         left: -230px;
-        top: -8px;
+        top: -12px;
     }
 
 
@@ -482,13 +560,12 @@ section {
             margin-left: 2px;
         }
 
-
-
         .sub_block3_lower_sec p {
             margin-left: 10px;
             margin-top: 2px;
             font-size: 12px;
             width: 85vw;
+            height: auto;
         }
 
     #sub_block3inner_block {
@@ -520,7 +597,7 @@ section {
         left: 253px;
     }
     .right {
-        margin-left: 368px;
+        margin-left: 300px;
     }
 
     .next {

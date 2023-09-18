@@ -74,10 +74,12 @@ section {
 
 
     .sub_block1 input {
-        width: 150px;
-        padding: 3px 40px;
+        width: 127px;
+        padding: 5px 40px;
         border-radius: 5px;
         border: none;
+        margin-top: 14px;
+        margin-left: 20px
     }
 
 
@@ -98,7 +100,7 @@ section {
 
 
 
-.subblock1_h2 {
+/*.subblock1_h2 {
     font-size: 18px;
     font-style: normal;
     position: absolute;
@@ -112,7 +114,7 @@ section {
     position: absolute;
     margin-top: 37px;
 }
-
+*/
 
 
 .sub_block1 p img {
@@ -139,14 +141,14 @@ section {
 
 
 
-.avtar {
+/*.avtar {
     width: 50px;
     height: 50px;
     margin-top: 10px;
     position: absolute;
     right: 50px;
     border-radius: 30px;
-}
+}*/
 
 
 
@@ -154,9 +156,9 @@ section {
     font-size: 20px;
     font-style: normal;
     position: absolute;
-    right: 50px;
+    right: 40px;
     color: white;
-    margin-top: 66px;
+    margin-top: 72px;
 }
 
 
@@ -187,22 +189,20 @@ section {
 }
 
 
-
     .sub_block1_search_box i {
         font-size: 18px;
         color: gray;
         position: absolute;
-        top: -8px;
-        left: 2px;
+        top: 5px;
+        left: 24px;
     }
-
 
 
 #sub_block1_logo {
     width: 120px;
     height: 40px;
     position: absolute;
-    right: 50px;
+    right: 31px;
     top: 0px;
 }
 
@@ -248,7 +248,7 @@ section {
 
 .sub_block2 {
     padding: 10px;
-    background-color: #71cbda;
+    background-color: #ABD7F0;
 }
 
 
@@ -318,8 +318,11 @@ section {
 .sub_block3_lower_sec p {
     width: 400px;
     margin: auto;
-    font-size: 14px;
+    font-size: 18px;
+    /* overflow-y: auto;*/
+    height: 300px;
 }
+
 
 
 
@@ -409,6 +412,30 @@ section {
 
 @media only screen and (width >=600px) {
 
+    .subblock1_h4 {
+        font-size: 12px;
+        font-style: normal;
+        position: absolute;
+        margin-top: 37px;
+        margin-left: 20px
+    }
+
+    .subblock1_h2 {
+        font-size: 12px;
+        font-style: normal;
+        position: absolute;
+        margin-left: 19px;
+        margin-top: 6px;
+    }
+
+    .avtar {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 44px;
+        margin-top: 17px;
+        border-radius: 30px;
+    }
 
     .right {
         margin-left: 353px;
@@ -433,24 +460,21 @@ section {
 
 
     #sub_block1_logo, .txtname, .txtdesg {
-        right: 30px;
+        right: 41px;
     }
 
 
 
     .txtinout {
+        top: 53px;
         left: 40px;
-        top: 48px;
         position: absolute;
     }
-
 
 
     .sub_block3_lower_sec {
         flex-direction: column;
     }
-
-
 
         .sub_block3_lower_sec img {
             width: 400px;
@@ -458,14 +482,14 @@ section {
         }
 
 
-
         .sub_block3_lower_sec p {
-            margin-left: 465px;
+            margin-left: 450px;
             margin-top: -300px;
-            width: 400px;
+            width: 780px;
             font-size: 16px;
             overflow-y: auto;
             height: 300px;
+            /* margin: auto; */
         }
 
 
@@ -478,20 +502,17 @@ section {
 
     #img1, #img2, #img3 {
         position: absolute;
-        top: 125px;
+        top: 129px;
+        margin-left: 18px;
     }
 
-
-
     #img2 {
-        top: 133px;
+        top: 139px;
         left: 200px;
     }
 
-
-
     #img3 {
-        top: 133px;
+        top: 138px;
         left: 240px;
     }
 }
@@ -503,7 +524,71 @@ section {
 
 
 
-@media only screen and (width <= 600px) {
+@media only screen and (width <= 600px) 
+{
+    .sub_block1 input {
+        width: 150px;
+        padding: 3px 40px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    .subblock1_h2 {
+        font-size: 18px;
+        font-style: normal;
+        position: absolute;
+        margin-top: -14px;
+    }
+
+    .subblock1_h4 {
+        font-size: 14px;
+        font-style: normal;
+        position: absolute;
+        margin-top: 21px;
+    }
+
+    .sub_block1_search_box i {
+        font-size: 18px;
+        color: gray;
+        position: absolute;
+        top: -8px;
+        left: 2px;
+    }
+
+    .txtinout {
+        top: 40px;
+        left: 40px;
+        position: absolute;
+    }
+
+    #img1, #img2, #img3 {
+        position: absolute;
+        top: 115px;
+    }
+
+    #img2 {
+        top: 125px;
+        left: 200px;
+    }
+
+    #img3 {
+        top: 125px;
+        left: 240px;
+    }
+
+    .sub_block1 
+    {
+      width: 94vw;
+    }
+    .avtar {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 37px;
+        margin-top: 19px;
+        border-radius: 30px;
+    }
+
 
     #mob_menubar_item a label {
         text-decoration-line: none;
@@ -589,9 +674,8 @@ section {
         font-size: 12px;
         position: absolute;
         left: -224px;
-        top: -16px;
+        top: -18px;
     }
-
 
 
     .sub_block1 p, .announcement {
@@ -657,14 +741,14 @@ section {
 
 
     .sub_block2 {
-        width: 91vw;
+        width: 95vw;
         margin-top: 2px;
     }
 
 
 
     .sub_block3 {
-        width: 96vw;
+        width: 98vw;
         margin-top: 4px;
     }
 
@@ -717,8 +801,8 @@ section {
             margin-top: 2px;
             font-size: 12px;
             width: 85vw;
+            height: auto;
         }
-
 
 
     .right {

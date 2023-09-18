@@ -115,6 +115,151 @@ namespace Sobha_Application.Controllers
                             {
                                 var ListData = response.Content.ReadAsStringAsync().Result;
                                 SharePointFinallist = JsonConvert.DeserializeObject<SharePointList>(ListData);
+
+                           
+                                ///SharePoint Library Detail///
+                               
+                                string SharepointlibraryTokenEndpoint = _configuration.GetSection("SharePointLibrary").GetSection("TokenEndpoint").Value;
+                                string SharepointlibraryclientID = _configuration.GetSection("SharePointLibrary").GetSection("ClientId").Value;
+                                string SharepointlibraryclientSecret = _configuration.GetSection("SharePointLibrary").GetSection("ClientSecret").Value;
+                                string SharepointlibraryResource = _configuration.GetSection("SharePointLibrary").GetSection("Resource").Value;
+
+                                dynamic result = "";
+                                string AccessToken = "";
+                                string fileextension = "";
+
+                                ///API call for get the token for fetch asset library images///
+
+                                var request = new HttpRequestMessage(HttpMethod.Post, SharepointlibraryTokenEndpoint);
+                                var collection = new List<KeyValuePair<string, string>>();
+                                collection.Add(new("grant_type", "client_credentials"));
+                                collection.Add(new("client_id", SharepointlibraryclientID));
+                                collection.Add(new("client_secret", SharepointlibraryclientSecret));
+                                collection.Add(new("resource", SharepointlibraryResource));
+                                var content = new FormUrlEncodedContent(collection);
+                                request.Content = content;
+                                response = await httpClient.SendAsync(request);
+                                if (response.IsSuccessStatusCode)
+                                {
+                                    var stringifiedResponse = await response.Content.ReadAsStringAsync();
+                                    result = JObject.Parse(stringifiedResponse);
+                                    AccessToken = result.access_token;
+
+                                    var webUrl = _configuration["SharePointLibrary:WebUrl"];
+
+                                    using (var client = new HttpClient())
+                                    {
+                                        if (SharePointFinallist.value.Count > 0)
+                                        {
+                                            foreach (var itemval in SharePointFinallist.value)
+                                            {
+
+                                                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
+                                                client.DefaultRequestHeaders.Add("Accept", "application/json;odata=verbose");
+                                                //client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json;odata=verbose");
+                                                if (!string.IsNullOrEmpty(itemval.fields.Image))
+                                                {
+                                                    dynamic Image = JObject.Parse(itemval.fields.Image);
+                                                    var fileUrl = Image.serverRelativeUrl;
+                                                    fileextension = Image.fileName;
+                                                    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                                    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                                    response = await client.SendAsync(request);
+                                                    if (response.IsSuccessStatusCode)
+                                                    {
+                                                        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                        var base64 = Convert.ToBase64String(siteImageData);
+                                                        itemval.fields.ImageBase64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+
+                                                    }
+                                                }
+                                                if (!string.IsNullOrEmpty(itemval.fields.Image1))
+                                                {
+                                                    dynamic Image1 = JObject.Parse(itemval.fields.Image1);
+                                                    var fileUrl = Image1.serverRelativeUrl;
+                                                    fileextension = Image1.fileName;
+                                                    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                                    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                                    response = await client.SendAsync(request);
+                                                    if (response.IsSuccessStatusCode)
+                                                    {
+                                                        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                        var base64 = Convert.ToBase64String(siteImageData);
+                                                        itemval.fields.Image1Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+
+                                                    }
+
+                                                }
+                                                if (!string.IsNullOrEmpty(itemval.fields.Image2))
+                                                {
+                                                    dynamic Image2 = JObject.Parse(itemval.fields.Image2);
+                                                    var fileUrl = Image2.serverRelativeUrl;
+                                                    fileextension = Image2.fileName;
+                                                    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                                    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                                    response = await client.SendAsync(request);
+                                                    if (response.IsSuccessStatusCode)
+                                                    {
+                                                        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                        var base64 = Convert.ToBase64String(siteImageData);
+                                                        itemval.fields.Image2Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+
+                                                    }
+                                                }
+                                                if (!string.IsNullOrEmpty(itemval.fields.Image3))
+                                                {
+                                                    dynamic Image3 = JObject.Parse(itemval.fields.Image3);
+                                                    var fileUrl = Image3.serverRelativeUrl;
+                                                    fileextension = Image3.fileName;
+                                                    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                                    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                                    response = await client.SendAsync(request);
+                                                    if (response.IsSuccessStatusCode)
+                                                    {
+                                                        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                        var base64 = Convert.ToBase64String(siteImageData);
+                                                        itemval.fields.Image3Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+
+                                                    }
+                                                }
+                                                if (!string.IsNullOrEmpty(itemval.fields.Image4))
+                                                {
+                                                    dynamic Image4 = JObject.Parse(itemval.fields.Image4);
+                                                    var fileUrl = Image4.serverRelativeUrl;
+                                                    fileextension = Image4.fileName;
+                                                    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                                    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                                    response = await client.SendAsync(request);
+                                                    if (response.IsSuccessStatusCode)
+                                                    {
+                                                        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                        var base64 = Convert.ToBase64String(siteImageData);
+                                                        itemval.fields.Image4Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+
+                                                    }
+                                                }
+                                                if (!string.IsNullOrEmpty(itemval.fields.Image5))
+                                                {
+                                                    dynamic Image5 = JObject.Parse(itemval.fields.Image5);
+                                                    var fileUrl = Image5.serverRelativeUrl;
+                                                    fileextension = Image5.fileName;
+                                                    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                                    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                                    response = await client.SendAsync(request);
+                                                    if (response.IsSuccessStatusCode)
+                                                    {
+                                                        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                        var base64 = Convert.ToBase64String(siteImageData);
+                                                        itemval.fields.Image5Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+
+                                                    }
+                                                }
+
+                                            }
+                                        }
+
+                                    }
+                                }
                             }
 
                         }

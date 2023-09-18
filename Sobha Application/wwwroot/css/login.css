@@ -1,84 +1,167 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
-
-#logo {
-    width: 60px;
-    margin-bottom: 20px;
-}
-
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
 }
 
-body {
-    overflow: hidden;
-}
-
-.container {
-    width: 300px;
-    padding: 150px 20px;
-    margin: 80px auto;
-    border-radius: 7px;
+section {
+    width: 100vw;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
+}
+
+.left {
+    height: 100vh;
+}
+
+#heroimg {
+    width: 100vw;
+    height:650px !important;
+}
+
+.left, #right {
+    width: 100vw;
+}
+
+#right {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
-.main_wrapper {
-    background-size: cover;
-    background-image: url('../images/login_page/Loginpagebackground.PNG');
-    background-repeat: no-repeat;
+.rinnerDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.input {
-    width: 250px;
-    padding: 10px;
-    margin: 15px 0px;
+#logo {
+    width: 80px;
+}
+
+.rinnerDiv input {
+    width: 70vw;
+    padding: 9px;
+    border-radius: 6px;
+    border: 1px solid rgb(185, 184, 184);
+}
+
+    .rinnerDiv input::placeholder {
+        text-align: center;
+        color: rgb(172, 174, 174);
+    }
+
+.rinnerDiv label {
+    color: rgb(172, 174, 174);
+    font-size: 12px;
+}
+
+.rinnerDiv button {
+    width: 70vw;
+    padding: 9px;
+    border-radius: 6px;
     border: none;
-    border-radius: 3px;
-    border-bottom: 1px solid rgb(188, 186, 186);
+    color: white;
+    background-color: rgb(11, 100, 178);
 }
 
-.login_btn_wrapper {
-    width: 70%;
-    margin: 15px 47px 23px 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.rinnerDiv2 {
+    width: 80%;
+    margin-left: 73px;
 }
-.loginanchor 
+
+    .rinnerDiv2 label {
+        font-size: 12px;
+        color: rgb(72, 71, 71);
+    }
+
+.titles {
+    font-weight: 600;
+}
+
+#hr {
+    width: 100%;
+    margin: 20px 0;
+    padding-top: 1px;
+    background-color: rgb(192, 188, 188);
+}
+
+/*@media only screen and (max-width: 410px) 
 {
-    color:white !important;
-    text-decoration:none !important
+    #right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 400px;
+    }
+    #heroimg {
+        height: 90vh;
+    }
+}*/
+
+@media only screen and (min-width: 480px) and (max-width: 1800px) 
+{
+
+    body {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+    section {
+        display: flex;
+        flex-direction: row;
+    }
+
+    /*.left {
+        height: 610px;
+        overflow: hidden;
+    }
+*/
+    #heroimg {
+        width: 50vw;
+        height: 620px;
+    }
+
+    #logo {
+        width: 100px;
+    }
+
+    #right {
+        padding: 0px;
+    }
+
+    .rinnerDiv input, .rinnerDiv button {
+        width: 25vw;
+    }
+
+    .rinnerDiv2 {
+        width: 60%;
+    }
+
+        .rinnerDiv2 label {
+            font-size: 14px;
+        }
+
 }
-
-    .login_btn_wrapper button {
-        margin-bottom: 12px;
-        background-color: #006AB3;
-        color: white;
-        border: none;
-        border-radius: 3px;
-        width: 140px;
-        height: 35px;
-        cursor: pointer;
-        border-radius:5px;
+@media only screen and (width<= 600px) 
+{
+  /*  .rinnerDiv 
+    {
+        margin-top:386px;
+    }*/
+    #right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+/*        margin-top: 400px;*/
     }
 
-        .login_btn_wrapper button:hover {
-            scale: 1.1;
-            background-color: #1D1D1D;
-        }
-
-    .login_btn_wrapper label {
-        color: white;
+    #heroimg {
+        height: 90vh;
     }
-
-        .login_btn_wrapper label:hover {
-            cursor: pointer;
-        }
-.logoimg {
-    width: 7%;
-    margin-left:88%;
 }

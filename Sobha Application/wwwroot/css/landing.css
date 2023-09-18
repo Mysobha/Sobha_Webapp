@@ -22,7 +22,7 @@ section {
 }
 
 .maniRight_wrapper {
-    width: 100%;
+    width: 104%;
     margin-left: 8px;
 }
 /* .header{
@@ -86,26 +86,26 @@ section {
     width: 28px;
     height: 26px;
     margin-left: 18px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .app {
     width: 28px;
     height: 26px;
-    margin-top: 28px;
+    margin-top: 22px;
     margin-left: 18px;
 }
 
 .profile {
     width: 28px;
     height: 26px;
-    margin-top: 28px;
+    margin-top: 22px;
     margin-left: 18px;
 }
 
-    .profile:hover {
+   /* .profile:hover {
         background-color: lightblue;
-    }
+    }*/
 
 .brief {
     width: 32px;
@@ -256,7 +256,7 @@ section {
     font-size: 20px;
     font-style: normal;
     color: white;
-    margin-top: 16px;
+    margin-top: 20px;
     position: absolute;
     right: 68px;
 }
@@ -432,8 +432,8 @@ section {
     }
 
 .block2_right_container {
-    width: 30%;
-    margin-right: 8px;
+    width: 31%;
+   /* margin-right: 8px;*/
 }
 
 .block2, .block3 {
@@ -443,7 +443,7 @@ section {
 }
 
     .block2 video {
-        width: 100%;
+        width: 104%;
         /* height: 473px; */
         object-fit: fill;
     }
@@ -480,11 +480,12 @@ section {
 
 .block2_btn {
     height: 20px;
-    padding: 15px 25px;
+    padding: 14px 30px;
     border-radius: 10px;
     font-weight: 600;
     background-color: white;
     color: #006AB3;
+    width:115px;
 }
 
 .block2_img_trdiv label {
@@ -496,7 +497,7 @@ section {
 #block2_img_trdiv_title {
     font-size: 28px;
     color: white;
-    margin-left: 35px;
+    margin-left: 0px;
 }
 
 .block2_right {
@@ -606,7 +607,7 @@ section {
 
 .sb6_2nd_item {
     width: 200px;
-    padding: 40px 10px;
+    padding: 40px 22px;
     border-radius: 5px;
     background-color: white;
     margin: 20px 0px;
@@ -670,8 +671,24 @@ section {
 .orgupdatewebview {
     display: block !important;
 }
-
-@media only screen and (max-width: 600px) {
+.fade img {
+    height: 475px;
+}
+.slideshow-container {
+    width: 68%;
+    position: relative;
+    margin-right: auto;
+}
+.quickcolourclass {
+    color: #004980 !important;
+    width: 250px;
+}
+@media only screen and (max-width: 600px) 
+{
+    .quickcolourclass {
+        color: #004980 !important;
+        width:95px;
+    }
     .orgupdatewebview {
         display: none !important;
     }
@@ -727,6 +744,11 @@ section {
     .searchbox {
         visibility: hidden;
     }
+    .slideshow-container {
+        width: 100%;
+        position: relative;
+        margin-right: auto;
+    }
 
     .mob_menubar {
         display: block;
@@ -757,18 +779,18 @@ section {
     }
 
     .logo {
-        right: -30px;
+        right: -15px;
     }
 
     .avatar, .textname, .textdesg {
-        right: 10px;
+        right: 31px;
     }
 
     .textname {
         font-size: 14px;
         position: absolute;
-        margin-top: 13px;
-        margin-right: 6px;
+        margin-top: 23px;
+        margin-right: 3px;
     }
 
     .textuser {
@@ -794,7 +816,7 @@ section {
 
     .block2, .profilebox, .block2-5 {
         margin: 0px;
-        width: 100vw;
+        width: 103vw;
     }
 
     .block2-5_left {
@@ -862,9 +884,10 @@ section {
     }
 
     .sb6_2nd_item {
-        width: 100px;
+        width: 76px;
         font-size: 14px;
         padding: 10px;
+        height:125px!important;
     }
 
     .sub_block6 {
