@@ -34,6 +34,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Sobha Application/1.0.0": {
         "dependencies": {
+          "CCAvenueCryptoPackage": "2.2.0",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "6.0.19",
           "Microsoft.Graph": "5.17.0",
           "Microsoft.Identity.Web": "2.12.4",
@@ -409,6 +410,17 @@
         },
         "compile": {
           "lib/netstandard2.0/Azure.Security.KeyVault.Secrets.dll": {}
+        }
+      },
+      "CCAvenueCryptoPackage/2.2.0": {
+        "runtime": {
+          "lib/netcoreapp3.0/MCPG.CCA.Util.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/MCPG.CCA.Util.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.12": {
@@ -3331,6 +3343,13 @@
       "sha512": "sha512-SK4XTPEaXI5UTdtSkr8TN4ZKnvazNHhybnnkxHgOyRAhV9ObcIjbrNlhS4ZeR8XtI+HidL+v/WIIVfR1+jKB8Q==",
       "path": "azure.security.keyvault.secrets/4.1.0",
       "hashPath": "azure.security.keyvault.secrets.4.1.0.nupkg.sha512"
+    },
+    "CCAvenueCryptoPackage/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2u3r2AvqYzVFOQcRYTwJ31iF3/aTi8Io3VSPFvPRov5zc/Sc2YcDKZS3u18D7WnxU/yj+oKh0HwbBh0UrNps+g==",
+      "path": "ccavenuecryptopackage/2.2.0",
+      "hashPath": "ccavenuecryptopackage.2.2.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.12": {
       "type": "package",

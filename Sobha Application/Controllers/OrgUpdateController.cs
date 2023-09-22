@@ -5,6 +5,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Sobha_Application.Models;
 using System.Net.Http.Headers;
+using System.Text;
+using System.Text.Json.Nodes;
 using static System.Net.WebRequestMethods;
 
 namespace Sobha_Application.Controllers
@@ -37,6 +39,7 @@ namespace Sobha_Application.Controllers
 
                 string userID = HttpContext.User.Claims.ToList()[3].Value;
                 string tenantID = HttpContext.User.Claims.ToList()[7].Value;
+                string useremailID = HttpContext.User.Claims.ToList()[4].Value;
                 username = HttpContext.User.Claims.ToList()[2].Value;
 
                 bool isValid = Guid.TryParse(tenantID, out guidResult);
@@ -45,6 +48,7 @@ namespace Sobha_Application.Controllers
                     tenantID = _configuration.GetSection("AzureAd").GetSection("TenantId").Value;
                     userID = HttpContext.User.Claims.ToList()[2].Value;
                     username = HttpContext.User.Claims.ToList()[1].Value;
+                    useremailID = HttpContext.User.Claims.ToList()[3].Value;
                 }
 
 
@@ -85,6 +89,52 @@ namespace Sobha_Application.Controllers
                         userJobDetails = JObject.Parse(stringifiedResponse);
 
                     }
+
+                    ///////Punch In - Punch Out///////////////////////
+
+                    var PunchInPunchOutURL = _configuration["PunchInPunchOut:URL"] + "?email=" + useremailID + "&fromDate=" + DateTime.Now.ToString("yyyy-MM-dd") + "&toDate=" + DateTime.Now.ToString("yyyy-MM-dd");
+
+                    var request = new HttpRequestMessage(HttpMethod.Get, PunchInPunchOutURL);
+
+
+                    string svcCredentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes("SobhaAPI" + ":" + "Sdl23@D365"));
+
+                    request.Headers.Add("Authorization", "Basic " + svcCredentials);
+
+                    var responsepunch = await httpClient.SendAsync(request);
+                    if (responsepunch.IsSuccessStatusCode)
+                    {
+                        var PunchInPunchOutResponse = await responsepunch.Content.ReadAsStringAsync();
+                        JsonNode data = JsonNode.Parse(PunchInPunchOutResponse);
+
+                        if (data.ToJsonString() != "[]")
+                        {
+                            string punchIntime = data[0]["inTime"].ToString();
+                            TimeSpan NineOclock = TimeSpan.Parse("09:00");
+                            TimeSpan PunchIN = TimeSpan.Parse(punchIntime);
+                            TimeSpan PunchOUT = TimeSpan.Parse(punchIntime);
+                            string AMPM = "";
+                            if (PunchIN <= NineOclock)
+                            {
+                                PunchOUT = PunchOUT.Add(TimeSpan.Parse("08:45"));
+                                AMPM = PunchOUT > TimeSpan.Parse("12:00") ? "PM" : "AM";
+                                SharePointFinallist.PunchOut = PunchOUT.ToString().Substring(0, PunchOUT.ToString().Length - 3) + " " + AMPM;
+
+
+                            }
+                            else
+                            {
+                                SharePointFinallist.PunchOut = "17:00 PM";
+                            }
+                            AMPM = PunchIN < TimeSpan.Parse("12:00") ? "AM" : "PM";
+
+                            SharePointFinallist.PunchIN = PunchIN.ToString().Substring(0, PunchIN.ToString().Length - 3) + " " + AMPM;
+
+                        }
+
+
+                    }
+
 
                     ///// API for fetch site content///
                     var SiteDataEndPoint = _configuration["SharePointOnline:SiteDataEndPoint"];
@@ -130,7 +180,7 @@ namespace Sobha_Application.Controllers
 
                                 ///API call for get the token for fetch asset library images///
 
-                                var request = new HttpRequestMessage(HttpMethod.Post, SharepointlibraryTokenEndpoint);
+                                request = new HttpRequestMessage(HttpMethod.Post, SharepointlibraryTokenEndpoint);
                                 var collection = new List<KeyValuePair<string, string>>();
                                 collection.Add(new("grant_type", "client_credentials"));
                                 collection.Add(new("client_id", SharepointlibraryclientID));

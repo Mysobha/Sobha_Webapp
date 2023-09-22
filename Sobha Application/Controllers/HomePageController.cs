@@ -17,6 +17,11 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Microsoft.Graph.Models;
 using System.Text.Json.Nodes;
+using static System.Net.WebRequestMethods;
+using CCA.Util;
+using Microsoft.AspNetCore.Http;
+using System.Text;
+using System;
 
 namespace Sobha_Application.Controllers
 {
@@ -58,6 +63,7 @@ namespace Sobha_Application.Controllers
                 /////Logged in user details////
 
                 string userID = HttpContext.User.Claims.ToList()[3].Value;
+                string useremailID = HttpContext.User.Claims.ToList()[4].Value;
                 string tenantID = HttpContext.User.Claims.ToList()[7].Value;
                 username = HttpContext.User.Claims.ToList()[2].Value;
                 bool isValid = Guid.TryParse(tenantID, out guidResult);
@@ -66,6 +72,7 @@ namespace Sobha_Application.Controllers
                     tenantID = _configuration.GetSection("AzureAd").GetSection("TenantId").Value;
                     userID = HttpContext.User.Claims.ToList()[2].Value;
                     username = HttpContext.User.Claims.ToList()[1].Value;
+                    useremailID = HttpContext.User.Claims.ToList()[3].Value;
                 }
 
                 try
@@ -126,7 +133,62 @@ namespace Sobha_Application.Controllers
                     orgSpotlightListView.QualitySafetyTechnologyHomePage = _configuration["QuickLinkURL:Quality Safety & Technology Home Page"];
                     orgSpotlightListView.SafetyReportingApplication = _configuration["QuickLinkURL:Safety Reporting Application"];
                     orgSpotlightListView.SobhaTechnologyManual = _configuration["QuickLinkURL:Sobha Technology Manual"];
-                    orgSpotlightListView.PITHelpDesk = _configuration["QuickLinkURL:P&IT Help Desk"];
+                    orgSpotlightListView.DepartmentPolicies = _configuration["QuickLinkURL:Department Policies"] + useremailID;
+
+
+                    ///////Punch In - Punch Out///////////////////////
+
+
+                    var PunchInPunchOutURL = _configuration["PunchInPunchOut:URL"] + "?email=" + useremailID + "&fromDate=" + DateTime.Now.ToString("yyyy-MM-dd") + "&toDate=" + DateTime.Now.ToString("yyyy-MM-dd");
+                    
+                    var request = new HttpRequestMessage(HttpMethod.Get, PunchInPunchOutURL);
+
+
+                    string svcCredentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes("SobhaAPI" + ":" + "Sdl23@D365"));
+
+                    request.Headers.Add("Authorization", "Basic " + svcCredentials);
+
+                    var responsepunch = await httpClient.SendAsync(request);
+                    if (responsepunch.IsSuccessStatusCode)
+                    {
+                        var PunchInPunchOutResponse = await responsepunch.Content.ReadAsStringAsync();
+                        JsonNode data = JsonNode.Parse(PunchInPunchOutResponse);
+
+                        if (data.ToJsonString() != "[]")
+                        {
+                            string punchIntime = data[0]["inTime"].ToString();
+                            TimeSpan NineOclock = TimeSpan.Parse("09:00");
+                            TimeSpan PunchIN = TimeSpan.Parse(punchIntime);
+                            TimeSpan PunchOUT = TimeSpan.Parse(punchIntime);
+                            string AMPM = "";
+                            if (PunchIN <= NineOclock)
+                            {
+                                PunchOUT = PunchOUT.Add(TimeSpan.Parse("08:45"));
+                                AMPM = PunchOUT > TimeSpan.Parse("12:00") ? "PM" : "AM";
+                                orgSpotlightListView.PunchOut = PunchOUT.ToString().Substring(0, PunchOUT.ToString().Length - 3) + " " + AMPM;
+
+
+                            }
+                            else
+                            {
+                                orgSpotlightListView.PunchOut = "17:00 PM";
+                            }
+                            AMPM = PunchIN < TimeSpan.Parse("12:00") ? "AM" : "PM";
+
+                            orgSpotlightListView.PunchIn = PunchIN.ToString().Substring(0, PunchIN.ToString().Length - 3) + " " + AMPM;
+
+                        }
+
+
+                    }
+
+
+                    ///////P&IT HelpDesk Without login///////////////// 
+                    CCACrypto cc = new CCACrypto();
+                    string encUser = cc.Encrypt(useremailID, "www.sobha.com");
+                    orgSpotlightListView.PITHelpDesk = _configuration["QuickLinkURL:P&IT Help Desk"] + encUser;
+
+
 
                     ///// API for fetch site content///
                     var SiteDataEndPoint = _configuration["SharePointOnline:SiteDataEndPoint"];
@@ -190,7 +252,7 @@ namespace Sobha_Application.Controllers
                     dynamic result = "";
                     string AccessToken = "";
                     string fileextension = "";
-                    var request = new HttpRequestMessage(HttpMethod.Post, SharepointlibraryTokenEndpoint);
+                    request = new HttpRequestMessage(HttpMethod.Post, SharepointlibraryTokenEndpoint);
                     var collection = new List<KeyValuePair<string, string>>();
                     collection.Add(new("grant_type", "client_credentials"));
                     collection.Add(new("client_id", SharepointlibraryclientID));
@@ -211,7 +273,7 @@ namespace Sobha_Application.Controllers
                         {
                             foreach (var item in orgSpotlightListView.SpotLightsLists)
                             {
-                               
+
                                 if (item.value.Count > 0)
                                 {
                                     foreach (var itemval in item.value.Take(3))
@@ -315,7 +377,7 @@ namespace Sobha_Application.Controllers
                                                 byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
                                                 var base64 = Convert.ToBase64String(siteImageData);
                                                 itemval.fields.Image5Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-                                                status= true;
+                                                status = true;
                                             }
                                         }
 
@@ -325,7 +387,7 @@ namespace Sobha_Application.Controllers
 
                             foreach (var item in orgSpotlightListView.OrgUpdateLists)
                             {
-                                
+
                                 if (item.value.Count > 0)
                                 {
                                     foreach (var itemval in item.value.Take(3))
@@ -363,7 +425,7 @@ namespace Sobha_Application.Controllers
                                                 byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
                                                 var base64 = Convert.ToBase64String(siteImageData);
                                                 itemval.fields.Image1Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-                                                status= true;
+                                                status = true;
                                             }
 
                                         }
@@ -396,7 +458,7 @@ namespace Sobha_Application.Controllers
                                                 byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
                                                 var base64 = Convert.ToBase64String(siteImageData);
                                                 itemval.fields.Image3Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-                                                status= true;
+                                                status = true;
                                             }
                                         }
                                         if (!string.IsNullOrEmpty(itemval.fields.Image4) && status == false)
@@ -412,7 +474,7 @@ namespace Sobha_Application.Controllers
                                                 byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
                                                 var base64 = Convert.ToBase64String(siteImageData);
                                                 itemval.fields.Image4Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-                                                status= true;
+                                                status = true;
                                             }
                                         }
                                         if (!string.IsNullOrEmpty(itemval.fields.Image5) && status == false)
@@ -428,7 +490,7 @@ namespace Sobha_Application.Controllers
                                                 byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
                                                 var base64 = Convert.ToBase64String(siteImageData);
                                                 itemval.fields.Image5Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-                                                status=true;
+                                                status = true;
                                             }
                                         }
 
@@ -437,7 +499,7 @@ namespace Sobha_Application.Controllers
                             }
                         }
                     }
-                    }
+                }
                 catch (Exception ex)
                 {
 

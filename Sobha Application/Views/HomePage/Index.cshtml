@@ -201,7 +201,7 @@
                     @* <img src="~/images/icon/avatar-icon.png" />*@
                     <img class="notify" src="Navigation Icons/Picture10.png">
                     <img class="mail" src="Navigation Icons/Picture9.png">
-                    <label class="textinout">Punch in: 09:00AM | Punch out: 06:00PM</label>
+                    <label class="textinout">Punch in : @Model.PunchIn | Punch out : @Model.PunchOut</label>
                     @{
                         if (String.IsNullOrEmpty(Model.UserPhoto))
                         {
@@ -446,7 +446,7 @@
                     <a href="@Model.EmoloyeeSelfService">
                         <div class="sb6_2nd_item ">
                             <img src="~/images/icon/quicklink/ess.png" />
-                            <label class="quickcolourclass">Emoloyee Self Service</label>
+                            <label class="quickcolourclass">Employee Self Service</label>
                         </div>
                     </a>
                     <a href="@Model.WorldClient">
@@ -535,7 +535,12 @@
                             <label class="quickcolourclass">Sobha Technology Manual</label>
                         </div>
                     </a>
-
+                    <a href="@Model.DepartmentPolicies">
+                        <div class="sb6_2nd_item">
+                            <img src="~/images/icon/quicklink/Department Policies.png" />
+                            <label class="quickcolourclass">Department Policies</label>
+                        </div>
+                    </a>
                     <a href="@Model.PITHelpDesk">
                         <div class="sb6_2nd_item">
                             <img src="~/images/icon/quicklink/P&IT Helpdesk.png" />

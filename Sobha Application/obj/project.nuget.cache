@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wP76biwVMcjJWqzhwbWn3uXNEBo3NBMIkpZdQAt4W+s/QxFkP2NqmzmrlBN2AuQ8zxa6+eA04VdXOQKeeuBnUA==",
+  "dgSpecHash": "7grl7ikl1sAAaLje6K/a81v7QtXz1W3livmK+anccvs7QQXDWgY0dFje4DLnhx/+rC8YvxlATmRqQNHouiungQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\Sobha Application.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\DELL\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.security.keyvault.certificates\\4.1.0\\azure.security.keyvault.certificates.4.1.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\azure.security.keyvault.secrets\\4.1.0\\azure.security.keyvault.secrets.4.1.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\ccavenuecryptopackage\\2.2.0\\ccavenuecryptopackage.2.2.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.12\\microsoft.aspnetcore.authentication.jwtbearer.6.0.12.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\6.0.12\\microsoft.aspnetcore.authentication.openidconnect.6.0.12.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.18\\microsoft.aspnetcore.cryptography.internal.6.0.18.nupkg.sha512",

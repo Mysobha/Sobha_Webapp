@@ -84,6 +84,15 @@
           }
         }
       },
+      "CCAvenueCryptoPackage/2.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/MCPG.CCA.Util.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/MCPG.CCA.Util.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.12": {
         "type": "package",
         "dependencies": {
@@ -1831,6 +1840,36 @@
         "lib/netstandard2.0/Azure.Security.KeyVault.Secrets.dll",
         "lib/netstandard2.0/Azure.Security.KeyVault.Secrets.xml",
         "pkgicon.png"
+      ]
+    },
+    "CCAvenueCryptoPackage/2.2.0": {
+      "sha512": "2u3r2AvqYzVFOQcRYTwJ31iF3/aTi8Io3VSPFvPRov5zc/Sc2YcDKZS3u18D7WnxU/yj+oKh0HwbBh0UrNps+g==",
+      "type": "package",
+      "path": "ccavenuecryptopackage/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ccavenuecryptopackage.2.2.0.nupkg.sha512",
+        "ccavenuecryptopackage.nuspec",
+        "lib/net40/MCPG.CCA.Util.dll",
+        "lib/net45/MCPG.CCA.Util.dll",
+        "lib/net451/MCPG.CCA.Util.dll",
+        "lib/net452/MCPG.CCA.Util.dll",
+        "lib/net46/MCPG.CCA.Util.dll",
+        "lib/net461/MCPG.CCA.Util.dll",
+        "lib/net462/MCPG.CCA.Util.dll",
+        "lib/net47/MCPG.CCA.Util.dll",
+        "lib/net471/MCPG.CCA.Util.dll",
+        "lib/net472/MCPG.CCA.Util.dll",
+        "lib/net48/MCPG.CCA.Util.dll",
+        "lib/netcoreapp1.0/MCPG.CCA.Util.dll",
+        "lib/netcoreapp1.1/MCPG.CCA.Util.dll",
+        "lib/netcoreapp2.0/MCPG.CCA.Util.dll",
+        "lib/netcoreapp2.1/MCPG.CCA.Util.dll",
+        "lib/netcoreapp2.2/MCPG.CCA.Util.dll",
+        "lib/netcoreapp3.0/MCPG.CCA.Util.dll",
+        "lib/netstandard2.0/MCPG.CCA.Util.dll",
+        "lib/netstandard2.1/MCPG.CCA.Util.dll"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.12": {
@@ -4959,6 +4998,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "CCAvenueCryptoPackage >= 2.2.0",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 6.0.19",
       "Microsoft.Graph >= 5.17.0",
       "Microsoft.Identity.Web >= 2.12.4",
@@ -5007,6 +5047,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "CCAvenueCryptoPackage": {
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
             "target": "Package",
             "version": "[6.0.19, )"

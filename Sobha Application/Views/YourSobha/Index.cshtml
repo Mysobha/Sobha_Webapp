@@ -222,7 +222,7 @@
             <img src="~/navigation icons/Picture9.png" style="width: 20px; position: absolute;margin-top: 84px;margin-left: 220px;" />*@
             <!-- Punch in 8:30 AM | Punch out 5:30 PM -->
             @*            </p>*@
-            <label class="txtinout">Punch in 8:30 AM | Punch out 5:30 PM</label>
+            <label class="txtinout">Punch in : @Model.PunchIN | Punch out : @Model.PunchOut</label>
             <img id="sub_block1_logo" src="~/images/your_sobha/sobha-logo-digital-sm.svg" />
             @{
                 if (String.IsNullOrEmpty(Model.UserPhoto))

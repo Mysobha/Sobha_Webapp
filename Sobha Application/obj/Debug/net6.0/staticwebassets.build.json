@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Xj9j+UUDW4NoFWRFENn9fTv127hm0Xz6lwPnAxAkD5g=",
+  "Hash": "pVycSeGYAff+Oq53lWu6IwYXi+huHdL9AYY2y/BfLuk=",
   "Source": "Sobha Application",
   "BasePath": "_content/Sobha Application",
   "Mode": "Default",
@@ -593,6 +593,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Icon\\QuickLink\\Customer Care Cell Application.png"
+    },
+    {
+      "Identity": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Department Policies.png",
+      "SourceId": "Sobha Application",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\",
+      "BasePath": "_content/Sobha Application",
+      "RelativePath": "Images/Icon/QuickLink/Department Policies.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Icon\\QuickLink\\Department Policies.png"
     },
     {
       "Identity": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\wwwroot\\Images\\Icon\\QuickLink\\Document Management System Application (for CRM).png",
