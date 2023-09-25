@@ -275,7 +275,7 @@ namespace Sobha_Application.Controllers
 
                                 if (item.value.Count > 0)
                                 {
-                                    var Topthreespotlight = item.value.Take(3).OrderByDescending(a => a.createdDateTime);
+                                    var Topthreespotlight = item.value.OrderByDescending(a => a.createdDateTime).Take(3);
 
                                     foreach (var itemval in Topthreespotlight)
                                     {
@@ -391,7 +391,7 @@ namespace Sobha_Application.Controllers
 
                                 if (item.value.Count > 0)
                                 {
-                                    var Topthreeorgupdate = item.value.Take(3).OrderByDescending(a => a.createdDateTime);
+                                    var Topthreeorgupdate = item.value.OrderByDescending(a => a.createdDateTime).Take(3);
 
                                     foreach (var itemval in Topthreeorgupdate)
                                     {
