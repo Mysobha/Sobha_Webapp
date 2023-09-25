@@ -10,6 +10,11 @@
         text-decoration: none !important;
     }
 
+    .block2_right_inner_container a {
+        color: black !important;
+        text-decoration: none !important;
+    }
+
     .tooltip {
         position: relative;
         display: inline-block;
@@ -56,10 +61,10 @@
     }
 
     /*     .slideshow-container {
-                    width: 69%;
-                    position: relative;
-                    margin-right: auto;
-                } */
+                                width: 69%;
+                                position: relative;
+                                margin-right: auto;
+                            } */
 
     .prev, .next {
         cursor: pointer;
@@ -206,7 +211,6 @@
                         if (String.IsNullOrEmpty(Model.UserPhoto))
                         {
                             <img class="avatar" src="~/images/icon/avatar-icon.png" />
-
                         }
                         else
                         {
@@ -237,44 +241,50 @@
             <div class="slideshow-container">
                 @foreach (var item in Model.SpotLightsLists)
                 {
-                    foreach (var itemval in item.value)
+                    if (item.value.Count > 0)
                     {
-                        <div class="mySlides fade">
-                            @if (itemval.fields.ImageBase64 != null)
-                            {
-                                <img src="@itemval.fields.ImageBase64" style="width:100%">
-                            }
-                            else if (itemval.fields.Image1Base64 != null)
-                            {
-                                <img src="@itemval.fields.Image1Base64" style="width:100%">
-                            }
-                            else if (itemval.fields.Image2Base64 != null)
-                            {
-                                <img src="@itemval.fields.Image2Base64" style="width:100%">
-                            }
-                            else if (itemval.fields.Image3Base64 != null)
-                            {
-                                <img src="@itemval.fields.Image3Base64" style="width:100%">
-                            }
-                            else if (itemval.fields.Image4Base64 != null)
-                            {
-                                <img src="@itemval.fields.Image4Base64" style="width:100%">
-                            }
+                        var Topthreespotlight = item.value.Take(3).OrderByDescending(a => a.createdDateTime);
 
-                            <div class="block2_img_trdiv">
-                                <div>
-                                    <label id="block2_img_trdiv_title">@itemval.fields.Title</label><br>
+                        foreach (var itemval in Topthreespotlight)
+                        {
+                            <div class="mySlides fade">
+                                @if (itemval.fields.ImageBase64 != null)
+                                {
+                                    <img src="@itemval.fields.ImageBase64" style="width:100%">
+                                }
+                                else if (itemval.fields.Image1Base64 != null)
+                                {
+                                    <img src="@itemval.fields.Image1Base64" style="width:100%">
+                                }
+                                else if (itemval.fields.Image2Base64 != null)
+                                {
+                                    <img src="@itemval.fields.Image2Base64" style="width:100%">
+                                }
+                                else if (itemval.fields.Image3Base64 != null)
+                                {
+                                    <img src="@itemval.fields.Image3Base64" style="width:100%">
+                                }
+                                else if (itemval.fields.Image4Base64 != null)
+                                {
+                                    <img src="@itemval.fields.Image4Base64" style="width:100%">
+                                }
+
+                                <div class="block2_img_trdiv">
+                                    <div>
+                                        <label id="block2_img_trdiv_title">@itemval.fields.Title</label><br>
+
+                                    </div>
+                                    <a href="/SpotLight#@(itemval.id)" target="_blank" class="scroll">
+                                        <div class="block2_btn">Know More</div>
+                                    </a>
 
                                 </div>
-                                <a href="/SpotLight#@(itemval.id)" target="_blank" class="scroll">
-                                    <div class="block2_btn">Know More</div>
-                                </a>
-
                             </div>
-                        </div>
 
 
+                        }
                     }
+
 
                 }
 
@@ -292,36 +302,44 @@
                 </div>
                 @foreach (var item in Model.OrgUpdateLists)
                 {
-                    foreach (var itemval in item.value)
+                    if (item.value.Count > 0)
                     {
-                        <div class="block2_right_inner_container">
-                            @if (itemval.fields.ImageBase64 != null)
-                            {
-                                <img src="@itemval.fields.ImageBase64" class="block2_org_img">
-                            }
-                            else if (itemval.fields.Image1Base64 != null)
-                            {
-                                <img src="@itemval.fields.Image1Base64" class="block2_org_img">
-                            }
-                            else if (itemval.fields.Image2Base64 != null)
-                            {
-                                <img src="@itemval.fields.Image2Base64" class="block2_org_img">
-                            }
-                            else if (itemval.fields.Image3Base64 != null)
-                            {
-                                <img src="@itemval.fields.Image3Base64" class="block2_org_img">
-                            }
-                            else if (itemval.fields.Image4Base64 != null)
-                            {
-                                <img src="@itemval.fields.Image4Base64" class="block2_org_img">
-                            }
-                            <div>
-                                <h3>@itemval.fields.Title</h3>
-                                @*  <h5>@itemval.fields.Body </h5>
+                        var Topthreeorgupdate = item.value.Take(3).OrderByDescending(a => a.createdDateTime);
+                        foreach (var itemval in Topthreeorgupdate)
+                        {
+                            <div class="block2_right_inner_container">
+                                @if (itemval.fields.ImageBase64 != null)
+                                {
+                                    <img src="@itemval.fields.ImageBase64" class="block2_org_img">
+                                }
+                                else if (itemval.fields.Image1Base64 != null)
+                                {
+                                    <img src="@itemval.fields.Image1Base64" class="block2_org_img">
+                                }
+                                else if (itemval.fields.Image2Base64 != null)
+                                {
+                                    <img src="@itemval.fields.Image2Base64" class="block2_org_img">
+                                }
+                                else if (itemval.fields.Image3Base64 != null)
+                                {
+                                    <img src="@itemval.fields.Image3Base64" class="block2_org_img">
+                                }
+                                else if (itemval.fields.Image4Base64 != null)
+                                {
+                                    <img src="@itemval.fields.Image4Base64" class="block2_org_img">
+                                }
+                                <div>
+                                    <a href="/OrgUpdate#@(itemval.id)" target="_blank" class="scroll">
+                                        <h3>@itemval.fields.Title</h3>
+                                    </a>
+
+                                    @*  <h5>@itemval.fields.Body </h5>
                         <h4>Sep 05, 2022</h4> *@
+                                </div>
                             </div>
-                        </div>
+                        }
                     }
+
                 }
 
             </div>

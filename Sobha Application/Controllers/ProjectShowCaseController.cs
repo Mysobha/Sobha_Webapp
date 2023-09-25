@@ -90,51 +90,6 @@ namespace Sobha_Application.Controllers
 
                     }
 
-                    ///////Punch In - Punch Out///////////////////////
-
-                    var PunchInPunchOutURL = _configuration["PunchInPunchOut:URL"] + "?email=" + useremailID + "&fromDate=" + DateTime.Now.ToString("yyyy-MM-dd") + "&toDate=" + DateTime.Now.ToString("yyyy-MM-dd");
-
-                    var request = new HttpRequestMessage(HttpMethod.Get, PunchInPunchOutURL);
-
-
-                    string svcCredentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes("SobhaAPI" + ":" + "Sdl23@D365"));
-
-                    request.Headers.Add("Authorization", "Basic " + svcCredentials);
-
-                    var responsepunch = await httpClient.SendAsync(request);
-                    if (responsepunch.IsSuccessStatusCode)
-                    {
-                        var PunchInPunchOutResponse = await responsepunch.Content.ReadAsStringAsync();
-                        JsonNode data = JsonNode.Parse(PunchInPunchOutResponse);
-
-                        if (data.ToJsonString() != "[]")
-                        {
-                            string punchIntime = data[0]["inTime"].ToString();
-                            TimeSpan NineOclock = TimeSpan.Parse("09:00");
-                            TimeSpan PunchIN = TimeSpan.Parse(punchIntime);
-                            TimeSpan PunchOUT = TimeSpan.Parse(punchIntime);
-                            string AMPM = "";
-                            if (PunchIN <= NineOclock)
-                            {
-                                PunchOUT = PunchOUT.Add(TimeSpan.Parse("08:45"));
-                                AMPM = PunchOUT > TimeSpan.Parse("12:00") ? "PM" : "AM";
-                                SharePointFinallist.PunchOut = PunchOUT.ToString().Substring(0, PunchOUT.ToString().Length - 3) + " " + AMPM;
-
-
-                            }
-                            else
-                            {
-                                SharePointFinallist.PunchOut = "17:00 PM";
-                            }
-                            AMPM = PunchIN < TimeSpan.Parse("12:00") ? "AM" : "PM";
-
-                            SharePointFinallist.PunchIN = PunchIN.ToString().Substring(0, PunchIN.ToString().Length - 3) + " " + AMPM;
-
-                        }
-
-
-                    }
-
                     ///// API for fetch site content///
                     var SiteDataEndPoint = _configuration["SharePointOnline:SiteDataEndPoint"];
 
@@ -178,7 +133,7 @@ namespace Sobha_Application.Controllers
 
                                 ///API call for get the token for fetch asset library images///
 
-                                 request = new HttpRequestMessage(HttpMethod.Post, SharepointlibraryTokenEndpoint);
+                                var request = new HttpRequestMessage(HttpMethod.Post, SharepointlibraryTokenEndpoint);
                                 var collection = new List<KeyValuePair<string, string>>();
                                 collection.Add(new("grant_type", "client_credentials"));
                                 collection.Add(new("client_id", SharepointlibraryclientID));
@@ -316,6 +271,53 @@ namespace Sobha_Application.Controllers
                     SharePointFinallist.Username = username;
                     SharePointFinallist.UserJobTitle = userJobDetails == null ? "" : userJobDetails.jobTitle;
                     SharePointFinallist.UserPhoto = userPhoto == null ? "" : userPhoto;
+
+
+                    ///////Punch In - Punch Out///////////////////////
+
+                    var PunchInPunchOutURL = _configuration["PunchInPunchOut:URL"] + "?email=" + useremailID + "&fromDate=" + DateTime.Now.ToString("yyyy-MM-dd") + "&toDate=" + DateTime.Now.ToString("yyyy-MM-dd");
+
+                    var requestPunchInPunchOut = new HttpRequestMessage(HttpMethod.Get, PunchInPunchOutURL);
+
+
+                    string svcCredentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes("SobhaAPI" + ":" + "Sdl23@D365"));
+
+                    requestPunchInPunchOut.Headers.Add("Authorization", "Basic " + svcCredentials);
+
+                    var responsepunch = await httpClient.SendAsync(requestPunchInPunchOut);
+                    if (responsepunch.IsSuccessStatusCode)
+                    {
+                        var PunchInPunchOutResponse = await responsepunch.Content.ReadAsStringAsync();
+                        JsonNode data = JsonNode.Parse(PunchInPunchOutResponse);
+
+                        if (data.ToJsonString() != "[]")
+                        {
+                            string punchIntime = data[0]["inTime"].ToString();
+                            TimeSpan NineOclock = TimeSpan.Parse("09:00");
+                            TimeSpan PunchIN = TimeSpan.Parse(punchIntime);
+                            TimeSpan PunchOUT = TimeSpan.Parse(punchIntime);
+                            string AMPM = "";
+                            if (PunchIN <= NineOclock)
+                            {
+                                PunchOUT = PunchOUT.Add(TimeSpan.Parse("08:45"));
+                                AMPM = PunchOUT > TimeSpan.Parse("12:00") ? "PM" : "AM";
+                                SharePointFinallist.PunchOut = PunchOUT.ToString().Substring(0, PunchOUT.ToString().Length - 3) + " " + AMPM;
+
+
+                            }
+                            else
+                            {
+                                SharePointFinallist.PunchOut = "17:00 PM";
+                            }
+                            AMPM = PunchIN < TimeSpan.Parse("12:00") ? "AM" : "PM";
+
+                            SharePointFinallist.PunchIN = PunchIN.ToString().Substring(0, PunchIN.ToString().Length - 3) + " " + AMPM;
+
+                        }
+
+
+                    }
+
                 }
                 catch (Exception ex)
                 {

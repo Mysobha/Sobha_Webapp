@@ -126,7 +126,7 @@
             <img class="brief" style="margin: 25px 18px;" src="Navigation Icons/Org Update.png">
 
         </a>
-        
+
     </div>
 
     <div id="about_wrapper" class="remove">
@@ -216,7 +216,17 @@
 
             <img id="sub_block1_logo" src="./Images/your_sobha/sobha-logo-digital-sm.svg" />
 
-            <img class="avtar" src="./Images/icon/avatar-icon.png">
+            @{
+                if (String.IsNullOrEmpty(Model.UserPhoto))
+                {
+                    <img class="avtar" src="~/images/icon/avatar-icon.png" />
+
+                }
+                else
+                {
+                    <img class="avtar" src="@(Model.UserPhoto)">
+                }
+            }
 
             <label class="txtname">@Model.Username</label>
 

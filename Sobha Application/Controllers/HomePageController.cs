@@ -140,9 +140,8 @@ namespace Sobha_Application.Controllers
 
 
                     var PunchInPunchOutURL = _configuration["PunchInPunchOut:URL"] + "?email=" + useremailID + "&fromDate=" + DateTime.Now.ToString("yyyy-MM-dd") + "&toDate=" + DateTime.Now.ToString("yyyy-MM-dd");
-                    
-                    var request = new HttpRequestMessage(HttpMethod.Get, PunchInPunchOutURL);
 
+                    var request = new HttpRequestMessage(HttpMethod.Get, PunchInPunchOutURL);
 
                     string svcCredentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes("SobhaAPI" + ":" + "Sdl23@D365"));
 
@@ -276,7 +275,9 @@ namespace Sobha_Application.Controllers
 
                                 if (item.value.Count > 0)
                                 {
-                                    foreach (var itemval in item.value.Take(3))
+                                    var Topthreespotlight = item.value.Take(3).OrderByDescending(a => a.createdDateTime);
+
+                                    foreach (var itemval in Topthreespotlight)
                                     {
                                         bool status = false;
 
@@ -390,7 +391,9 @@ namespace Sobha_Application.Controllers
 
                                 if (item.value.Count > 0)
                                 {
-                                    foreach (var itemval in item.value.Take(3))
+                                    var Topthreeorgupdate = item.value.Take(3).OrderByDescending(a => a.createdDateTime);
+
+                                    foreach (var itemval in Topthreeorgupdate)
                                     {
                                         bool status = false;
                                         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
