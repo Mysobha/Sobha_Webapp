@@ -61,10 +61,10 @@
     }
 
     /*     .slideshow-container {
-                                width: 69%;
-                                position: relative;
-                                margin-right: auto;
-                            } */
+                                                            width: 69%;
+                                                            position: relative;
+                                                            margin-right: auto;
+                                                        } */
 
     .prev, .next {
         cursor: pointer;
@@ -305,7 +305,6 @@
                     if (item.value.Count > 0)
                     {
                         var Topthreeorgupdate = item.value.OrderByDescending(a => a.createdDateTime).Take(3);
-
                         foreach (var itemval in Topthreeorgupdate)
                         {
                             <div class="block2_right_inner_container">
@@ -353,37 +352,43 @@
             </div>
             @foreach (var item in Model.OrgUpdateLists)
             {
-                foreach (var itemval in item.value)
+                if (item.value.Count > 0)
                 {
-                    <div class="block2_right_inner_container" style="width:100% !important">
+                    var Topthreeorgupdate = item.value.OrderByDescending(a => a.createdDateTime).Take(3);
 
-                        @if (itemval.fields.ImageBase64 != null)
-                        {
-                            <img src="@itemval.fields.ImageBase64" class="block2_org_img">
-                        }
-                        else if (itemval.fields.Image1Base64 != null)
-                        {
-                            <img src="@itemval.fields.Image1Base64" class="block2_org_img">
-                        }
-                        else if (itemval.fields.Image2Base64 != null)
-                        {
-                            <img src="@itemval.fields.Image2Base64" class="block2_org_img">
-                        }
-                        else if (itemval.fields.Image3Base64 != null)
-                        {
-                            <img src="@itemval.fields.Image3Base64" class="block2_org_img">
-                        }
-                        else if (itemval.fields.Image4Base64 != null)
-                        {
-                            <img src="@itemval.fields.Image4Base64" class="block2_org_img">
-                        }
+                    foreach (var itemval in Topthreeorgupdate)
+                    {
+                        <div class="block2_right_inner_container" style="width:100% !important">
 
-                        <div>
-                            <h3>@itemval.fields.Title</h3>
-                            @*  <h5>@itemval.fields.Body</h5>
+                            @if (itemval.fields.ImageBase64 != null)
+                            {
+                                <img src="@itemval.fields.ImageBase64" class="block2_org_img">
+                            }
+                            else if (itemval.fields.Image1Base64 != null)
+                            {
+                                <img src="@itemval.fields.Image1Base64" class="block2_org_img">
+                            }
+                            else if (itemval.fields.Image2Base64 != null)
+                            {
+                                <img src="@itemval.fields.Image2Base64" class="block2_org_img">
+                            }
+                            else if (itemval.fields.Image3Base64 != null)
+                            {
+                                <img src="@itemval.fields.Image3Base64" class="block2_org_img">
+                            }
+                            else if (itemval.fields.Image4Base64 != null)
+                            {
+                                <img src="@itemval.fields.Image4Base64" class="block2_org_img">
+                            }
+
+                            <div>
+                                <h3>@itemval.fields.Title</h3>
+                                @*  <h5>@itemval.fields.Body</h5>
                     <h4>Sep 05, 2022</h4> *@
+                            </div>
                         </div>
-                    </div>
+                    }
+
                 }
 
 
@@ -570,35 +575,40 @@
                 </div>
             </div>
 
+
             <div style="background-color: white;" class="block2_right_container block2_right_container_mob">
                 <div class="block2_right">
                     <div class="block2_right_icon"></div>
-                    <text>Birthday And Aniversary</text>
+                    <text>Birthday And Anniversary</text>
                 </div>
                 <div id="Birthday_aniversary">
-                    <div class="block2_right_inner_container set_block4_right_birthSec">
-                        <img class="block2_org_img set_img" src="/images/icon/avatar-icon.png" />
-                        <div>
-                            <h5>News title goes here</h5>
-                            <h5>Some description goes here</h5>
+                    @foreach (var item in Model.Birthday)
+                    {
+                        <div class="block2_right_inner_container set_block4_right_birthSec">
+                            <img class="block2_org_img set_img" src="/images/icon/avatar-icon.png" />
+                            <div>
+                                <h4> Today Birthday  </h4>
+                                <h5>@(item == "" ? "" : item.ToString().Trim().Replace(".", ""))</h5>
+                            </div>
                         </div>
-                    </div>
-                    <div class="block2_right_inner_container set_block4_right_birthSec">
-                        <img class="block2_org_img set_img" src="/images/icon/avatar-icon.png" />
-                        <div>
-                            <h5>News title goes here</h5>
-                            <h5>Some description goes here</h5>
+                    }
+
+                    @foreach (var item in Model.Anniversary)
+                    {
+                        <div class="block2_right_inner_container set_block4_right_birthSec">
+                            <img class="block2_org_img set_img" src="/images/icon/avatar-icon.png" />
+                            <div>
+                                <h4> Today Anniversary  </h4>
+                                <h5>@(string.IsNullOrEmpty(item.Key) ? "" : item.Key.ToString().Trim().Replace(".", ""))</h5>
+                                <h5>@(string.IsNullOrEmpty(item.Value) ? "" : item.Value + " " + "Years") </h5>
+                            </div>
                         </div>
-                    </div>
-                    <div class="block2_right_inner_container set_block4_right_birthSec">
-                        <img class="block2_org_img set_img" src="/images/icon/avatar-icon.png" />
-                        <div>
-                            <h5>News title goes here</h5>
-                            <h5>Some description goes here</h5>
-                        </div>
-                    </div>
+                    }
+
                 </div>
             </div>
+
+
 
         </div>
 

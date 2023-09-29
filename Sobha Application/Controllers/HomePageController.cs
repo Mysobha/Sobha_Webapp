@@ -138,6 +138,9 @@ namespace Sobha_Application.Controllers
 
                     ///////Punch In - Punch Out///////////////////////
 
+                    //useremailID = "armugam.karanam@sobha.com";
+
+                    //var PunchInPunchOutURL = _configuration["PunchInPunchOut:URL"] + "?email=" + useremailID + "&fromDate=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd") + "&toDate=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd");
 
                     var PunchInPunchOutURL = _configuration["PunchInPunchOut:URL"] + "?email=" + useremailID + "&fromDate=" + DateTime.Now.ToString("yyyy-MM-dd") + "&toDate=" + DateTime.Now.ToString("yyyy-MM-dd");
 
@@ -157,6 +160,7 @@ namespace Sobha_Application.Controllers
                         {
                             string punchIntime = data[0]["inTime"].ToString();
                             TimeSpan NineOclock = TimeSpan.Parse("09:00");
+                            TimeSpan Eightfifteen = TimeSpan.Parse("08:15");
                             TimeSpan PunchIN = TimeSpan.Parse(punchIntime);
                             TimeSpan PunchOUT = TimeSpan.Parse(punchIntime);
                             string AMPM = "";
@@ -164,8 +168,7 @@ namespace Sobha_Application.Controllers
                             {
                                 PunchOUT = PunchOUT.Add(TimeSpan.Parse("08:45"));
                                 AMPM = PunchOUT > TimeSpan.Parse("12:00") ? "PM" : "AM";
-                                orgSpotlightListView.PunchOut = PunchOUT.ToString().Substring(0, PunchOUT.ToString().Length - 3) + " " + AMPM;
-
+                                orgSpotlightListView.PunchOut = PunchIN < Eightfifteen ? "17:00 PM" : PunchOUT.ToString().Substring(0, PunchOUT.ToString().Length - 3) + " " + AMPM;
 
                             }
                             else
@@ -178,16 +181,70 @@ namespace Sobha_Application.Controllers
 
                         }
 
-
                     }
 
+                    ///////////////////Birthday//////////////////////////
+
+                    var BirthdayAnniversaryURL = _configuration["BirthdayAnniversary:Birthday"] + "?date=" + DateTime.Now.ToString("yyyy-MM-dd");
+
+                    var requestBirthday = new HttpRequestMessage(HttpMethod.Get, BirthdayAnniversaryURL);
+
+                    var CredentialsBirthday = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes("SobhaAPI" + ":" + "Sdl23@D365"));
+
+                    requestBirthday.Headers.Add("Authorization", "Basic " + CredentialsBirthday);
+
+                    var responsebirthday = await httpClient.SendAsync(requestBirthday);
+                    if (responsebirthday.IsSuccessStatusCode)
+                    {
+                        var birthdayanniversaryResponse = await responsebirthday.Content.ReadAsStringAsync();
+                        JsonNode data = JsonNode.Parse(birthdayanniversaryResponse);
+
+                        if (data.ToJsonString() != "[]")
+                        {
+                            var jsonData = JsonConvert.DeserializeObject<dynamic>(data.ToString());
+                            orgSpotlightListView.Birthday = new List<dynamic>();
+                            foreach (var datajson in jsonData)
+                            {
+                                orgSpotlightListView.Birthday.Add(datajson.empName);
+
+                            }
+                        }
+                    }
+
+                    ///////////////////Anniversary//////////////////////////
+
+                    var AnniversaryURL = _configuration["BirthdayAnniversary:Anniversary"] + "?date=" + DateTime.Now.ToString("yyyy-MM-dd");
+
+                    var requestAnniversary = new HttpRequestMessage(HttpMethod.Get, AnniversaryURL);
+
+                    var CredentialsAnniversary = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes("SobhaAPI" + ":" + "Sdl23@D365"));
+
+                    requestAnniversary.Headers.Add("Authorization", "Basic " + CredentialsAnniversary);
+                    var responseanniversary = await httpClient.SendAsync(requestAnniversary);
+                    if (responseanniversary.IsSuccessStatusCode)
+                    {
+                        var birthdayanniversaryResponse = await responseanniversary.Content.ReadAsStringAsync();
+                        JsonNode data = JsonNode.Parse(birthdayanniversaryResponse);
+
+                        if (data.ToJsonString() != "[]")
+                        {
+                            var jsonData = JsonConvert.DeserializeObject<dynamic>(data.ToString());
+                            orgSpotlightListView.Anniversary = new List<KeyValuePair<string, string>>();
+                            foreach (var datajson in jsonData)
+                            {
+                                string empname = datajson.empName;
+                                string years = datajson.years;
+                                orgSpotlightListView.Anniversary.Add(new KeyValuePair<string, string>(empname, years));
+
+                            }
+                        }
+                    }
 
                     ///////P&IT HelpDesk Without login///////////////// 
+
                     CCACrypto cc = new CCACrypto();
                     string encUser = cc.Encrypt(useremailID, "www.sobha.com");
                     orgSpotlightListView.PITHelpDesk = _configuration["QuickLinkURL:P&IT Help Desk"] + encUser;
-
-
 
                     ///// API for fetch site content///
                     var SiteDataEndPoint = _configuration["SharePointOnline:SiteDataEndPoint"];

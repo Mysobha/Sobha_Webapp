@@ -41,6 +41,8 @@ namespace Sobha_Application.Models
         public string PITHelpDesk { get; set; }
         public string PunchIn { get;set; }
         public string PunchOut { get;set;}
+        public List<dynamic> Birthday { get; set; }
+        public List<KeyValuePair<string, string>> Anniversary { get; set; }
 
     }
 

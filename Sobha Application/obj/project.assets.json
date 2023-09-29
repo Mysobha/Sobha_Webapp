@@ -5009,19 +5009,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Devuser-01\\.nuget\\packages\\": {}
+    "C:\\Users\\DELL\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Devuser-01\\Desktop\\Sobha_group_Proj\\Sobha Application\\Sobha Application.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\Sobha Application.csproj",
       "projectName": "Sobha Application",
-      "projectPath": "C:\\Users\\Devuser-01\\Desktop\\Sobha_group_Proj\\Sobha Application\\Sobha Application.csproj",
-      "packagesPath": "C:\\Users\\Devuser-01\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Devuser-01\\Desktop\\Sobha_group_Proj\\Sobha Application\\obj\\",
+      "projectPath": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\Sobha Application.csproj",
+      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\DELL\\source\\repos\\Sobha Application\\Sobha Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Devuser-01\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5029,7 +5029,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5100,7 +5099,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

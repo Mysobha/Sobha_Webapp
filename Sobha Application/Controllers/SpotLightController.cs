@@ -298,6 +298,7 @@ namespace Sobha_Application.Controllers
                         {
                             string punchIntime = data[0]["inTime"].ToString();
                             TimeSpan NineOclock = TimeSpan.Parse("09:00");
+                            TimeSpan Eightfifteen = TimeSpan.Parse("08:15");
                             TimeSpan PunchIN = TimeSpan.Parse(punchIntime);
                             TimeSpan PunchOUT = TimeSpan.Parse(punchIntime);
                             string AMPM = "";
@@ -305,7 +306,7 @@ namespace Sobha_Application.Controllers
                             {
                                 PunchOUT = PunchOUT.Add(TimeSpan.Parse("08:45"));
                                 AMPM = PunchOUT > TimeSpan.Parse("12:00") ? "PM" : "AM";
-                                SharePointFinallist.PunchOut = PunchOUT.ToString().Substring(0, PunchOUT.ToString().Length - 3) + " " + AMPM;
+                                SharePointFinallist.PunchOut = PunchIN < Eightfifteen ? "17:00 PM" : PunchOUT.ToString().Substring(0, PunchOUT.ToString().Length - 3) + " " + AMPM;
 
 
                             }
