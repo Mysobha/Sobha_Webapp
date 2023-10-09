@@ -582,28 +582,35 @@
                     <text>Birthday And Anniversary</text>
                 </div>
                 <div id="Birthday_aniversary">
-                    @foreach (var item in Model.Birthday)
+                    @if (Model.Birthday != null)
                     {
-                        <div class="block2_right_inner_container set_block4_right_birthSec">
-                            <img class="block2_org_img set_img" src="/images/icon/avatar-icon.png" />
-                            <div>
-                                <h4> Today Birthday  </h4>
-                                <h5>@(item == "" ? "" : item.ToString().Trim().Replace(".", ""))</h5>
+                        foreach (var item in Model.Birthday)
+                        {
+                            <div class="block2_right_inner_container set_block4_right_birthSec">
+                                <img class="block2_org_img set_img" src="/images/icon/avatar-icon.png" />
+                                <div>
+                                    <h4> Today Birthday  </h4>
+                                    <h5>@(item == "" ? "" : item.ToString().Trim().Replace(".", ""))</h5>
+                                </div>
                             </div>
-                        </div>
+                        }
+
+                    }
+                    @if (Model.Anniversary != null)
+                    {
+                        foreach (var item in Model.Anniversary)
+                        {
+                            <div class="block2_right_inner_container set_block4_right_birthSec">
+                                <img class="block2_org_img set_img" src="/images/icon/avatar-icon.png" />
+                                <div>
+                                    <h4> Today Anniversary  </h4>
+                                    <h5>@(string.IsNullOrEmpty(item.Key) ? "" : item.Key.ToString().Trim().Replace(".", ""))</h5>
+                                    <h5>@(string.IsNullOrEmpty(item.Value) ? "" : item.Value + " " + "Years") </h5>
+                                </div>
+                            </div>
+                        }
                     }
 
-                    @foreach (var item in Model.Anniversary)
-                    {
-                        <div class="block2_right_inner_container set_block4_right_birthSec">
-                            <img class="block2_org_img set_img" src="/images/icon/avatar-icon.png" />
-                            <div>
-                                <h4> Today Anniversary  </h4>
-                                <h5>@(string.IsNullOrEmpty(item.Key) ? "" : item.Key.ToString().Trim().Replace(".", ""))</h5>
-                                <h5>@(string.IsNullOrEmpty(item.Value) ? "" : item.Value + " " + "Years") </h5>
-                            </div>
-                        </div>
-                    }
 
                 </div>
             </div>

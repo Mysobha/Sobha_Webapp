@@ -9,69 +9,69 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Sobha_Application
 build_property.RootNamespace = Sobha_Application
-build_property.ProjectDir = C:\Users\DELL\source\repos\Sobha Application\Sobha Application\
+build_property.ProjectDir = C:\Users\Devuser-01\Desktop\Sobha_group_Proj\Sobha Application\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\DELL\source\repos\Sobha Application\Sobha Application
+build_property.MSBuildProjectDirectory = C:\Users\Devuser-01\Desktop\Sobha_group_Proj\Sobha Application
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/DELL/source/repos/Sobha Application/Sobha Application/Views/Account/Index.cshtml]
+[C:/Users/Devuser-01/Desktop/Sobha_group_Proj/Sobha Application/Views/Account/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/source/repos/Sobha Application/Sobha Application/Views/BirthdayAnniversary/Index.cshtml]
+[C:/Users/Devuser-01/Desktop/Sobha_group_Proj/Sobha Application/Views/BirthdayAnniversary/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlydGhkYXlBbm5pdmVyc2FyeVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/source/repos/Sobha Application/Sobha Application/Views/ForYou/Index.cshtml]
+[C:/Users/Devuser-01/Desktop/Sobha_group_Proj/Sobha Application/Views/ForYou/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9yWW91XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/source/repos/Sobha Application/Sobha Application/Views/HomePage/Index.cshtml]
+[C:/Users/Devuser-01/Desktop/Sobha_group_Proj/Sobha Application/Views/HomePage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVBhZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/source/repos/Sobha Application/Sobha Application/Views/HomePage/Privacy.cshtml]
+[C:/Users/Devuser-01/Desktop/Sobha_group_Proj/Sobha Application/Views/HomePage/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVBhZ2VcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/source/repos/Sobha Application/Sobha Application/Views/OrgUpdate/Index.cshtml]
+[C:/Users/Devuser-01/Desktop/Sobha_group_Proj/Sobha Application/Views/OrgUpdate/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnVXBkYXRlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/source/repos/Sobha Application/Sobha Application/Views/ProjectShowCase/Index.cshtml]
+[C:/Users/Devuser-01/Desktop/Sobha_group_Proj/Sobha Application/Views/ProjectShowCase/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdFNob3dDYXNlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/source/repos/Sobha Application/Sobha Application/Views/Shared/Error.cshtml]
+[C:/Users/Devuser-01/Desktop/Sobha_group_Proj/Sobha Application/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/source/repos/Sobha Application/Sobha Application/Views/Shared/_MenuSection.cshtml]
+[C:/Users/Devuser-01/Desktop/Sobha_group_Proj/Sobha Application/Views/Shared/_MenuSection.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NZW51U2VjdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/source/repos/Sobha Application/Sobha Application/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Devuser-01/Desktop/Sobha_group_Proj/Sobha Application/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/source/repos/Sobha Application/Sobha Application/Views/SpotLight/Index.cshtml]
+[C:/Users/Devuser-01/Desktop/Sobha_group_Proj/Sobha Application/Views/SpotLight/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BvdExpZ2h0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/source/repos/Sobha Application/Sobha Application/Views/YourSobha/Index.cshtml]
+[C:/Users/Devuser-01/Desktop/Sobha_group_Proj/Sobha Application/Views/YourSobha/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWW91clNvYmhhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/source/repos/Sobha Application/Sobha Application/Views/_ViewImports.cshtml]
+[C:/Users/Devuser-01/Desktop/Sobha_group_Proj/Sobha Application/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/source/repos/Sobha Application/Sobha Application/Views/_ViewStart.cshtml]
+[C:/Users/Devuser-01/Desktop/Sobha_group_Proj/Sobha Application/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DELL/source/repos/Sobha Application/Sobha Application/Views/Shared/_Layout.cshtml]
+[C:/Users/Devuser-01/Desktop/Sobha_group_Proj/Sobha Application/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-herz4w6hve
