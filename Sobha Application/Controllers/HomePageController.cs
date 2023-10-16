@@ -245,6 +245,13 @@ namespace Sobha_Application.Controllers
                     CCACrypto cc = new CCACrypto();
                     string encUser = cc.Encrypt(useremailID, "www.sobha.com");
                     orgSpotlightListView.PITHelpDesk = _configuration["QuickLinkURL:P&IT Help Desk"] + encUser;
+                    //Admin HelpDesk
+                orgSpotlightListView.AdministrationHelpDesk = _configuration["QuickLinkURL:Administration Help Desk"] + encUser;
+            //IdeaSpace
+            orgSpotlightListView.IdeaSpaceApplication = _configuration["QuickLinkURL:Idea Space Application"] + encUser;
+                //Internal Audit
+            orgSpotlightListView.AuditManagementSystem = _configuration["QuickLinkURL:Audit Management System"] + encUser;
+                    
 
                     ///// API for fetch site content///
                     var SiteDataEndPoint = _configuration["SharePointOnline:SiteDataEndPoint"];
