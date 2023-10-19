@@ -135,57 +135,57 @@ namespace Sobha_Application.Controllers
                     orgSpotlightListView.SobhaTechnologyManual = _configuration["QuickLinkURL:Sobha Technology Manual"];
                     orgSpotlightListView.DepartmentPolicies = _configuration["QuickLinkURL:Department Policies"] + useremailID;
 
-
+                    var request = new HttpRequestMessage(HttpMethod.Get, "https://sobha.com");
                     ///////Punch In - Punch Out///////////////////////
 
                     //useremailID = "armugam.karanam@sobha.com";
 
                     //var PunchInPunchOutURL = _configuration["PunchInPunchOut:URL"] + "?email=" + useremailID + "&fromDate=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd") + "&toDate=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd");
-                    
+                    /*
                  var PunchInPunchOutURL = _configuration["PunchInPunchOut:URL"] + "?email=" + useremailID + "&fromDate=" + DateTime.Now.ToString("yyyy-MM-dd") + "&toDate=" + DateTime.Now.ToString("yyyy-MM-dd");
 
-                 var request = new HttpRequestMessage(HttpMethod.Get, PunchInPunchOutURL);
+                 var  request = new HttpRequestMessage(HttpMethod.Get, PunchInPunchOutURL);
                     
-                 string svcCredentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes("SobhaAPI" + ":" + "Sdl23@D365"));
+                string svcCredentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes("SobhaAPI" + ":" + "Sdl23@D365"));
 
-                 request.Headers.Add("Authorization", "Basic " + svcCredentials);
+                request.Headers.Add("Authorization", "Basic " + svcCredentials);
 
-                 var responsepunch = await httpClient.SendAsync(request);
-                 if (responsepunch.IsSuccessStatusCode)
-                 {
-                     var PunchInPunchOutResponse = await responsepunch.Content.ReadAsStringAsync();
-                     JsonNode data = JsonNode.Parse(PunchInPunchOutResponse);
+                var responsepunch = await httpClient.SendAsync(request);
+                if (responsepunch.IsSuccessStatusCode)
+                {
+                    var PunchInPunchOutResponse = await responsepunch.Content.ReadAsStringAsync();
+                    JsonNode data = JsonNode.Parse(PunchInPunchOutResponse);
 
-                     if (data.ToJsonString() != "[]")
-                     {
-                         string punchIntime = data[0]["inTime"].ToString();
-                         TimeSpan NineOclock = TimeSpan.Parse("09:00");
-                         TimeSpan Eightfifteen = TimeSpan.Parse("08:15");
-                         TimeSpan PunchIN = TimeSpan.Parse(punchIntime);
-                         TimeSpan PunchOUT = TimeSpan.Parse(punchIntime);
-                         string AMPM = "";
-                         if (PunchIN <= NineOclock)
-                         {
-                             PunchOUT = PunchOUT.Add(TimeSpan.Parse("08:45"));
-                             AMPM = PunchOUT > TimeSpan.Parse("12:00") ? "PM" : "AM";
-                             orgSpotlightListView.PunchOut = PunchIN < Eightfifteen ? "17:00 PM" : PunchOUT.ToString().Substring(0, PunchOUT.ToString().Length - 3) + " " + AMPM;
+                    if (data.ToJsonString() != "[]")
+                    {
+                        string punchIntime = data[0]["inTime"].ToString();
+                        TimeSpan NineOclock = TimeSpan.Parse("09:00");
+                        TimeSpan Eightfifteen = TimeSpan.Parse("08:15");
+                        TimeSpan PunchIN = TimeSpan.Parse(punchIntime);
+                        TimeSpan PunchOUT = TimeSpan.Parse(punchIntime);
+                        string AMPM = "";
+                        if (PunchIN <= NineOclock)
+                        {
+                            PunchOUT = PunchOUT.Add(TimeSpan.Parse("08:45"));
+                            AMPM = PunchOUT > TimeSpan.Parse("12:00") ? "PM" : "AM";
+                            orgSpotlightListView.PunchOut = PunchIN < Eightfifteen ? "17:00 PM" : PunchOUT.ToString().Substring(0, PunchOUT.ToString().Length - 3) + " " + AMPM;
 
-                         }
-                         else
-                         {
-                             orgSpotlightListView.PunchOut = "17:00 PM";
-                         }
-                         AMPM = PunchIN < TimeSpan.Parse("12:00") ? "AM" : "PM";
+                        }
+                        else
+                        {
+                            orgSpotlightListView.PunchOut = "17:00 PM";
+                        }
+                        AMPM = PunchIN < TimeSpan.Parse("12:00") ? "AM" : "PM";
 
-                         orgSpotlightListView.PunchIn = PunchIN.ToString().Substring(0, PunchIN.ToString().Length - 3) + " " + AMPM;
+                        orgSpotlightListView.PunchIn = PunchIN.ToString().Substring(0, PunchIN.ToString().Length - 3) + " " + AMPM;
 
-                     }
+                    }
 
-                 }
-                 /*
-                 ///////////////////Birthday//////////////////////////
+                }
+                */
+                    ///////////////////Birthday//////////////////////////
 
-                 var BirthdayAnniversaryURL = _configuration["BirthdayAnniversary:Birthday"] + "?date=" + DateTime.Now.ToString("yyyy-MM-dd");
+                    var BirthdayAnniversaryURL = _configuration["BirthdayAnniversary:Birthday"] + "?date=" + DateTime.Now.ToString("yyyy-MM-dd");
 
                  var requestBirthday = new HttpRequestMessage(HttpMethod.Get, BirthdayAnniversaryURL);
 
@@ -251,7 +251,7 @@ namespace Sobha_Application.Controllers
             orgSpotlightListView.IdeaSpaceApplication = _configuration["QuickLinkURL:Idea Space Application"] + encUser;
                 //Internal Audit
             orgSpotlightListView.AuditManagementSystem = _configuration["QuickLinkURL:Audit Management System"] + encUser;
-                  */
+                  
 
                     ///// API for fetch site content///
                     var SiteDataEndPoint = _configuration["SharePointOnline:SiteDataEndPoint"];
