@@ -145,7 +145,7 @@ namespace Sobha_Application.Controllers
                  var PunchInPunchOutURL = _configuration["PunchInPunchOut:URL"] + "?email=" + useremailID + "&fromDate=" + DateTime.Now.ToString("yyyy-MM-dd") + "&toDate=" + DateTime.Now.ToString("yyyy-MM-dd");
 
                  var request = new HttpRequestMessage(HttpMethod.Get, PunchInPunchOutURL);
-                    /*
+                    
                  string svcCredentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes("SobhaAPI" + ":" + "Sdl23@D365"));
 
                  request.Headers.Add("Authorization", "Basic " + svcCredentials);
@@ -182,7 +182,7 @@ namespace Sobha_Application.Controllers
                      }
 
                  }
-
+                 /*
                  ///////////////////Birthday//////////////////////////
 
                  var BirthdayAnniversaryURL = _configuration["BirthdayAnniversary:Birthday"] + "?date=" + DateTime.Now.ToString("yyyy-MM-dd");
