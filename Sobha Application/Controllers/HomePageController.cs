@@ -141,7 +141,7 @@ namespace Sobha_Application.Controllers
                     /*
                     //useremailID = "armugam.karanam@sobha.com";
 
-                    //var PunchInPunchOutURL = _configuration["PunchInPunchOut:URL"] + "?email=" + useremailID + "&fromDate=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd") + "&toDate=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd");
+                  //  //var PunchInPunchOutURL = _configuration["PunchInPunchOut:URL"] + "?email=" + useremailID + "&fromDate=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd") + "&toDate=" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd");
 
                     //var PunchInPunchOutURL = _configuration["PunchInPunchOut:URL"] + "?email=" + useremailID + "&fromDate=" + DateTime.Now.ToString("yyyy-MM-dd") + "&toDate=" + DateTime.Now.ToString("yyyy-MM-dd");
 
@@ -214,32 +214,37 @@ namespace Sobha_Application.Controllers
                     */
                     ///////////////////Anniversary//////////////////////////
 
-                    var AnniversaryURL = _configuration["BirthdayAnniversary:Anniversary"] + "?date=" + DateTime.Now.ToString("yyyy-MM-dd");
+                    try
+                    {
+                        var AnniversaryURL = _configuration["BirthdayAnniversary:Anniversary"] + "?date=" + DateTime.Now.ToString("yyyy-MM-dd");
 
-var requestAnniversary = new HttpRequestMessage(HttpMethod.Get, AnniversaryURL);
+                        var requestAnniversary = new HttpRequestMessage(HttpMethod.Get, AnniversaryURL);
 
-var CredentialsAnniversary = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes("SobhaAPI" + ":" + "Sdl23@D365"));
+                        var CredentialsAnniversary = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes("SobhaAPI" + ":" + "Sdl23@D365"));
 
-requestAnniversary.Headers.Add("Authorization", "Basic " + CredentialsAnniversary);
-var responseanniversary = await httpClient.SendAsync(requestAnniversary);
-if (responseanniversary.IsSuccessStatusCode)
-{
- var birthdayanniversaryResponse = await responseanniversary.Content.ReadAsStringAsync();
- JsonNode data = JsonNode.Parse(birthdayanniversaryResponse);
+                        requestAnniversary.Headers.Add("Authorization", "Basic " + CredentialsAnniversary);
+                        var responseanniversary = await httpClient.SendAsync(requestAnniversary);
+                        if (responseanniversary.IsSuccessStatusCode)
+                        {
+                            var birthdayanniversaryResponse = await responseanniversary.Content.ReadAsStringAsync();
+                            JsonNode data = JsonNode.Parse(birthdayanniversaryResponse);
 
- if (data.ToJsonString() != "[]")
- {
-     var jsonData = JsonConvert.DeserializeObject<dynamic>(data.ToString());
-     orgSpotlightListView.Anniversary = new List<KeyValuePair<string, string>>();
-     foreach (var datajson in jsonData)
-     {
-         string empname = datajson.empName;
-         string years = datajson.years;
-         orgSpotlightListView.Anniversary.Add(new KeyValuePair<string, string>(empname, years));
+                            if (data.ToJsonString() != "[]")
+                            {
+                                var jsonData = JsonConvert.DeserializeObject<dynamic>(data.ToString());
+                                orgSpotlightListView.Anniversary = new List<KeyValuePair<string, string>>();
+                                foreach (var datajson in jsonData)
+                                {
+                                    string empname = datajson.empName;
+                                    string years = datajson.years;
+                                    orgSpotlightListView.Anniversary.Add(new KeyValuePair<string, string>(empname, years));
 
-     }
- }
-}
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    { }
 
 ///////P&IT HelpDesk Without login///////////////// 
 
