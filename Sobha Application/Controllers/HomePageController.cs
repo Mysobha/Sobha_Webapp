@@ -187,7 +187,7 @@ namespace Sobha_Application.Controllers
                     }
                     catch (Exception ex)
                     {
-                        orgSpotlightListView.PunchIn=ex.Message.ToString();
+                        //orgSpotlightListView.PunchIn=ex.Message.ToString();
                     }
                     ///////////////////Birthday//////////////////////////
                     try
