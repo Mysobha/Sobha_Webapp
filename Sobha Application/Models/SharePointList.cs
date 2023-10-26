@@ -37,6 +37,7 @@ namespace Sobha_Application.Models
         public string QualitySafetyTechnologyHomePage { get; set; }
         public string SafetyReportingApplication { get; set; }
         public string SobhaTechnologyManual { get; set; }
+        public string Payslips { get; set; }
         public string DepartmentPolicies { get; set; }
         public string PITHelpDesk { get; set; }
         public string PunchIn { get;set; }
