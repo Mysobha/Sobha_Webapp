@@ -135,6 +135,10 @@ namespace Sobha_Application.Controllers
                     orgSpotlightListView.SobhaTechnologyManual = _configuration["QuickLinkURL:Sobha Technology Manual"];
                     orgSpotlightListView.DepartmentPolicies = _configuration["QuickLinkURL:Department Policies"] + useremailID;
 
+                    ///Aru -> Payslips
+                    string enUserforPayslips = getUserforJavaDecryption(useremailID);
+
+                    orgSpotlightListView.Payslips = _configuration["QuickLinkURL:Payslips"] + enUserforPayslips+"&type=payslips";
 
 
                     ///////Punch In - Punch Out///////////////////////
@@ -602,5 +606,25 @@ public IActionResult Error()
 {
 return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 }
-}
+        private string getUserforJavaDecryption(string useremailID)
+        {
+            string encryUser = "";
+            try
+            {
+
+                for (int i = 0; i < useremailID.Length; i++)
+                {
+                    encryUser += (char)(useremailID[i] + 1);
+                }
+                return encryUser;
+            }
+
+            catch (Exception ex)
+            {
+                string strex = ex.Message.ToString();
+            }
+
+            return encryUser;
+        }
+        }
 }
