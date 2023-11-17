@@ -204,7 +204,11 @@ section {
     margin-left: 15px;
     margin-top: 25px;
 }
-
+.trainingvideo {
+    border-radius: 2px;
+    margin-left: 30px;
+    margin-top: 36px;
+}
 .voice {
     margin-left: 15px;
     margin-top: 5px;
@@ -653,7 +657,7 @@ section {
 
     .set_block4_right_birthSec h5 {
         font-size: 16px;
-        margin-bottom:-17px;
+        margin-bottom: -17px;
     }
 
 .block2_right text {
@@ -920,7 +924,6 @@ section {
     .block2_right_container {
         width: 62%;
     }
-
 }
 
 @media only screen and (width >= 600px) {
@@ -928,8 +931,7 @@ section {
 
         overflow-y:auto;
     }*/
-    .block2_right_container 
-    {
+    .block2_right_container {
         width: 31%;
         overflow-x: auto;
     }
