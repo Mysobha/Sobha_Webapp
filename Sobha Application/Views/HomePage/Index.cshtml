@@ -199,13 +199,20 @@
                 <label class="textdmy">@DateTime.Now.ToString("dd MMMM, yyyy")  |  @DateTime.Now.DayOfWeek</label>
 
                 <div class="announcecontainer">
-                    <div class="announcebox">
+                   @* <div class="announcebox">
                         <img class="voice" src="./Navigation Icons/Picture11.png">
-                    </div>
+                    </div>*@
+                    <div class="trainingvideo">
+                        <a href="https://www.youtube.com/channel/UCuts0fQkW6yqXE_Yr5JFepg" target="_blank" class="scroll">
+                            <div class="video_btn" style="background-color: #ffff00;  font-size: 15px;">ESS Training Video</div>
+                        </a>
 
+                    </div>
                     @* <img src="~/images/icon/avatar-icon.png" />*@
                     <img class="notify" src="Navigation Icons/Picture10.png">
-                    <img class="mail" src="Navigation Icons/Picture9.png">
+                    <img class="mail" src="Navigation Icons/Picture9.png"> 
+
+                    
                     <label class="textinout">Punch in : @Model.PunchIn | Punch out : @Model.PunchOut</label>
                     @{
                         if (String.IsNullOrEmpty(Model.UserPhoto))
