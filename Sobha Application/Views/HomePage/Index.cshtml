@@ -14,7 +14,7 @@
         color: black !important;
         text-decoration: none !important;
     }
-
+    
     .tooltip {
         position: relative;
         display: inline-block;
@@ -31,8 +31,9 @@
             padding: 5px 0;
             font-size: 12px;
             /* Position the tooltip */
-            position: absolute;
+            position:absolute;
             z-index: 1;
+            
             margin-left: -1px;
         }
 
@@ -40,6 +41,11 @@
             visibility: visible;
         }
 
+    .tooltiptext-bottom {
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -110%);
+    }
     .asideothertitle {
         font-size: large;
         font-weight: bold;
@@ -159,19 +165,26 @@
     <div class="container">
         <div class="iconbox">
             <div class="tooltip">
-                <img class="home" id="hambergericon" src="Navigation Icons/Hamburger Menu.png">
-                <span class="tooltiptext">Please Click To Expand Or Collapse</span>
-            </div>
-            <img class="app" src="./Navigation Icons/Home Button.png">
+                <img class="home" id="hambergericon" src="Navigation Icons/Hamburger Menu.png" title="Expand Or Collapse">
+                @*  <span class="tooltiptext">Please Click To Expand Or Collapse</span> *@
+         
+            <img class="app" src="./Navigation Icons/Home Button.png" title="Home">
             <a href="/SpotLight">
-                <img class="profile" src="./Navigation Icons/Spotlight.png">
+                <img class="profile" src="./Navigation Icons/Spotlight.png" title="SpotLight">
+         
             </a>
             <a href="/YourSobha">
-                <img class="brief" src="./Navigation Icons/Your Sobha.png">
+                <img class="brief" src="./Navigation Icons/Your Sobha.png" title="Your Sobha">
             </a>
             <a href="/OrgUpdate">
-                <img class="brief" style="margin: 25px 18px;" src="Navigation Icons/Org Update.png">
+                <img class="brief"  src="Navigation Icons/Org Update.png" title="Organization Updates">
             </a>
+ 
+                <a asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">
+                    <img class="brief"  src="Navigation Icons/Logout.png" alt="Sign Out" title="Logout" >
+                </a>
+
+        </div>
         </div>
     </div>
     <div class="container remove" id="about">
