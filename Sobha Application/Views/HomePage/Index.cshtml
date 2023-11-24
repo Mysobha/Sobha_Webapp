@@ -180,10 +180,10 @@
                 <img class="brief"  src="Navigation Icons/Org Update.png" title="Organization Updates">
             </a>
  
-                <a asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">
+                <a asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut" >
                     <img class="brief"  src="Navigation Icons/Logout.png" alt="Sign Out" title="Logout" >
                 </a>
-
+            
         </div>
         </div>
     </div>
@@ -219,11 +219,19 @@
                         <a href="https://www.youtube.com/channel/UCuts0fQkW6yqXE_Yr5JFepg" target="_blank" class="scroll">
                             <div class="video_btn" style="background-color: #ffff00;  font-size: 15px;">ESS Training Video</div>
                         </a>
-
+                     
                     </div>
-                    @* <img src="~/images/icon/avatar-icon.png" />*@
-                    <img class="notify" src="Navigation Icons/Picture10.png">
-                    <img class="mail" src="Navigation Icons/Picture9.png"> 
+                    @* <img src="~/images/icon/avatar-icon.png" /*@
+                    
+                    <div class="trainingvideohelp">
+                        <a href="https://customers.sobha.com/images/ESSvideos.zip" target="_blank" class="scroll">
+                            <img class="voice" src="./Navigation Icons/Download 24x24.png" title="Download ESS Videos">
+                          </a>
+
+                    </div>>
+
+                    @* <img class="notify" src="Navigation Icons/Picture10.png">
+                    <img class="mail" src="Navigation Icons/Picture9.png"> /*@
 
                     
                     <label class="textinout">Punch in : @Model.PunchIn | Punch out : @Model.PunchOut</label>
