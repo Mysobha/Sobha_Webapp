@@ -136,10 +136,12 @@ namespace Sobha_Application.Controllers
                     orgSpotlightListView.DepartmentPolicies = _configuration["QuickLinkURL:Department Policies"] + useremailID;
 
                     ///Aru -> Payslips
+                    ///
+             
                     string enUserforPayslips = getUserforJavaDecryption(useremailID);
 
                     orgSpotlightListView.Payslips = _configuration["QuickLinkURL:Payslips"] + enUserforPayslips+"&type=payslips";
-
+                    orgSpotlightListView.investment = _configuration["QuickLinkURL:Payslips"] + enUserforPayslips + "&type=investment";
 
                     ///////Punch In - Punch Out///////////////////////
 
