@@ -218,7 +218,7 @@ namespace Sobha_Application.Controllers
                                 orgSpotlightListView.Birthday = new List<dynamic>();
                                 foreach (var datajson in jsonData)
                                 {
-                                    orgSpotlightListView.Birthday.Add(datajson.empName);
+                                    orgSpotlightListView.Birthday.Add(datajson.empCode+","+datajson.empName+"," + datajson.design+ "," + datajson.deptname+ "," + datajson.emoffemid);
 
                                 }
                             }
@@ -246,14 +246,16 @@ try
         if (data.ToJsonString() != "[]")
         {
             var jsonData = JsonConvert.DeserializeObject<dynamic>(data.ToString());
-            orgSpotlightListView.Anniversary = new List<KeyValuePair<string, string>>();
-            foreach (var datajson in jsonData)
-            {
-                string empname = datajson.empName;
-                string years = datajson.years;
-                orgSpotlightListView.Anniversary.Add(new KeyValuePair<string, string>(empname, years));
+           // orgSpotlightListView.Anniversary = new List<KeyValuePair<string, string>>();
+            orgSpotlightListView.Anniversary = new List<dynamic>();
+                                foreach (var datajson in jsonData)
+                                {
+                                    string empname = datajson.empName;
+                                    string years = datajson.years;
+                                    // orgSpotlightListView.Anniversary.Add(new KeyValuePair<string, string>(empname, years));
+                                    orgSpotlightListView.Anniversary.Add(datajson.empName + "," + datajson.years + "," + datajson.design + "," + datajson.deptname + "," + datajson.emoffemid);
 
-            }
+                                }
         }
     }
 }
