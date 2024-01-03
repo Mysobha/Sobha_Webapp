@@ -39,6 +39,7 @@ namespace Sobha_Application.Models
         public string SobhaTechnologyManual { get; set; }
         public string Payslips { get; set; }
         public string investment { get; set; }
+        public string investmentActual { get; set; }
         public string DepartmentPolicies { get; set; }
         public string PITHelpDesk { get; set; }
         public string PunchIn { get;set; }
