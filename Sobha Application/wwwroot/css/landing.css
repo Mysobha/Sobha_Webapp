@@ -620,7 +620,7 @@ section {
 
 .sb6_2nd {
     display: flex;
-    justify-content: space-between;
+    align-items:flex-start;
 }
 
 .sb6_2nd_item {
