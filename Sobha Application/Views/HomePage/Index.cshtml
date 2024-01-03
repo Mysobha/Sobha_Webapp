@@ -629,11 +629,17 @@
                     {
                         foreach (var item in Model.Birthday)
                         {
+                            string[] birthday = new string[4];
+                            birthday = item.ToString().Split(",");
                             <div class="block2_right_inner_container set_block4_right_birthSec">
                                 <img class="block2_org_img set_img" src="/images/icon/avatar-icon.png" />
                                 <div>
-                                    <h4> Today Birthday  </h4>
-                                    <h5>@(item == "" ? "" : item.ToString().Trim().Replace(".", ""))</h5>
+                                    <h5> <b>Today Birthday</b>  </h5>
+                                    @*     <!--  <h5>@(item == "" ? "" : item.ToString().Trim().Replace(".", ""))</h5>*@
+                                    <h5>@(birthday[1])</h5>
+                                    <h5>@(birthday[2])</h5>
+                                    <h5>@(birthday[3])</h5>
+                                    <h5><a href="mailto:">@(birthday[4])</a></h5>
                                 </div>
                             </div>
                         }
@@ -643,12 +649,20 @@
                     {
                         foreach (var item in Model.Anniversary)
                         {
+                            string[] veterans = new string[5];
+                            veterans = item.ToString().Split(",");
                             <div class="block2_right_inner_container set_block4_right_birthSec">
                                 <img class="block2_org_img set_img" src="/images/icon/avatar-icon.png" />
                                 <div>
-                                    <h4> Today Anniversary  </h4>
-                                    <h5>@(string.IsNullOrEmpty(item.Key) ? "" : item.Key.ToString().Trim().Replace(".", ""))</h5>
-                                    <h5>@(string.IsNullOrEmpty(item.Value) ? "" : item.Value + " " + "Years") </h5>
+                                    <h5><b> Today Anniversary </b> </h5>
+                            @* <h5>@(string.IsNullOrEmpty(item.Key) ? "" : item.Key.ToString().Trim().Replace(".", ""))</h5> 
+                               <h5>@(string.IsNullOrEmpty(item.Value) ? "" : item.Value + " " + "Years") </h5>*@
+                                    <h5>@(veterans[0])</h5>
+                                    <h5>@(veterans[1]) Years</h5>
+                                    <h5>@(veterans[2])</h5>
+                                    <h5>@(veterans[3])</h5>
+                                    <h5><a href="mailto:">@(veterans[4])</a></h5>
+
                                 </div>
                             </div>
                         }
