@@ -22,6 +22,7 @@ using CCA.Util;
 using Microsoft.AspNetCore.Http;
 using System.Text;
 using System;
+using System.Net;
 
 namespace Sobha_Application.Controllers
 {
@@ -66,6 +67,15 @@ namespace Sobha_Application.Controllers
                 string useremailID = HttpContext.User.Claims.ToList()[4].Value;
                 string tenantID = HttpContext.User.Claims.ToList()[7].Value;
                 username = HttpContext.User.Claims.ToList()[2].Value;
+                string strCodeofconduct= doAPICall(1);
+                if(strCodeofconduct.Contains("201"))
+                {
+                    orgSpotlightListView.codeofconduct = "T";
+                }
+                else
+                {
+                    orgSpotlightListView.codeofconduct = "F";
+                }
                 bool isValid = Guid.TryParse(tenantID, out guidResult);
                 if (isValid == false)
                 {
@@ -137,10 +147,10 @@ namespace Sobha_Application.Controllers
 
                     ///Aru -> Payslips
                     ///
-             
+
                     string enUserforPayslips = getUserforJavaDecryption(useremailID);
 
-                    orgSpotlightListView.Payslips = _configuration["QuickLinkURL:Payslips"] + enUserforPayslips+"&type=payslips";
+                    orgSpotlightListView.Payslips = _configuration["QuickLinkURL:Payslips"] + enUserforPayslips + "&type=payslips";
                     orgSpotlightListView.investment = _configuration["QuickLinkURL:Payslips"] + enUserforPayslips + "&type=plannedinvestment";
                     orgSpotlightListView.investmentActual = _configuration["QuickLinkURL:Payslips"] + enUserforPayslips + "&type=actualinvestment";
                     ///////Punch In - Punch Out///////////////////////
@@ -152,7 +162,7 @@ namespace Sobha_Application.Controllers
                     {
                         var PunchInPunchOutURL = _configuration["PunchInPunchOut:URL"] + "?email=" + useremailID + "&fromDate=" + DateTime.Now.ToString("yyyy-MM-dd") + "&toDate=" + DateTime.Now.ToString("yyyy-MM-dd");
 
-                       var  requestatt = new HttpRequestMessage(HttpMethod.Get, PunchInPunchOutURL);
+                        var requestatt = new HttpRequestMessage(HttpMethod.Get, PunchInPunchOutURL);
 
                         string svcCredentials = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes("SobhaAPI" + ":" + "Sdl23@D365"));
 
@@ -218,7 +228,7 @@ namespace Sobha_Application.Controllers
                                 orgSpotlightListView.Birthday = new List<dynamic>();
                                 foreach (var datajson in jsonData)
                                 {
-                                    orgSpotlightListView.Birthday.Add(datajson.empCode+","+datajson.empName+"," + datajson.design+ "," + datajson.deptname+ "," + datajson.emoffemid);
+                                    orgSpotlightListView.Birthday.Add(datajson.empCode + "," + datajson.empName + "," + datajson.design + "," + datajson.deptname + "," + datajson.emoffemid);
 
                                 }
                             }
@@ -226,28 +236,28 @@ namespace Sobha_Application.Controllers
                     }
                     catch (Exception ex)
                     { }
-///////////////////Anniversary//////////////////////////
+                    ///////////////////Anniversary//////////////////////////
 
-try
-{
-    var AnniversaryURL = _configuration["BirthdayAnniversary:Anniversary"] + "?date=" + DateTime.Now.ToString("yyyy-MM-dd");
+                    try
+                    {
+                        var AnniversaryURL = _configuration["BirthdayAnniversary:Anniversary"] + "?date=" + DateTime.Now.ToString("yyyy-MM-dd");
 
-    var requestAnniversary = new HttpRequestMessage(HttpMethod.Get, AnniversaryURL);
+                        var requestAnniversary = new HttpRequestMessage(HttpMethod.Get, AnniversaryURL);
 
-    var CredentialsAnniversary = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes("SobhaAPI" + ":" + "Sdl23@D365"));
+                        var CredentialsAnniversary = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes("SobhaAPI" + ":" + "Sdl23@D365"));
 
-    requestAnniversary.Headers.Add("Authorization", "Basic " + CredentialsAnniversary);
-    var responseanniversary = await httpClient.SendAsync(requestAnniversary);
-    if (responseanniversary.IsSuccessStatusCode)
-    {
-        var birthdayanniversaryResponse = await responseanniversary.Content.ReadAsStringAsync();
-        JsonNode data = JsonNode.Parse(birthdayanniversaryResponse);
+                        requestAnniversary.Headers.Add("Authorization", "Basic " + CredentialsAnniversary);
+                        var responseanniversary = await httpClient.SendAsync(requestAnniversary);
+                        if (responseanniversary.IsSuccessStatusCode)
+                        {
+                            var birthdayanniversaryResponse = await responseanniversary.Content.ReadAsStringAsync();
+                            JsonNode data = JsonNode.Parse(birthdayanniversaryResponse);
 
-        if (data.ToJsonString() != "[]")
-        {
-            var jsonData = JsonConvert.DeserializeObject<dynamic>(data.ToString());
-           // orgSpotlightListView.Anniversary = new List<KeyValuePair<string, string>>();
-            orgSpotlightListView.Anniversary = new List<dynamic>();
+                            if (data.ToJsonString() != "[]")
+                            {
+                                var jsonData = JsonConvert.DeserializeObject<dynamic>(data.ToString());
+                                // orgSpotlightListView.Anniversary = new List<KeyValuePair<string, string>>();
+                                orgSpotlightListView.Anniversary = new List<dynamic>();
                                 foreach (var datajson in jsonData)
                                 {
                                     string empname = datajson.empName;
@@ -256,360 +266,395 @@ try
                                     orgSpotlightListView.Anniversary.Add(datajson.empName + "," + datajson.years + "," + datajson.design + "," + datajson.deptname + "," + datajson.emoffemid);
 
                                 }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    { }
+
+                    ///////P&IT HelpDesk Without login///////////////// 
+
+                    CCACrypto cc = new CCACrypto();
+                    string encUser = cc.Encrypt(useremailID, "www.sobha.com");
+                    orgSpotlightListView.PITHelpDesk = _configuration["QuickLinkURL:P&IT Help Desk"] + encUser;
+                    //Admin HelpDesk
+                    orgSpotlightListView.AdministrationHelpDesk = _configuration["QuickLinkURL:Administration Help Desk"] + encUser;
+                    //IdeaSpace
+                    orgSpotlightListView.IdeaSpaceApplication = _configuration["QuickLinkURL:Idea Space Application"] + encUser;
+                    //Internal Audit
+                    orgSpotlightListView.AuditManagementSystem = _configuration["QuickLinkURL:Audit Management System"] + encUser;
+
+
+                    ///// API for fetch site content///
+                    var SiteDataEndPoint = _configuration["SharePointOnline:SiteDataEndPoint"];
+
+                    response = await httpClient.GetAsync(SiteDataEndPoint);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var siteData = response.Content.ReadAsStringAsync().Result;
+                        var sharepointSite = JsonConvert.DeserializeObject<SharePointSite>(siteData);
+
+                        var ListsEndPoint = _configuration["SharePointOnline:ListsEndPoint"];
+                        ListsEndPoint = string.Format(ListsEndPoint, (sharepointSite == null ? "SOBHAID" : sharepointSite.id));
+                        response = await httpClient.GetAsync(ListsEndPoint);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var listData = response.Content.ReadAsStringAsync().Result;
+                            var sharePointList = JsonConvert.DeserializeObject<SharePointList>(listData);
+
+                            //SpotLight List ID and Details
+                            var listid = sharePointList == null ? "" : sharePointList.value.FirstOrDefault(obj => obj.displayName == "Spotlight").id;
+
+                            var ListDataEndPoint = _configuration["SharePointOnline:ListDataByFilter"];
+                            ListDataEndPoint = string.Format(ListDataEndPoint, sharepointSite.id, (listid == "" ? "SOBHAID" : listid));
+
+                            response = await httpClient.GetAsync(ListDataEndPoint);
+
+                            if (response.IsSuccessStatusCode)
+                            {
+                                var ListData = response.Content.ReadAsStringAsync().Result;
+                                Spotlightlist = JsonConvert.DeserializeObject<SharePointList>(ListData);
+                            }
+
+
+                            //Org Update List ID and Details
+
+                            listid = sharePointList == null ? "" : sharePointList.value.FirstOrDefault(obj => obj.displayName == "Org Update").id;
+
+                            ListDataEndPoint = _configuration["SharePointOnline:ListDataByFilter"];
+
+                            ListDataEndPoint = string.Format(ListDataEndPoint, sharepointSite.id, (listid == "" ? "SOBHAID" : listid));
+
+                            response = await httpClient.GetAsync(ListDataEndPoint);
+
+                            if (response.IsSuccessStatusCode)
+                            {
+                                var ListData = response.Content.ReadAsStringAsync().Result;
+                                OrgUpdatelist = JsonConvert.DeserializeObject<SharePointList>(ListData);
+                            }
+                            orgSpotlightListView.SpotLightsLists = new List<SharePointList>();
+                            orgSpotlightListView.OrgUpdateLists = new List<SharePointList>();
+
+
+                            orgSpotlightListView.SpotLightsLists.Add(Spotlightlist);
+                            orgSpotlightListView.OrgUpdateLists.Add(OrgUpdatelist);
+                        }
+
+                    }
+                    ///API call for SharePoint tokn for asset library images///
+
+                    dynamic result = "";
+                    string AccessToken = "";
+                    string fileextension = "";
+                    var request = new HttpRequestMessage(HttpMethod.Post, SharepointlibraryTokenEndpoint);
+                    var collection = new List<KeyValuePair<string, string>>();
+                    collection.Add(new("grant_type", "client_credentials"));
+                    collection.Add(new("client_id", SharepointlibraryclientID));
+                    collection.Add(new("client_secret", SharepointlibraryclientSecret));
+                    collection.Add(new("resource", SharepointlibraryResource));
+                    var content = new FormUrlEncodedContent(collection);
+                    request.Content = content;
+                    response = await httpClient.SendAsync(request);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var stringifiedResponse = await response.Content.ReadAsStringAsync();
+                        result = JObject.Parse(stringifiedResponse);
+                        AccessToken = result.access_token;
+
+                        var webUrl = _configuration["SharePointLibrary:WebUrl"];
+
+                        using (var client = new HttpClient())
+                        {
+                            foreach (var item in orgSpotlightListView.SpotLightsLists)
+                            {
+
+                                if (item.value.Count > 0)
+                                {
+                                    var Topthreespotlight = item.value.OrderByDescending(a => a.createdDateTime).Take(3);
+
+                                    foreach (var itemval in Topthreespotlight)
+                                    {
+                                        bool status = false;
+
+                                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
+                                        client.DefaultRequestHeaders.Add("Accept", "application/json;odata=verbose");
+                                        //client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json;odata=verbose");
+                                        if (!string.IsNullOrEmpty(itemval.fields.Image))
+                                        {
+                                            dynamic Image = JObject.Parse(itemval.fields.Image);
+                                            var fileUrl = Image.serverRelativeUrl;
+                                            fileextension = Image.fileName;
+                                            var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                            request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                            response = await client.SendAsync(request);
+                                            if (response.IsSuccessStatusCode)
+                                            {
+                                                byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                var base64 = Convert.ToBase64String(siteImageData);
+                                                itemval.fields.ImageBase64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+                                                status = true;
+                                            }
+                                        }
+                                        if (!string.IsNullOrEmpty(itemval.fields.Image1) && status == false)
+                                        {
+                                            dynamic Image1 = JObject.Parse(itemval.fields.Image1);
+                                            var fileUrl = Image1.serverRelativeUrl;
+                                            fileextension = Image1.fileName;
+                                            var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                            request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                            response = await client.SendAsync(request);
+                                            if (response.IsSuccessStatusCode)
+                                            {
+                                                byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                var base64 = Convert.ToBase64String(siteImageData);
+                                                itemval.fields.Image1Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+                                                status = true;
+                                            }
+
+                                        }
+                                        if (!string.IsNullOrEmpty(itemval.fields.Image2) && status == false)
+                                        {
+                                            dynamic Image2 = JObject.Parse(itemval.fields.Image2);
+                                            var fileUrl = Image2.serverRelativeUrl;
+                                            fileextension = Image2.fileName;
+                                            var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                            request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                            response = await client.SendAsync(request);
+                                            if (response.IsSuccessStatusCode)
+                                            {
+                                                byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                var base64 = Convert.ToBase64String(siteImageData);
+                                                itemval.fields.Image2Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+                                                status = true;
+                                            }
+                                        }
+                                        if (!string.IsNullOrEmpty(itemval.fields.Image3) && status == false)
+                                        {
+                                            dynamic Image3 = JObject.Parse(itemval.fields.Image3);
+                                            var fileUrl = Image3.serverRelativeUrl;
+                                            fileextension = Image3.fileName;
+                                            var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                            request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                            response = await client.SendAsync(request);
+                                            if (response.IsSuccessStatusCode)
+                                            {
+                                                byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                var base64 = Convert.ToBase64String(siteImageData);
+                                                itemval.fields.Image3Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+                                                status = true;
+                                            }
+                                        }
+                                        if (!string.IsNullOrEmpty(itemval.fields.Image4) && status == false)
+                                        {
+                                            dynamic Image4 = JObject.Parse(itemval.fields.Image4);
+                                            var fileUrl = Image4.serverRelativeUrl;
+                                            fileextension = Image4.fileName;
+                                            var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                            request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                            response = await client.SendAsync(request);
+                                            if (response.IsSuccessStatusCode)
+                                            {
+                                                byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                var base64 = Convert.ToBase64String(siteImageData);
+                                                itemval.fields.Image4Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+                                                status = true;
+                                            }
+                                        }
+                                        if (!string.IsNullOrEmpty(itemval.fields.Image5) && status == false)
+                                        {
+                                            dynamic Image5 = JObject.Parse(itemval.fields.Image5);
+                                            var fileUrl = Image5.serverRelativeUrl;
+                                            fileextension = Image5.fileName;
+                                            var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                            request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                            response = await client.SendAsync(request);
+                                            if (response.IsSuccessStatusCode)
+                                            {
+                                                byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                var base64 = Convert.ToBase64String(siteImageData);
+                                                itemval.fields.Image5Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+                                                status = true;
+                                            }
+                                        }
+
+                                    }
+                                }
+                            }
+
+                            foreach (var item in orgSpotlightListView.OrgUpdateLists)
+                            {
+
+                                if (item.value.Count > 0)
+                                {
+                                    var Topthreeorgupdate = item.value.OrderByDescending(a => a.createdDateTime).Take(3);
+
+                                    foreach (var itemval in Topthreeorgupdate)
+                                    {
+                                        bool status = false;
+                                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
+                                        client.DefaultRequestHeaders.Add("Accept", "application/json;odata=verbose");
+
+                                        if (!string.IsNullOrEmpty(itemval.fields.Image))
+                                        {
+                                            dynamic Image = JObject.Parse(itemval.fields.Image);
+                                            var fileUrl = Image.serverRelativeUrl;
+                                            fileextension = Image.fileName;
+                                            var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                            request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                            response = await client.SendAsync(request);
+                                            if (response.IsSuccessStatusCode)
+                                            {
+                                                byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                var base64 = Convert.ToBase64String(siteImageData);
+                                                itemval.fields.ImageBase64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+                                                status = true;
+                                            }
+                                        }
+                                        if (!string.IsNullOrEmpty(itemval.fields.Image1) && status == false)
+                                        {
+                                            dynamic Image1 = JObject.Parse(itemval.fields.Image1);
+                                            var fileUrl = Image1.serverRelativeUrl;
+                                            fileextension = Image1.fileName;
+                                            var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                            request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                            response = await client.SendAsync(request);
+                                            if (response.IsSuccessStatusCode)
+                                            {
+                                                byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                var base64 = Convert.ToBase64String(siteImageData);
+                                                itemval.fields.Image1Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+                                                status = true;
+                                            }
+
+                                        }
+                                        if (!string.IsNullOrEmpty(itemval.fields.Image2) && status == false)
+                                        {
+                                            dynamic Image2 = JObject.Parse(itemval.fields.Image2);
+                                            var fileUrl = Image2.serverRelativeUrl;
+                                            fileextension = Image2.fileName;
+                                            var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                            request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                            response = await client.SendAsync(request);
+                                            if (response.IsSuccessStatusCode)
+                                            {
+                                                byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                var base64 = Convert.ToBase64String(siteImageData);
+                                                itemval.fields.Image2Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+                                                status = true;
+                                            }
+                                        }
+                                        if (!string.IsNullOrEmpty(itemval.fields.Image3) && status == false)
+                                        {
+                                            dynamic Image3 = JObject.Parse(itemval.fields.Image3);
+                                            var fileUrl = Image3.serverRelativeUrl;
+                                            fileextension = Image3.fileName;
+                                            var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                            request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                            response = await client.SendAsync(request);
+                                            if (response.IsSuccessStatusCode)
+                                            {
+                                                byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                var base64 = Convert.ToBase64String(siteImageData);
+                                                itemval.fields.Image3Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+                                                status = true;
+                                            }
+                                        }
+                                        if (!string.IsNullOrEmpty(itemval.fields.Image4) && status == false)
+                                        {
+                                            dynamic Image4 = JObject.Parse(itemval.fields.Image4);
+                                            var fileUrl = Image4.serverRelativeUrl;
+                                            fileextension = Image4.fileName;
+                                            var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                            request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                            response = await client.SendAsync(request);
+                                            if (response.IsSuccessStatusCode)
+                                            {
+                                                byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                var base64 = Convert.ToBase64String(siteImageData);
+                                                itemval.fields.Image4Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+                                                status = true;
+                                            }
+                                        }
+                                        if (!string.IsNullOrEmpty(itemval.fields.Image5) && status == false)
+                                        {
+                                            dynamic Image5 = JObject.Parse(itemval.fields.Image5);
+                                            var fileUrl = Image5.serverRelativeUrl;
+                                            fileextension = Image5.fileName;
+                                            var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
+                                            request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
+                                            response = await client.SendAsync(request);
+                                            if (response.IsSuccessStatusCode)
+                                            {
+                                                byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
+                                                var base64 = Convert.ToBase64String(siteImageData);
+                                                itemval.fields.Image5Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
+                                                status = true;
+                                            }
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+
+                return View(orgSpotlightListView);
+            }
+            return RedirectToAction("Index", "Account");
         }
-    }
-}
-catch (Exception ex)
-{ }
 
-///////P&IT HelpDesk Without login///////////////// 
-
-CCACrypto cc = new CCACrypto();
-string encUser = cc.Encrypt(useremailID, "www.sobha.com");
-orgSpotlightListView.PITHelpDesk = _configuration["QuickLinkURL:P&IT Help Desk"] + encUser;
-//Admin HelpDesk
-orgSpotlightListView.AdministrationHelpDesk = _configuration["QuickLinkURL:Administration Help Desk"] + encUser;
-//IdeaSpace
-orgSpotlightListView.IdeaSpaceApplication = _configuration["QuickLinkURL:Idea Space Application"] + encUser;
-//Internal Audit
-orgSpotlightListView.AuditManagementSystem = _configuration["QuickLinkURL:Audit Management System"] + encUser;
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+        public IActionResult codeofconduct()
+        {
+            return View("codeofconduct");
+        }
+        public IActionResult updateCode()
+        {
+            doAPICall(0);
 
 
-///// API for fetch site content///
-var SiteDataEndPoint = _configuration["SharePointOnline:SiteDataEndPoint"];
+            return RedirectToAction("Index", "HomePage");
 
-response = await httpClient.GetAsync(SiteDataEndPoint);
-if (response.IsSuccessStatusCode)
-{
-var siteData = response.Content.ReadAsStringAsync().Result;
-var sharepointSite = JsonConvert.DeserializeObject<SharePointSite>(siteData);
+        }
+        private string doAPICall(int i)
+        {
+            HttpRequestMessage request;
 
-var ListsEndPoint = _configuration["SharePointOnline:ListsEndPoint"];
-ListsEndPoint = string.Format(ListsEndPoint, (sharepointSite == null ? "SOBHAID" : sharepointSite.id));
-response = await httpClient.GetAsync(ListsEndPoint);
+            var client = new HttpClient();
+            string strCCUrl= _configuration["QuickLinkURL:codeofconduct"];
+            if (i == 0)
+            {
+                request = new HttpRequestMessage(HttpMethod.Post, strCCUrl + User.Identity.Name);
+            }
+            else
+            {
+                request = new HttpRequestMessage(HttpMethod.Get, strCCUrl + User.Identity.Name);
+            }
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)System.Security.Authentication.SslProtocols.Tls12;
 
-if (response.IsSuccessStatusCode)
-{
-var listData = response.Content.ReadAsStringAsync().Result;
-var sharePointList = JsonConvert.DeserializeObject<SharePointList>(listData);
+            request.Headers.Add("Authorization", "Basic U29iaGFBUEk6U2RsMjNARDM2NQ==");
+            var content = new StringContent("", null, "text/plain");
+            request.Content = content;
+            var response = client.Send(request);
+            return response.ToString();
+        }
 
-//SpotLight List ID and Details
-var listid = sharePointList == null ? "" : sharePointList.value.FirstOrDefault(obj => obj.displayName == "Spotlight").id;
-
-var ListDataEndPoint = _configuration["SharePointOnline:ListDataByFilter"];
-ListDataEndPoint = string.Format(ListDataEndPoint, sharepointSite.id, (listid == "" ? "SOBHAID" : listid));
-
-response = await httpClient.GetAsync(ListDataEndPoint);
-
-if (response.IsSuccessStatusCode)
-{
-var ListData = response.Content.ReadAsStringAsync().Result;
-Spotlightlist = JsonConvert.DeserializeObject<SharePointList>(ListData);
-}
-
-
-//Org Update List ID and Details
-
-listid = sharePointList == null ? "" : sharePointList.value.FirstOrDefault(obj => obj.displayName == "Org Update").id;
-
-ListDataEndPoint = _configuration["SharePointOnline:ListDataByFilter"];
-
-ListDataEndPoint = string.Format(ListDataEndPoint, sharepointSite.id, (listid == "" ? "SOBHAID" : listid));
-
-response = await httpClient.GetAsync(ListDataEndPoint);
-
-if (response.IsSuccessStatusCode)
-{
-var ListData = response.Content.ReadAsStringAsync().Result;
-OrgUpdatelist = JsonConvert.DeserializeObject<SharePointList>(ListData);
-}
-orgSpotlightListView.SpotLightsLists = new List<SharePointList>();
-orgSpotlightListView.OrgUpdateLists = new List<SharePointList>();
-
-
-orgSpotlightListView.SpotLightsLists.Add(Spotlightlist);
-orgSpotlightListView.OrgUpdateLists.Add(OrgUpdatelist);
-}
-
-}
-///API call for SharePoint tokn for asset library images///
-
-dynamic result = "";
-string AccessToken = "";
-string fileextension = "";
-var request = new HttpRequestMessage(HttpMethod.Post, SharepointlibraryTokenEndpoint);
-var collection = new List<KeyValuePair<string, string>>();
-collection.Add(new("grant_type", "client_credentials"));
-collection.Add(new("client_id", SharepointlibraryclientID));
-collection.Add(new("client_secret", SharepointlibraryclientSecret));
-collection.Add(new("resource", SharepointlibraryResource));
-var content = new FormUrlEncodedContent(collection);
-request.Content = content;
-response = await httpClient.SendAsync(request);
-if (response.IsSuccessStatusCode)
-{
-var stringifiedResponse = await response.Content.ReadAsStringAsync();
-result = JObject.Parse(stringifiedResponse);
-AccessToken = result.access_token;
-
-var webUrl = _configuration["SharePointLibrary:WebUrl"];
-
-using (var client = new HttpClient())
-{
-foreach (var item in orgSpotlightListView.SpotLightsLists)
-{
-
-if (item.value.Count > 0)
-{
-var Topthreespotlight = item.value.OrderByDescending(a => a.createdDateTime).Take(3);
-
-foreach (var itemval in Topthreespotlight)
-{
-bool status = false;
-
-client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-client.DefaultRequestHeaders.Add("Accept", "application/json;odata=verbose");
-//client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json;odata=verbose");
-if (!string.IsNullOrEmpty(itemval.fields.Image))
-{
-    dynamic Image = JObject.Parse(itemval.fields.Image);
-    var fileUrl = Image.serverRelativeUrl;
-    fileextension = Image.fileName;
-    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
-    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
-    response = await client.SendAsync(request);
-    if (response.IsSuccessStatusCode)
-    {
-        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
-        var base64 = Convert.ToBase64String(siteImageData);
-        itemval.fields.ImageBase64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-        status = true;
-    }
-}
-if (!string.IsNullOrEmpty(itemval.fields.Image1) && status == false)
-{
-    dynamic Image1 = JObject.Parse(itemval.fields.Image1);
-    var fileUrl = Image1.serverRelativeUrl;
-    fileextension = Image1.fileName;
-    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
-    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
-    response = await client.SendAsync(request);
-    if (response.IsSuccessStatusCode)
-    {
-        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
-        var base64 = Convert.ToBase64String(siteImageData);
-        itemval.fields.Image1Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-        status = true;
-    }
-
-}
-if (!string.IsNullOrEmpty(itemval.fields.Image2) && status == false)
-{
-    dynamic Image2 = JObject.Parse(itemval.fields.Image2);
-    var fileUrl = Image2.serverRelativeUrl;
-    fileextension = Image2.fileName;
-    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
-    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
-    response = await client.SendAsync(request);
-    if (response.IsSuccessStatusCode)
-    {
-        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
-        var base64 = Convert.ToBase64String(siteImageData);
-        itemval.fields.Image2Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-        status = true;
-    }
-}
-if (!string.IsNullOrEmpty(itemval.fields.Image3) && status == false)
-{
-    dynamic Image3 = JObject.Parse(itemval.fields.Image3);
-    var fileUrl = Image3.serverRelativeUrl;
-    fileextension = Image3.fileName;
-    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
-    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
-    response = await client.SendAsync(request);
-    if (response.IsSuccessStatusCode)
-    {
-        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
-        var base64 = Convert.ToBase64String(siteImageData);
-        itemval.fields.Image3Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-        status = true;
-    }
-}
-if (!string.IsNullOrEmpty(itemval.fields.Image4) && status == false)
-{
-    dynamic Image4 = JObject.Parse(itemval.fields.Image4);
-    var fileUrl = Image4.serverRelativeUrl;
-    fileextension = Image4.fileName;
-    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
-    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
-    response = await client.SendAsync(request);
-    if (response.IsSuccessStatusCode)
-    {
-        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
-        var base64 = Convert.ToBase64String(siteImageData);
-        itemval.fields.Image4Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-        status = true;
-    }
-}
-if (!string.IsNullOrEmpty(itemval.fields.Image5) && status == false)
-{
-    dynamic Image5 = JObject.Parse(itemval.fields.Image5);
-    var fileUrl = Image5.serverRelativeUrl;
-    fileextension = Image5.fileName;
-    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
-    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
-    response = await client.SendAsync(request);
-    if (response.IsSuccessStatusCode)
-    {
-        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
-        var base64 = Convert.ToBase64String(siteImageData);
-        itemval.fields.Image5Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-        status = true;
-    }
-}
-
-}
-}
-}
-
-foreach (var item in orgSpotlightListView.OrgUpdateLists)
-{
-
-if (item.value.Count > 0)
-{
-var Topthreeorgupdate = item.value.OrderByDescending(a => a.createdDateTime).Take(3);
-
-foreach (var itemval in Topthreeorgupdate)
-{
-bool status = false;
-client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", AccessToken);
-client.DefaultRequestHeaders.Add("Accept", "application/json;odata=verbose");
-
-if (!string.IsNullOrEmpty(itemval.fields.Image))
-{
-    dynamic Image = JObject.Parse(itemval.fields.Image);
-    var fileUrl = Image.serverRelativeUrl;
-    fileextension = Image.fileName;
-    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
-    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
-    response = await client.SendAsync(request);
-    if (response.IsSuccessStatusCode)
-    {
-        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
-        var base64 = Convert.ToBase64String(siteImageData);
-        itemval.fields.ImageBase64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-        status = true;
-    }
-}
-if (!string.IsNullOrEmpty(itemval.fields.Image1) && status == false)
-{
-    dynamic Image1 = JObject.Parse(itemval.fields.Image1);
-    var fileUrl = Image1.serverRelativeUrl;
-    fileextension = Image1.fileName;
-    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
-    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
-    response = await client.SendAsync(request);
-    if (response.IsSuccessStatusCode)
-    {
-        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
-        var base64 = Convert.ToBase64String(siteImageData);
-        itemval.fields.Image1Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-        status = true;
-    }
-
-}
-if (!string.IsNullOrEmpty(itemval.fields.Image2) && status == false)
-{
-    dynamic Image2 = JObject.Parse(itemval.fields.Image2);
-    var fileUrl = Image2.serverRelativeUrl;
-    fileextension = Image2.fileName;
-    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
-    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
-    response = await client.SendAsync(request);
-    if (response.IsSuccessStatusCode)
-    {
-        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
-        var base64 = Convert.ToBase64String(siteImageData);
-        itemval.fields.Image2Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-        status = true;
-    }
-}
-if (!string.IsNullOrEmpty(itemval.fields.Image3) && status == false)
-{
-    dynamic Image3 = JObject.Parse(itemval.fields.Image3);
-    var fileUrl = Image3.serverRelativeUrl;
-    fileextension = Image3.fileName;
-    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
-    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
-    response = await client.SendAsync(request);
-    if (response.IsSuccessStatusCode)
-    {
-        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
-        var base64 = Convert.ToBase64String(siteImageData);
-        itemval.fields.Image3Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-        status = true;
-    }
-}
-if (!string.IsNullOrEmpty(itemval.fields.Image4) && status == false)
-{
-    dynamic Image4 = JObject.Parse(itemval.fields.Image4);
-    var fileUrl = Image4.serverRelativeUrl;
-    fileextension = Image4.fileName;
-    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
-    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
-    response = await client.SendAsync(request);
-    if (response.IsSuccessStatusCode)
-    {
-        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
-        var base64 = Convert.ToBase64String(siteImageData);
-        itemval.fields.Image4Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-        status = true;
-    }
-}
-if (!string.IsNullOrEmpty(itemval.fields.Image5) && status == false)
-{
-    dynamic Image5 = JObject.Parse(itemval.fields.Image5);
-    var fileUrl = Image5.serverRelativeUrl;
-    fileextension = Image5.fileName;
-    var requestUrl = String.Format("{0}/_api/web/getfilebyserverrelativeurl('{1}')/$value", webUrl, fileUrl);
-    request = new HttpRequestMessage(HttpMethod.Get, requestUrl);
-    response = await client.SendAsync(request);
-    if (response.IsSuccessStatusCode)
-    {
-        byte[] siteImageData = response.Content.ReadAsByteArrayAsync().Result;
-        var base64 = Convert.ToBase64String(siteImageData);
-        itemval.fields.Image5Base64 = "data:" + fileextension.Split('.')[1] + ";base64," + base64;
-        status = true;
-    }
-}
-
-}
-}
-}
-}
-}
-}
-catch (Exception ex)
-{
-
-throw;
-}
-
-return View(orgSpotlightListView);
-}
-return RedirectToAction("Index", "Account");
-}
-
-public IActionResult Privacy()
-{
-return View();
-}
-
-[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-public IActionResult Error()
-{
-return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-}
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
         private string getUserforJavaDecryption(string useremailID)
         {
             string encryUser = "";
@@ -630,5 +675,7 @@ return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext
 
             return encryUser;
         }
-        }
+
+
+    }
 }
