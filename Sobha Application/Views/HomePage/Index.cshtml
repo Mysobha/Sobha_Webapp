@@ -18,7 +18,7 @@
     .tooltip {
         position: relative;
         display: inline-block;
-        /* border-bottom: 1px dotted black; test 01022024*/
+        /* border-bottom: 1px dotted black; */
     }
 
         .tooltip .tooltiptext {
@@ -222,14 +222,20 @@
                      
                     </div>
                     @* <img src="~/images/icon/avatar-icon.png" /*@
+                    @if(Model.codeofconduct=="T")
+                    {
+                 
+                    }
+                    else
+                    {
+                        <div class="textdownload">
+                            <a button id="enter-btn" asp-action="codeofconduct" asp-controller="HomePage">
+                                <div class="video_btn" style="color:white">Code of Conduct</div>
+                            </a>
+                        </div>
 
-                    <div class="textdownload">
-                        <a href="https://customers.sobha.com/images/TaskRecorder.zip" target="_blank" class="scroll">
-                            <div class="video_btn" style="color:white" >Download Task Recorder</div>
-                          </a>
-                          </div>
+                    }
 
-         
                     @* <img class="notify" src="Navigation Icons/Picture10.png">
                     <img class="mail" src="Navigation Icons/Picture9.png"> /*@
 
