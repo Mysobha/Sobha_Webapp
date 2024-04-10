@@ -1,0 +1,205 @@
+<!----For onboarding page -->
+
+@font-face {
+    font-family: 'myriadprolightAA';
+    src: url('../fonts/fonts/myriadpro_light.eot');
+    src: url('../fonts/myriadpro_light.eot') format('embedded-opentype'),
+         url('../fonts/myriadpro-light.woff2') format('woff2'),
+         url('../fonts/myriadpro_light.woff') format('woff'),
+         url('../fonts/myriadpro_light.ttf') format('truetype'),
+         url('../fonts/myriadpro-light.svg#myriadprolight') format('svg');
+         font-weight: normal; font-style: normal;
+}
+
+@font-face {
+    font-family: 'myriadproregularYY';
+    src: url('../fonts/myriadpro-light.eot');
+    src: url('../fonts/myriadpro-light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/myriadpro-light.woff') format('woff'),
+         url('../fonts/myriadpro-light.ttf') format('truetype'),
+         url('../fonts/myriadpro-light.svg#MyriadProLight') format('svg');
+         font-weight: normal; font-style: normal;
+}
+
+@font-face {
+    font-family: 'myriadprolight';
+    src: url('../fonts/myriadpro-light-webfont.eot');
+    src: url('../fonts/myriadpro-light-webfont.eot?#iefix') format('embedded-opentype'),
+    	 url('../fonts/myriadpro-light-webfont.woff') format('woff'),
+         url('../fonts/myriadpro-light-webfont.ttf') format('truetype');
+    font-weight: lighter; font-style: lighter;
+}
+
+@font-face {
+    font-family: 'myriadproregular';
+    src: url('../fonts/tringle-webfont.eot');
+    src: url('../fonts/tringle-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/tringle-webfont.woff') format('woff'),
+         url('../fonts/tringle-webfont.ttf') format('truetype'),
+         url('../fonts/tringle-webfont.svg#myriad_proregular') format('svg');
+    font-weight: normal; font-style: normal;
+}
+
+/* fonts */
+@font-face {
+	font-family:'MyriadSetProText';
+	font-style:normal;
+	font-weight:normal;
+	src: url('../fonts/myriad-set-pro_text.eot');
+	src: url('../fonts/myriad-set-pro_text.eot?#iefix') format('embedded-opentype'),
+		 url("../fonts/myriad-set-pro_text.woff") format("woff"), 
+		 url("../fonts/myriad-set-pro_text.ttf") format("truetype");
+}
+
+/* fonts */
+@font-face {
+	font-family:'MyriadSetProThin';
+	font-style:normal;
+	font-weight:normal;
+	src: url('../fonts/myriad-set-pro_thin.eot');
+	src: url('../fonts/myriad-set-pro_thin.eot?#iefix') format('embedded-opentype'),
+		 url("../fonts/myriad-set-pro_thin.woff") format("woff"), 
+		 url("../fonts/myriad-set-pro_thin.ttf") format("truetype");
+}
+
+.onboarding {
+	text-align: right;
+	font-family: "myriadproregular";
+	font-weight: lighter;
+	font-size: 15px;
+	color: #b8b8b8;
+}
+
+.onboarding35 {
+	font-family: "myriadprolight";
+	font-weight: lighter;
+	font-size: 30pt;
+	color: #7c7c7c;
+}
+
+.onboarding20 {
+	font-family: "myriadproregular";
+	font-weight: lighter;
+	font-size: 15pt;
+	color: #2b2929;
+}
+
+.onboarding12 {
+	font-family: "myriadproregular";
+	font-weight: lighter;
+	font-size: 10pt;
+	color: #2b2929;
+}
+
+.onboarding12bold {
+	font-family: "myriadproregular";
+	font-weight: bold;
+	font-size: 11pt;
+	color: #2b2929;
+}
+
+.onboardingContentDiv {
+	height: 300px;
+	overflow: auto;
+}
+
+.onboarding12Regbold {
+	font-family: "myriadproregular";
+	font-weight: bold;
+	font-size: 11pt;
+	color: black;
+	line-height: 200%;
+}
+
+.onboarding14Regbold {
+	font-family: "myriadproregular";
+	font-weight: bold;
+	font-size: 12pt;
+	color: black;
+}
+
+.sobhaAdvantage {
+	font-family: "myriadproregular";	
+	font-size: 8pt;	
+	color: #00a2ee;
+	line-height: 200%;
+}
+
+.sobhaAdvantageFoot1 {
+	font-family: "myriadproregular";
+	font-size: 9pt;
+	color: #afe6ff;
+	line-height: 200%;
+}
+
+.sobhaAdvantageFoot2 {
+	font-family: "myriadproregular";
+	font-size: 9pt;
+	color: #ffffff;
+	line-height: 200%;
+}
+
+.sobhaAdvantageText {
+	font-family: "myriadproregular";
+	font-weight: lighter;
+	font-size: 8pt;	
+}
+
+.sobhaAdvantageFAQ1 {
+	font-family: "myriadproregular";
+	font-size: 10pt;
+	color: #020002;
+	line-height: 200%;
+}
+
+.sobhaAdvantageFAQ2 {
+	font-family: "myriadproregular";
+	font-size: 9pt;
+	color: #58595b;
+	line-height: 100%;
+}
+
+.sobhaAdvantagemyadvtitle {
+	font-family: "myriadproregular";
+	font-size: 9pt;
+	color: #000000;
+	line-height: 200%;
+}
+
+.sobhaAdvantagelearnmoretitle {
+	font-family: "myriadproregular";
+	font-size: 22px;
+	color: #1195df;
+	line-height: 1.5;
+}
+
+.sobhaAdvantagelearnmoreshort {
+	font-family: "myriadproregular";
+	font-size: 12px;
+	color: #575858;
+	line-height: 1.5;
+}
+
+.sobhaHackathon {
+	font-family: "myriadproregular";	
+	font-size: 12pt;	
+	color: #00a2ee;
+	line-height: 200%;
+}
+
+.sobhaHackathontd {
+	font-family: "myriadproregular";
+	font-size: 12pt;
+	color: #afe6ff;
+	line-height: 200%;
+}
+
+hr {
+	border-top: 1px #f5f5f5;
+}
+
+/////////////////////////
+
+.lineHeight200{
+	line-height: 200%;
+}
