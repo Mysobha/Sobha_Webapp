@@ -148,11 +148,11 @@ namespace Sobha_Application.Controllers
                     ///Aru -> Payslips
                     ///
 
-                    string enUserforPayslips = getUserforJavaDecryption(useremailID);
+                    //string enUserforPayslips = getUserforJavaDecryption(useremailID);
 
-                    orgSpotlightListView.Payslips = _configuration["QuickLinkURL:Payslips"] + enUserforPayslips + "&type=payslips";
-                    orgSpotlightListView.investment = _configuration["QuickLinkURL:Payslips"] + enUserforPayslips + "&type=plannedinvestment";
-                    orgSpotlightListView.investmentActual = _configuration["QuickLinkURL:Payslips"] + enUserforPayslips + "&type=actualinvestment";
+                    orgSpotlightListView.Payslips = _configuration["QuickLinkURL:Payslips"]; // + enUserforPayslips + "&type=payslips";
+                    orgSpotlightListView.investment = _configuration["QuickLinkURL:investmentPlan"];// + enUserforPayslips + "&type=plannedinvestment";
+                    orgSpotlightListView.investmentActual = _configuration["QuickLinkURL:InvestmentActual"];// + enUserforPayslips + "&type=actualinvestment";
                     ///////Punch In - Punch Out///////////////////////
 
                     //useremailID = "armugam.karanam@sobha.com";
