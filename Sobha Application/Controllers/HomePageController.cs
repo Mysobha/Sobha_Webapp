@@ -67,15 +67,15 @@ namespace Sobha_Application.Controllers
                 string useremailID = HttpContext.User.Claims.ToList()[4].Value;
                 string tenantID = HttpContext.User.Claims.ToList()[7].Value;
                 username = HttpContext.User.Claims.ToList()[2].Value;
-                string strCodeofconduct= doAPICall(1);
-                if(strCodeofconduct.Contains("201"))
-                {
-                    orgSpotlightListView.codeofconduct = "T";
-                }
-                else
-                {
-                    orgSpotlightListView.codeofconduct = "F";
-                }
+               // string strCodeofconduct= doAPICall(1);
+                //if(strCodeofconduct.Contains("201"))
+                //{
+                //    orgSpotlightListView.codeofconduct = "T";
+                //}
+                //else
+                //{
+                 //   orgSpotlightListView.codeofconduct = "F";
+                //}
                 bool isValid = Guid.TryParse(tenantID, out guidResult);
                 if (isValid == false)
                 {
